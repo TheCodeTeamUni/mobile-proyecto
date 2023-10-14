@@ -45,13 +45,13 @@ class DetailCollectorActivity : AppCompatActivity() {
     }
 
     private fun getCollectorsObservers(id: String) {
-        var potentialResp = CacheManager.getInstance(application.applicationContext).getCollectors(id.toInt())
+        var potentialResp =
+            CacheManager.getInstance(application.applicationContext).getCollectors(id.toInt())
 
-        if(potentialResp==null){
+        if (potentialResp == null) {
             Log.d("Cache decision", "Se saca de la red")
             setupCollectorObservers(id)
-        }
-        else{
+        } else {
             Log.d("Cache decision", "return ${potentialResp.name} elements from cache")
             retrieveCollectorDetail(
                 potentialResp,
@@ -83,7 +83,8 @@ class DetailCollectorActivity : AppCompatActivity() {
     }
 
     private fun retrieveCollectorDetail(collector: CollectorResponse, b: Boolean) {
-        CacheManager.getInstance(application.applicationContext).addCollector(collector.id.toInt(), collector)
+        CacheManager.getInstance(application.applicationContext)
+            .addCollector(collector.id.toInt(), collector)
         supportActionBar?.title = collector.name
         supportActionBar?.subtitle = "Coleccionista"
         adapter = DetailCollectorAdapter(collector)
