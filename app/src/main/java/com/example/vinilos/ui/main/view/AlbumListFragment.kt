@@ -85,7 +85,7 @@ class AlbumListFragment : Fragment() {
         return binding.root
     }
 
-    private fun bindMenuEvents(){
+    private fun bindMenuEvents() {
         val createAlbumMenuButton: FloatingActionButton = binding.btnFabCreateAlbum
         createAlbumMenuButton.setOnClickListener { view ->
             launchAlbumCreateActivity(view)
