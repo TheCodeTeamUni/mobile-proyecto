@@ -48,14 +48,14 @@ class DetailAlbumActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.submenu_album,menu)
+        menuInflater.inflate(R.menu.submenu_album, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId){
+        when (item.itemId) {
             R.id.nav_album_add_song -> {
-                launchAlbumTrackActivityView(idAlbum,nameAlbum)
+                launchAlbumTrackActivityView(idAlbum, nameAlbum)
             }
         }
         return super.onOptionsItemSelected(item)
@@ -69,13 +69,13 @@ class DetailAlbumActivity : AppCompatActivity() {
     }
 
     private fun getArtistObservers(id: String) {
-        var potentialResp = CacheManager.getInstance(application.applicationContext).getAlbum(id.toInt())
+        var potentialResp =
+            CacheManager.getInstance(application.applicationContext).getAlbum(id.toInt())
 
-        if(potentialResp==null){
+        if (potentialResp == null) {
             Log.d("Cache decision", "Se saca de la red")
             setupObservers(id)
-        }
-        else{
+        } else {
             Log.d("Cache decision", "return ${potentialResp.name} elements from cache")
             retrieveAlbumDetail(
                 potentialResp,
@@ -89,7 +89,12 @@ class DetailAlbumActivity : AppCompatActivity() {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-                        resource.data?.let { albumDetail -> retrieveAlbumDetail(albumDetail, false) }
+                        resource.data?.let { albumDetail ->
+                            retrieveAlbumDetail(
+                                albumDetail,
+                                false
+                            )
+                        }
                     }
                     Status.ERROR -> {
                         Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
@@ -109,10 +114,10 @@ class DetailAlbumActivity : AppCompatActivity() {
         supportActionBar?.subtitle = "Album"
     }
 
-    private fun launchAlbumTrackActivityView(albumId: String,albumName:String) {
+    private fun launchAlbumTrackActivityView(albumId: String, albumName: String) {
         val intent = Intent(this, AlbumTrackActivity::class.java)
         intent.putExtra("idAlbum", albumId)
-        intent.putExtra("nameAlbum",albumName)
+        intent.putExtra("nameAlbum", albumName)
         startActivity(intent)
 //        this.finish()
     }
