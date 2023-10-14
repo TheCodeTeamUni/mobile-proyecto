@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">ABC Jobs</string>
+    <string name="nav_name">ABC Jobs</string>
+    <string name="app_home_label">Welcome to </string>
+    <string name="app_home_label_abc">ABC </string>
+    <string name="app_home_label_jobs">JOBS </string>
+    <string name="album_label">Album:</string>
+    <string name="artist_label">Artista:</string>
+    <string name="date_label">Fecha de lanzamiento:</string>
+    <string name="genre_label">Género:</string>
+    <string name="record_label">Compañia Discografica:</string>
+    <string name="description_label">Descripción:</string>
+    <string name="artist_name_label">Artista:</string>
+    <string name="artist_date_label">Fecha:</string>
+    <string name="artist_albums_label">Albumes:</string>
+    <string name="artist_prizes_label">Premios:</string>
+    <string name="detail_album_description_image">Imagen del detalle del album</string>
+    <string name="detail_artist_description_image">Imagen del detalle del artista</string>
+    <string name="item_layout_description_image">Imagen del artista,album o coleccionista</string>
+    <string name="menu_aspirant_label">Aspirants</string>
+    <string name="menu_project_label">Projects</string>
+    <string name="menu_interview_label">Interviews</string>
+    <string name="logo">Logo</string>
+    <string name="collector">Coleccionistas</string>
+    <string name="login">Login</string>
+    <string name="collector_label">Coleccionista:</string>
+    <string name="favorite_performers">Interpretes favoritos:</string>
+    <string name="comments">Comentarios:</string>
+    <string name="add_album_btn">Crear un nuevo album</string>
+    <string name="sub_menu_album_options">Agregar Canción</string>
+    <string name="form_name_song">Nombre Canción</string>
+    <string name="form_song_min">min</string>
+    <string name="form_song_seg">seg</string>
+    <string name="add_song">Agregar Canción</string>
+    <string name="label_create_album_instruction">Completa todos los campos</string>
+    <string name="form_add_name_album">Nombre Album</string>
+    <string name="form_add_name_url_cover">URL cover imágen</string>
+    <string name="form_add_genero_album">Genero</string>
+    <string name="form_add_record_album">Record Label</string>
+    <string name="form_add_description_album">Descripción</string>
+    <string name="form_add_date_album">Fecha creación (dd/mm/yyyy)</string>
+    <string name="add_album">Crear Album</string>
+    <string name="tracks_label">Canciones:</string>
+    <string-array name="list_generos">
+        <item>Classical</item>
+        <item>Folk</item>
+        <item>Rock</item>
+        <item>Salsa</item>
+    </string-array>
+    <string-array name="list_records">
+        <item>Sony Music</item>
+        <item>EMI</item>
+        <item>Discos Fuentes</item>
+        <item>Elektra</item>
+        <item>Fania Records</item>
+    </string-array>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/fragmentAlbumList">
+
+    <fragment
+        android:id="@+id/fragmentAlbumList"
+        android:name="com.example.vinilos.ui.main.view.AlbumListFragment"
+        android:label="ABC Jobs"
+        tools:layout="@layout/fragment_album_list" />
+    <activity
+        android:id="@+id/albumTrackActivity"
+        android:name="com.example.vinilos.ui.main.view.AlbumTrackActivity"
+        android:label="activity_track_album"
+        tools:layout="@layout/activity_track_album" />
+
+</navigation>
