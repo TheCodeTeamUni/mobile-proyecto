@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.vinylsMobile.vinylsapplication.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
-    private lateinit var binding :ActivitySignUpBinding
+    private lateinit var binding: ActivitySignUpBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

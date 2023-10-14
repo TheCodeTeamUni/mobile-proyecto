@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.vinylsMobile.vinylsapplication.databinding.ActivitySelectProfileBinding
 
 class SelectProfileActivity : AppCompatActivity() {
-    private lateinit var binding : ActivitySelectProfileBinding
+    private lateinit var binding: ActivitySelectProfileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
