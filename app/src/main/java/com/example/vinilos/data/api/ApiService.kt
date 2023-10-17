@@ -1,6 +1,10 @@
 package com.example.vinilos.data.api
 
 
+import com.example.vinilos.data.RegisterBody
+import com.example.vinilos.data.RegisterResponse
+import com.example.vinilos.data.UniqueEmailValidationResponse
+import com.example.vinilos.data.ValidateEmailBody
 import com.example.vinilos.data.model.AlbumResponse
 import com.example.vinilos.data.model.ArtistResponse
 import com.example.vinilos.data.model.CollectorResponse
@@ -13,6 +17,13 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiService {
+
+        @POST("users/signup")
+        suspend fun validateEmailAddress(@Body body: ValidateEmailBody): Response<UniqueEmailValidationResponse>
+
+        @POST("users/signup")
+        suspend fun registerUser(@Body body: RegisterBody): Response<RegisterResponse>
+
         @GET("albums")
         suspend fun getAlbums(): List<AlbumResponse>
 
