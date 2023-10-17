@@ -67,4 +67,5 @@ interface ApiService {
 
         @POST("albums")
         suspend fun postAlbum(@Body album: JsonObject): AlbumResponse
+
 }

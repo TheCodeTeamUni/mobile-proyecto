@@ -6,8 +6,13 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.KeyEvent
+import android.view.LayoutInflater
 import android.view.View
+import androidx.lifecycle.ViewModelProvider
+import com.example.vinilos.data.api.RetrofitBuilder
+import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModel
+import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModelFactory
 import com.vinylsMobile.vinylsapplication.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener,
@@ -18,7 +23,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = ActivitySignUpBinding.inflate(layoutInflater)
+        mBinding = ActivitySignUpBinding.inflate(LayoutInflater.from(this))
         setContentView(mBinding.root)
 
         mBinding.createUserBtn.setOnClickListener {
