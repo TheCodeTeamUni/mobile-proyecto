@@ -18,7 +18,7 @@ class CollectorViewModel(private val CollectorRepository: CollectorRepository) :
         }
     }
 
-    fun getCollectorsDetail(id:String) = liveData(Dispatchers.IO) {
+    fun getCollectorsDetail(id: String) = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
             emit(Resource.success(data = CollectorRepository.getCollectorsDetail(id)))
@@ -27,7 +27,7 @@ class CollectorViewModel(private val CollectorRepository: CollectorRepository) :
         }
     }
 
-    fun getAlbums(id:String) = liveData(Dispatchers.IO) {
+    fun getAlbums(id: String) = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
             emit(Resource.success(data = CollectorRepository.getCollectorsDetail(id)))

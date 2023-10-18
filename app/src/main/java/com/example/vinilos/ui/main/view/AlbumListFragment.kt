@@ -16,9 +16,9 @@ import com.example.vinilos.data.model.AlbumResponse
 import com.example.vinilos.ui.base.ViewModelFactory
 import com.example.vinilos.ui.main.adapter.HomeAdapter
 import com.example.vinilos.ui.main.viewmodel.HomeViewModel
-import com.vinylsMobile.vinylsapplication.databinding.FragmentAlbumListBinding
 import com.example.vinilos.utils.Status
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.vinylsMobile.vinylsapplication.databinding.FragmentAlbumListBinding
 
 /**
  * A simple [Fragment] subclass.

@@ -18,54 +18,54 @@ import retrofit2.http.Path
 
 interface ApiService {
 
-        @POST("users/signup")
-        suspend fun validateEmailAddress(@Body body: ValidateEmailBody): Response<UniqueEmailValidationResponse>
+    @POST("users/validate")
+    suspend fun validateEmailAddress(@Body body: ValidateEmailBody): Response<UniqueEmailValidationResponse>
 
-        @POST("users/signup")
-        suspend fun registerUser(@Body body: RegisterBody): Response<RegisterResponse>
+    @POST("users/signup")
+    suspend fun registerUser(@Body body: RegisterBody): Response<RegisterResponse>
 
-        @GET("albums")
-        suspend fun getAlbums(): List<AlbumResponse>
+    @GET("albums")
+    suspend fun getAlbums(): List<AlbumResponse>
 
-        @GET("albums/{id}")
-        suspend fun getAlbumDetail(@Path("id") id: String): AlbumResponse
+    @GET("albums/{id}")
+    suspend fun getAlbumDetail(@Path("id") id: String): AlbumResponse
 
-        @GET("albums")
-        suspend fun getAllAlbums():Response<List<AlbumResponse>>
+    @GET("albums")
+    suspend fun getAllAlbums(): Response<List<AlbumResponse>>
 
-        @POST("albums")
-        suspend fun createAlbum(
-                @Body album : HashMap<String,String>
-        ):Response<AlbumResponse>
+    @POST("albums")
+    suspend fun createAlbum(
+        @Body album: HashMap<String, String>
+    ): Response<AlbumResponse>
 
-        @GET("musicians")
-        suspend fun getMusicians(): List<ArtistResponse>
+    @GET("musicians")
+    suspend fun getMusicians(): List<ArtistResponse>
 
-        @GET("artist")
-        suspend fun getAllArtist(): Response<List<ArtistResponse>>
+    @GET("artist")
+    suspend fun getAllArtist(): Response<List<ArtistResponse>>
 
-        @GET("bands")
-        suspend fun getBands(): List<ArtistResponse>
+    @GET("bands")
+    suspend fun getBands(): List<ArtistResponse>
 
-        @GET("collectors")
-        suspend fun getCollectors(): List<CollectorResponse>
+    @GET("collectors")
+    suspend fun getCollectors(): List<CollectorResponse>
 
-        @GET("collectors")
-        suspend fun getAllCollectors(): Response<List<CollectorResponse>>
+    @GET("collectors")
+    suspend fun getAllCollectors(): Response<List<CollectorResponse>>
 
-        @GET("musicians/{id}")
-        suspend fun getMusiciansDetail(@Path("id") id: String): ArtistResponse
+    @GET("musicians/{id}")
+    suspend fun getMusiciansDetail(@Path("id") id: String): ArtistResponse
 
-        @GET("bands/{id}")
-        suspend fun getBandsDetail(@Path("id") id: String): ArtistResponse
+    @GET("bands/{id}")
+    suspend fun getBandsDetail(@Path("id") id: String): ArtistResponse
 
-        @GET("collectors/{id}")
-        suspend fun getCollectorsDetail(@Path("id") id: String): CollectorResponse
+    @GET("collectors/{id}")
+    suspend fun getCollectorsDetail(@Path("id") id: String): CollectorResponse
 
-        @POST("albums/{id}/tracks")
-        suspend fun postAlbumTrack(@Path("id") id: String, @Body track: JsonObject): AlbumResponse
+    @POST("albums/{id}/tracks")
+    suspend fun postAlbumTrack(@Path("id") id: String, @Body track: JsonObject): AlbumResponse
 
-        @POST("albums")
-        suspend fun postAlbum(@Body album: JsonObject): AlbumResponse
+    @POST("albums")
+    suspend fun postAlbum(@Body album: JsonObject): AlbumResponse
 
 }

@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:title="@string/menu_aspirant_label"
         android:id="@+id/nav_graph_album"
-        android:icon="@drawable/ic_navbar_album_icon" />
+        android:icon="@drawable/ic_navbar_album_icon"
+        android:title="@string/menu_aspirant_label" />
     <item
-        android:title="@string/menu_project_label"
         android:id="@+id/nav_graph_artist"
-        android:icon="@drawable/ic_navbar_sing_icon" />
+        android:icon="@drawable/ic_navbar_sing_icon"
+        android:title="@string/menu_project_label" />
     <item
-        android:title="@string/menu_interview_label"
         android:id="@+id/action_books"
-        android:icon="@drawable/ic_navbar_collectors_icon_2" />
+        android:icon="@drawable/ic_navbar_collectors_icon_2"
+        android:title="@string/menu_interview_label" />
 </menu>

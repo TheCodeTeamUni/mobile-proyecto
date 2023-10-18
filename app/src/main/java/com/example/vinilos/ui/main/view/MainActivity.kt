@@ -1,8 +1,8 @@
 package com.example.vinilos.ui.main.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.vinylsMobile.vinylsapplication.databinding.ActivityMainBinding
 
 

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.vinilos.data.repository.AuthRepository
 import java.security.InvalidParameterException
 
-class SignUpActivityViewModelFactory (
+class SignUpActivityViewModelFactory(
     private val authRepository: AuthRepository,
     private val application: Application
 ) : ViewModelProvider.Factory {

@@ -26,7 +26,7 @@ class DetailArtistAdapter(private val artistDetail: ArtistResponse, private val 
 
     }
 
-    private fun textBandArtist(binding: ActivityDetailArtistBinding):String{
+    private fun textBandArtist(binding: ActivityDetailArtistBinding): String {
         var resp = ""
         resp = if (isBand) "Banda" else "Musico"
         return resp
@@ -55,18 +55,22 @@ class DetailArtistAdapter(private val artistDetail: ArtistResponse, private val 
 //    }
 
 
-
     private fun adaptStringAbums(binding: ActivityDetailArtistBinding): String {
         val sb = StringBuilder()
         for (i in artistDetail.albums) {
-            sb.append( "- ${i.name} (${DateFormat.getDateInstance(DateFormat.MEDIUM).format(i.releaseDate)})" + "\n")
+            sb.append(
+                "- ${i.name} (${
+                    DateFormat.getDateInstance(DateFormat.MEDIUM).format(i.releaseDate)
+                })" + "\n"
+            )
         }
         return sb.toString()
     }
+
     private fun adaptStringPrizes(binding: ActivityDetailArtistBinding): String {
         val sb = StringBuilder()
         for (i in artistDetail.performerPrizes) {
-            sb.append( "- ${formatDate(i.premiationDate)}" + "\n")
+            sb.append("- ${formatDate(i.premiationDate)}" + "\n")
         }
         return sb.toString()
     }

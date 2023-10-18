@@ -12,7 +12,7 @@ import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.utils.RequestStatus
 import kotlinx.coroutines.launch
 
-class SignUpActivityViewModel (val authRepository: AuthRepository, val application: Application) :
+class SignUpActivityViewModel(val authRepository: AuthRepository, val application: Application) :
     ViewModel() {
     private var isLoading: MutableLiveData<Boolean> =
         MutableLiveData<Boolean>().apply { value = false }
@@ -29,7 +29,7 @@ class SignUpActivityViewModel (val authRepository: AuthRepository, val applicati
     fun validateEmailAddress(body: ValidateEmailBody) {
         viewModelScope.launch {
             authRepository.validateEmailAddress(body).collect {
-                when(it){
+                when (it) {
                     is RequestStatus.Waiting -> {
                         isLoading.value = true
                     }
@@ -46,10 +46,10 @@ class SignUpActivityViewModel (val authRepository: AuthRepository, val applicati
         }
     }
 
-    fun registerUser(body: RegisterBody){
+    fun registerUser(body: RegisterBody) {
         viewModelScope.launch {
             authRepository.registerUser(body).collect {
-                when(it){
+                when (it) {
                     is RequestStatus.Waiting -> {
                         isLoading.value = true
                     }

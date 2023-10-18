@@ -7,7 +7,7 @@ import com.example.vinilos.utils.RequestStatus
 import com.example.vinilos.utils.SimplifiedMessage
 import kotlinx.coroutines.flow.flow
 
-class AuthRepository (private val consumer: ApiService) {
+class AuthRepository(private val consumer: ApiService) {
     fun validateEmailAddress(body: ValidateEmailBody) = flow {
         emit(RequestStatus.Waiting)
         val response = consumer.validateEmailAddress(body)

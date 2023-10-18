@@ -11,12 +11,12 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
-import com.example.vinilos.ui.main.adapter.ArtistAdapter
-import com.example.vinilos.ui.main.viewmodel.ArtistViewModel
 import com.example.vinilos.data.model.ArtistResponse
 import com.example.vinilos.ui.base.ArtistViewModelFactory
-import com.vinylsMobile.vinylsapplication.databinding.FragmentArtistListBinding
+import com.example.vinilos.ui.main.adapter.ArtistAdapter
+import com.example.vinilos.ui.main.viewmodel.ArtistViewModel
 import com.example.vinilos.utils.Status
+import com.vinylsMobile.vinylsapplication.databinding.FragmentArtistListBinding
 
 /**
  * A simple [Fragment] subclass.
