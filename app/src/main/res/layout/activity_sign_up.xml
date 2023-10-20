@@ -129,6 +129,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                app:boxCornerRadiusButtonEnd="0"
+                app:boxCornerRadiusButtonStart="0"
+                app:boxCornerRadiusTopEnd="0dp"
+                app:boxCornerRadiusTopStart="0dp"
                 app:counterEnabled="true"
                 app:counterMaxLength="15"
                 app:passwordToggleEnabled="true">

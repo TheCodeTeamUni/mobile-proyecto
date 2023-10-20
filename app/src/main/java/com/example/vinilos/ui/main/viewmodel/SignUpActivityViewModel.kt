@@ -32,14 +32,17 @@ class SignUpActivityViewModel(val authRepository: AuthRepository, val applicatio
                 when (it) {
                     is RequestStatus.Waiting -> {
                         isLoading.value = true
+                        println("Esperando respuesta")
                     }
                     is RequestStatus.Success -> {
                         isLoading.value = false
                         isUniqueEmail.value = it.data.isUnique
+                        println("Respuesta obtenida")
                     }
                     is RequestStatus.Error -> {
                         isLoading.value = false
                         errorMessage.value = it.message
+                        println("Se presento un error")
                     }
                 }
             }
@@ -52,14 +55,17 @@ class SignUpActivityViewModel(val authRepository: AuthRepository, val applicatio
                 when (it) {
                     is RequestStatus.Waiting -> {
                         isLoading.value = true
+                        println("Esperando respuesta")
                     }
                     is RequestStatus.Success -> {
                         isLoading.value = false
                         user.value = it.data.user
+                        println("Respuesta obtenida")
                     }
                     is RequestStatus.Error -> {
                         isLoading.value = false
                         errorMessage.value = it.message
+                        println("Se presento un error")
                     }
                 }
             }

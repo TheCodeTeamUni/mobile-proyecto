@@ -116,7 +116,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
         }
     }
 
-    private fun validateFullName(): Boolean {
+    private fun validateFullName(shouldUpdateView: Boolean = true): Boolean {
         var errorMessage: String? = null
         val value: String = mBinding.userNameEt.text.toString()
         if (value.isEmpty()) {
@@ -315,10 +315,10 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
     private fun validate(): Boolean {
         var isValid = true
 
-        if (validateFullName()) isValid = false
-        if (validateEmail()) isValid = false
-        if (validatePassword()) isValid = false
-        if (validateConfirmPassword()) isValid = false
+        if (!validateFullName()) isValid = false
+        if (!validateEmail()) isValid = false
+        if (!validatePassword()) isValid = false
+        if (!validateConfirmPassword()) isValid = false
         if (isValid && !validatePasswordAndConfirmPassword()) isValid = false
         return isValid
     }
