@@ -110,8 +110,9 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             }
         }
         mViewModel.getUser().observe(this) {
-            if (it != null) {
-                startActivity(Intent(this, HomeActivity::class.java))
+            if (it == null) {
+                startActivity(Intent(this, MainActivity::class.java))
+                println("Devuelve al home")
             }
         }
     }
@@ -306,7 +307,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
                     mBinding.userNameEt.text!!.toString(),
                     mBinding.emailAddressEt.text!!.toString(),
                     mBinding.passwordEt.text!!.toString(),
-                    type = "1"
+                    type = "2"
                 )
             )
         }
