@@ -21,6 +21,7 @@ import com.example.vinilos.data.api.RetrofitClient
 import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModel
 import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModelFactory
+import com.example.vinilos.utils.VibrateView
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivitySignUpBinding
 
@@ -118,7 +119,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
         }
     }
 
-    private fun validateFullName(shouldUpdateView: Boolean = true): Boolean {
+    private fun validateFullName(shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true): Boolean {
         var errorMessage: String? = null
         val value: String = mBinding.userNameEt.text.toString()
         if (value.isEmpty()) {
@@ -129,13 +130,14 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.userNameTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
+                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
             }
         }
 
         return errorMessage == null
     }
 
-    private fun validateEmail(shouldUpdateView: Boolean = true): Boolean {
+    private fun validateEmail(shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true): Boolean {
         var errorMessage: String? = null
         val value = mBinding.emailAddressEt.text.toString()
         if (value.isEmpty()) {
@@ -148,13 +150,14 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.emailAddressTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
+                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
             }
         }
 
         return errorMessage == null
     }
 
-    private fun validatePassword(shouldUpdateView: Boolean = true): Boolean {
+    private fun validatePassword(shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true): Boolean {
         var errorMessage: String? = null
         val value = mBinding.passwordEt.text.toString()
         if (value.isEmpty()) {
@@ -166,12 +169,13 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.passwordTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
+                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
             }
         }
         return errorMessage == null
     }
 
-    private fun validateConfirmPassword(shouldUpdateView: Boolean = true): Boolean {
+    private fun validateConfirmPassword(shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true): Boolean {
         var errorMessage: String? = null
         val value = mBinding.confirmPasswordEt.text.toString()
         if (value.isEmpty()) {
@@ -183,12 +187,13 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.confirmPasswordTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
+                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
             }
         }
         return errorMessage == null
     }
 
-    private fun validatePasswordAndConfirmPassword(shouldUpdateView: Boolean = true): Boolean {
+    private fun validatePasswordAndConfirmPassword(shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true): Boolean {
         var errorMessage: String? = null
         val password = mBinding.passwordEt.text.toString()
         val confirmPassword = mBinding.confirmPasswordEt.text.toString()
@@ -199,6 +204,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.confirmPasswordTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
+                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
             }
         }
         return errorMessage == null
@@ -321,11 +327,14 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
     private fun validate(): Boolean {
         var isValid = true
 
-        if (!validateFullName()) isValid = false
-        if (!validateEmail()) isValid = false
-        if (!validatePassword()) isValid = false
-        if (!validateConfirmPassword()) isValid = false
-        if (isValid && !validatePasswordAndConfirmPassword()) isValid = false
+        if (!validateFullName(shouldVibrateView = false)) isValid = false
+        if (!validateEmail(shouldVibrateView = false)) isValid = false
+        if (!validatePassword(shouldVibrateView = false)) isValid = false
+        if (!validateConfirmPassword(shouldVibrateView = false)) isValid = false
+        if (isValid && !validatePasswordAndConfirmPassword(shouldVibrateView = false)) isValid = false
+
+        if (!isValid) VibrateView.vibrate(this, mBinding.cardView)
+
         return isValid
     }
 }
