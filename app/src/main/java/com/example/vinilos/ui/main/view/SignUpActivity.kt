@@ -10,6 +10,7 @@ import android.util.Patterns
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -112,7 +113,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
         mViewModel.getUser().observe(this) {
             if (it == null) {
                 startActivity(Intent(this, MainActivity::class.java))
-                println("Devuelve al home")
+                Toast.makeText(applicationContext, "USUARIO CREADO", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -301,13 +302,17 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
     override fun afterTextChanged(p0: Editable?) {}
 
     private fun onSubmit() {
+        mViewModel.getIsLoading().observe(this) {
+            mBinding.progressBar.isVisible = it
+            //Toast.makeText(applicationContext, "Usuario Creado", Toast.LENGTH_LONG).show()
+        }
         if (validate()) {
             mViewModel.registerUser(
                 RegisterBody(
                     mBinding.userNameEt.text!!.toString(),
                     mBinding.emailAddressEt.text!!.toString(),
                     mBinding.passwordEt.text!!.toString(),
-                    type = "2"
+                    type = "1"
                 )
             )
         }

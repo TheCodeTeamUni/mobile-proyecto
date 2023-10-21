@@ -27,7 +27,6 @@
             android:elevation="100dp"
             android:indeterminate="true" />
 
-
     </RelativeLayout>
 
     <TextView
@@ -159,7 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="250dp"
-                android:text="Login"
+                android:text="@string/login"
                 android:textColor="#43D9DC"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -172,7 +171,8 @@
                 android:layout_marginTop="8dp"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
-                android:text="@string/login" />
+                android:text="@string/SignUp"
+                app:cornerRadius="30dp"/> />
 
 
         </LinearLayout>

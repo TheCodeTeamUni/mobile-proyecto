@@ -23,6 +23,7 @@
     <string name="logo">Logo</string>
     <string name="collector">Coleccionistas</string>
     <string name="login">Login</string>
+    <string name="SignUp">Create User</string>
     <string name="collector_label">Coleccionista:</string>
     <string name="favorite_performers">Interpretes favoritos:</string>
     <string name="comments">Comentarios:</string>
