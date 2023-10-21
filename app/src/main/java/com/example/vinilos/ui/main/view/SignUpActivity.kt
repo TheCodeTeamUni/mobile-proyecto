@@ -119,7 +119,10 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
         }
     }
 
-    private fun validateFullName(shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true): Boolean {
+    private fun validateFullName(
+        shouldUpdateView: Boolean = true,
+        shouldVibrateView: Boolean = true
+    ): Boolean {
         var errorMessage: String? = null
         val value: String = mBinding.userNameEt.text.toString()
         if (value.isEmpty()) {
@@ -137,7 +140,10 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
         return errorMessage == null
     }
 
-    private fun validateEmail(shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true): Boolean {
+    private fun validateEmail(
+        shouldUpdateView: Boolean = true,
+        shouldVibrateView: Boolean = true
+    ): Boolean {
         var errorMessage: String? = null
         val value = mBinding.emailAddressEt.text.toString()
         if (value.isEmpty()) {
@@ -157,7 +163,10 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
         return errorMessage == null
     }
 
-    private fun validatePassword(shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true): Boolean {
+    private fun validatePassword(
+        shouldUpdateView: Boolean = true,
+        shouldVibrateView: Boolean = true
+    ): Boolean {
         var errorMessage: String? = null
         val value = mBinding.passwordEt.text.toString()
         if (value.isEmpty()) {
@@ -175,7 +184,10 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
         return errorMessage == null
     }
 
-    private fun validateConfirmPassword(shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true): Boolean {
+    private fun validateConfirmPassword(
+        shouldUpdateView: Boolean = true,
+        shouldVibrateView: Boolean = true
+    ): Boolean {
         var errorMessage: String? = null
         val value = mBinding.confirmPasswordEt.text.toString()
         if (value.isEmpty()) {
@@ -193,7 +205,10 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
         return errorMessage == null
     }
 
-    private fun validatePasswordAndConfirmPassword(shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true): Boolean {
+    private fun validatePasswordAndConfirmPassword(
+        shouldUpdateView: Boolean = true,
+        shouldVibrateView: Boolean = true
+    ): Boolean {
         var errorMessage: String? = null
         val password = mBinding.passwordEt.text.toString()
         val confirmPassword = mBinding.confirmPasswordEt.text.toString()
@@ -331,7 +346,8 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
         if (!validateEmail(shouldVibrateView = false)) isValid = false
         if (!validatePassword(shouldVibrateView = false)) isValid = false
         if (!validateConfirmPassword(shouldVibrateView = false)) isValid = false
-        if (isValid && !validatePasswordAndConfirmPassword(shouldVibrateView = false)) isValid = false
+        if (isValid && !validatePasswordAndConfirmPassword(shouldVibrateView = false)) isValid =
+            false
 
         if (!isValid) VibrateView.vibrate(this, mBinding.cardView)
 

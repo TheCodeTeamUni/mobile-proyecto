@@ -15,16 +15,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.visitorButton.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-        }
-
         binding.signUpBtn.setOnClickListener {
             val intent = Intent(this, SelectProfileActivity::class.java)
             startActivity(intent)
         }
-
     }
 }
 /*private lateinit var mainViewModel: MainViewModel

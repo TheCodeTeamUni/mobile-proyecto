@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils
 import com.vinylsMobile.vinylsapplication.R
 
 class VibrateView {
-    companion object{
+    companion object {
         fun vibrate(context: Context, view: View) {
             val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
