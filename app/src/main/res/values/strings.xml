@@ -25,6 +25,7 @@
     <string name="login">Login</string>
     <string name="loginWithGooge">Google Login</string>
     <string name="NeedAnAccount">¿Need an account?</string>
+    <string name="AlreadyRegister">¿Already Registered?</string>
     <string name="SignUp">Create User</string>
     <string name="SignUpInLogin">SignUp</string>
     <string name="collector_label">Coleccionista:</string>

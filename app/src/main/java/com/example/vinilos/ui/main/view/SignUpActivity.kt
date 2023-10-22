@@ -227,9 +227,23 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
 
 
     override fun onClick(view: View?) {
-        if (view != null && view.id == R.id.createUserBtn)
-            onSubmit()
+        if (view != null && view.id == R.id.createUserBtn) {
+            when (view.id) {
+                R.id.createUserBtn -> {
+                    onSubmit()
+                }
+                R.id.loginSignUpBtn -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                }
+            }
+        }
     }
+
+
+        //if (view != null && view.id == R.id.createUserBtn)
+        //    onSubmit()
+        //}
+
 
     override fun onFocusChange(view: View?, hasFocus: Boolean) {
         if (view != null) {

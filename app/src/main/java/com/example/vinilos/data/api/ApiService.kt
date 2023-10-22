@@ -1,8 +1,9 @@
 package com.example.vinilos.data.api
 
 
+import com.example.vinilos.LoginBody
 import com.example.vinilos.data.RegisterBody
-import com.example.vinilos.data.RegisterResponse
+import com.example.vinilos.data.AuthResponse
 import com.example.vinilos.data.UniqueEmailValidationResponse
 import com.example.vinilos.data.ValidateEmailBody
 import com.example.vinilos.data.model.AlbumResponse
@@ -22,7 +23,10 @@ interface ApiService {
     suspend fun validateEmailAddress(@Body body: ValidateEmailBody): Response<UniqueEmailValidationResponse>
 
     @POST("users/signup")
-    suspend fun registerUser(@Body body: RegisterBody): Response<RegisterResponse>
+    suspend fun registerUser(@Body body: RegisterBody): Response<AuthResponse>
+
+    @POST("users/login")
+    suspend fun loginUser(@Body body: LoginBody): Response<AuthResponse>
 
     @GET("albums")
     suspend fun getAlbums(): List<AlbumResponse>

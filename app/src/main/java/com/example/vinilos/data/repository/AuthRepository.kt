@@ -1,5 +1,6 @@
 package com.example.vinilos.data.repository
 
+import com.example.vinilos.LoginBody
 import com.example.vinilos.data.RegisterBody
 import com.example.vinilos.data.ValidateEmailBody
 import com.example.vinilos.data.api.ApiService
@@ -27,6 +28,22 @@ class AuthRepository(private val consumer: ApiService) {
     fun registerUser(body: RegisterBody) = flow {
         emit(RequestStatus.Waiting)
         val response = consumer.registerUser(body)
+        if (response.isSuccessful) {
+            emit(RequestStatus.Success(response.body()!!))
+        } else {
+            emit(
+                RequestStatus.Error(
+                    SimplifiedMessage.get(
+                        response.errorBody()!!.byteStream().reader().readText()
+                    )
+                )
+            )
+        }
+    }
+
+    fun loginUser(body: LoginBody) = flow {
+        emit(RequestStatus.Waiting)
+        val response = consumer.loginUser(body)
         if (response.isSuccessful) {
             emit(RequestStatus.Success(response.body()!!))
         } else {
