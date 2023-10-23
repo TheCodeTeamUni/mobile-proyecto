@@ -28,7 +28,8 @@ class CollectorAdapter(
                 bindPar.textElementDetail.text = collector.email
                 Glide.with(bindPar.imageElementList.context)
                     .load(R.drawable.ic_baseline_construction_collector)
-                    .error(R.drawable.ic_baseline_construction_collector).placeholder(R.drawable.ic_baseline_construction_collector)
+                    .error(R.drawable.ic_baseline_construction_collector)
+                    .placeholder(R.drawable.ic_baseline_construction_collector)
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(bindPar.imageElementList)
                 bindPar.imageElementList.setColorFilter(

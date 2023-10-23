@@ -1,6 +1,5 @@
 package com.example.vinilos.data.model
 
-import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 
 class TracksResponse() {

@@ -10,14 +10,14 @@ import retrofit2.Response
 class AlbumService {
     private val retrofit = RetrofitBuilder.getRetrofit()
 
-    suspend fun getAlbums():List<AlbumResponse> {
-        return   withContext(Dispatchers.IO) {
+    suspend fun getAlbums(): List<AlbumResponse> {
+        return withContext(Dispatchers.IO) {
             val response = retrofit.create(ApiService::class.java).getAllAlbums()
             response.body() ?: emptyList()
         }
     }
 
-    suspend fun createAlbum(album : HashMap<String,String>): Response<AlbumResponse> {
+    suspend fun createAlbum(album: HashMap<String, String>): Response<AlbumResponse> {
         return retrofit.create(ApiService::class.java).createAlbum(album)
     }
 }

@@ -5,7 +5,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitBuilder {
 
-    private const val BASE_URL = "https://back-vynils-1.herokuapp.com/"
+    private const val BASE_URL =
+        "http://jobs-app-users-env.eba-pfppdukn.us-east-1.elasticbeanstalk.com/"
+
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)

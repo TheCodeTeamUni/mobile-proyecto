@@ -23,6 +23,11 @@
     <string name="logo">Logo</string>
     <string name="collector">Coleccionistas</string>
     <string name="login">Login</string>
+    <string name="loginWithGooge">Google Login</string>
+    <string name="NeedAnAccount">¿Need an account?</string>
+    <string name="AlreadyRegister">¿Already Registered?</string>
+    <string name="SignUp">Create User</string>
+    <string name="SignUpInLogin">SignUp</string>
     <string name="collector_label">Coleccionista:</string>
     <string name="favorite_performers">Interpretes favoritos:</string>
     <string name="comments">Comentarios:</string>
@@ -41,6 +46,10 @@
     <string name="form_add_date_album">Fecha creación (dd/mm/yyyy)</string>
     <string name="add_album">Crear Album</string>
     <string name="tracks_label">Canciones:</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
     <string-array name="list_generos">
         <item>Classical</item>
         <item>Folk</item>

@@ -3,14 +3,14 @@ package com.example.vinilos.ui.main.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.vinilos.data.model.AlbumModel
+import com.example.vinilos.data.model.TracksModel
 import com.example.vinilos.data.repository.AlbumRepository
 import com.example.vinilos.utils.Resource
 import com.google.gson.JsonObject
-import com.example.vinilos.data.model.TracksModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class HomeViewModel (private val AlbumRepository: AlbumRepository) : ViewModel() {
+class HomeViewModel(private val AlbumRepository: AlbumRepository) : ViewModel() {
     fun getAlbums() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {

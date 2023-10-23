@@ -26,7 +26,7 @@ class DetailAdapter(private val albumDetail: AlbumResponse) {
 
         val sb = StringBuilder()
         for (i in albumDetail.tracks) {
-            sb.append( "- ${i.name} (${i.duration})" + "\n")
+            sb.append("- ${i.name} (${i.duration})" + "\n")
         }
         return sb.toString()
     }
@@ -35,7 +35,7 @@ class DetailAdapter(private val albumDetail: AlbumResponse) {
 
         val sb = StringBuilder()
         for (i in albumDetail.performers) {
-            sb.append( "- ${i.name} " + "\n")
+            sb.append("- ${i.name} " + "\n")
         }
         return sb.toString()
 
