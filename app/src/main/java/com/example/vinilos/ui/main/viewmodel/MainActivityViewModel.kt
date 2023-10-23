@@ -6,9 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.vinilos.LoginBody
-import com.example.vinilos.data.RegisterBody
 import com.example.vinilos.data.User
-import com.example.vinilos.data.ValidateEmailBody
 import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.utils.RequestStatus
 import kotlinx.coroutines.launch

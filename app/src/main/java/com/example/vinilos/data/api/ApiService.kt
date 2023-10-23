@@ -2,8 +2,8 @@ package com.example.vinilos.data.api
 
 
 import com.example.vinilos.LoginBody
-import com.example.vinilos.data.RegisterBody
 import com.example.vinilos.data.AuthResponse
+import com.example.vinilos.data.RegisterBody
 import com.example.vinilos.data.UniqueEmailValidationResponse
 import com.example.vinilos.data.ValidateEmailBody
 import com.example.vinilos.data.model.AlbumResponse
@@ -12,7 +12,6 @@ import com.example.vinilos.data.model.CollectorResponse
 import com.google.gson.JsonObject
 import retrofit2.Response
 import retrofit2.http.Body
-
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
