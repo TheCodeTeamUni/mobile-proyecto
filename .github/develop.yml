@@ -1,0 +1,42 @@
+name: Auto merge feature to develop
+
+on:
+  push:
+    branches:
+      - "HU**"
+
+jobs:
+  FusionarRamas:
+    if: ${{ contains(github.event.head_commit.message, 'merge') }}
+    name: FusionarRamas
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
+    steps:
+      - name: Merge develop to feature
+        uses: tukasz/direct-merge-action@v2.0.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          source-branch: develop
+          target-branch: ${{ github.ref }}
+
+      - name: Checkout de repositorio
+        uses: actions/checkout@v3
+
+  Automerge:
+    name: Automerge
+    needs: FusionarRamas
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
+    steps:
+      - name: Merge feature to develop
+        uses: tukasz/direct-merge-action@v2.0.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          source-branch: ${{ github.ref }}
+          target-branch: develop

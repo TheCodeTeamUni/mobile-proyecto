@@ -42,6 +42,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
         mBinding.confirmPasswordEt.setOnKeyListener(this)
         mBinding.confirmPasswordEt.addTextChangedListener(this)
         mBinding.createUserBtn.setOnClickListener(this)
+        mBinding.loginSignUpBtn.setOnClickListener(this)
         mViewModel = ViewModelProvider(
             this,
             SignUpActivityViewModelFactory(AuthRepository(RetrofitClient.getService()), application)
@@ -238,11 +239,6 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             }
         }
     }
-
-
-        //if (view != null && view.id == R.id.createUserBtn)
-        //    onSubmit()
-        //}
 
 
     override fun onFocusChange(view: View?, hasFocus: Boolean) {
