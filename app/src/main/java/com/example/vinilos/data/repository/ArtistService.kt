@@ -9,8 +9,8 @@ import kotlinx.coroutines.withContext
 class ArtistService {
     private val retrofit = RetrofitBuilder.getRetrofit()
 
-    suspend fun getArtist():List<ArtistResponse> {
-        return   withContext(Dispatchers.IO) {
+    suspend fun getArtist(): List<ArtistResponse> {
+        return withContext(Dispatchers.IO) {
             val response = retrofit.create(ApiService::class.java).getAllArtist()
             response.body() ?: emptyList()
         }

@@ -9,15 +9,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
+import com.example.vinilos.data.model.ArtistResponse
+import com.example.vinilos.network.CacheManager
+import com.example.vinilos.ui.base.ArtistViewModelFactory
 import com.example.vinilos.ui.main.adapter.DetailArtistAdapter
 import com.example.vinilos.ui.main.adapter.IdArtist
 import com.example.vinilos.ui.main.adapter.artist
 import com.example.vinilos.ui.main.viewmodel.ArtistViewModel
-import com.example.vinilos.data.model.ArtistResponse
-import com.example.vinilos.network.CacheManager
-import com.example.vinilos.ui.base.ArtistViewModelFactory
-import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailArtistBinding
 import com.example.vinilos.utils.Status
+import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailArtistBinding
 
 class DetailArtistActivity : AppCompatActivity() {
     private lateinit var artistViewModel: ArtistViewModel
@@ -56,13 +56,13 @@ class DetailArtistActivity : AppCompatActivity() {
     }
 
     private fun getMusiciansObservers(id: String) {
-        var potentialResp = CacheManager.getInstance(application.applicationContext).getArtist(id.toInt())
+        var potentialResp =
+            CacheManager.getInstance(application.applicationContext).getArtist(id.toInt())
 
-        if(potentialResp==null){
+        if (potentialResp == null) {
             Log.d("Cache decision", "Se saca de la red")
             setupMusiciansObservers(id)
-        }
-        else{
+        } else {
             Log.d("Cache decision", "return ${potentialResp.name} elements from cache")
             retrieveArtistDetail(
                 potentialResp,
@@ -116,7 +116,8 @@ class DetailArtistActivity : AppCompatActivity() {
     }
 
     private fun retrieveArtistDetail(artist: ArtistResponse, isBand: Boolean) {
-        CacheManager.getInstance(application.applicationContext).addArtist(artist.id.toInt(), artist)
+        CacheManager.getInstance(application.applicationContext)
+            .addArtist(artist.id.toInt(), artist)
         supportActionBar?.title = artist.name
         supportActionBar?.subtitle = "Artista"
         adapter = DetailArtistAdapter(artist, isBand)

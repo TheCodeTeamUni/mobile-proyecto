@@ -13,7 +13,7 @@ import com.vinylsMobile.vinylsapplication.databinding.ItemLayoutBinding
 const val ID = "id"
 const val NAME = "name"
 
-class HomeAdapter (
+class HomeAdapter(
     private val albums: ArrayList<AlbumResponse>
 ) : RecyclerView.Adapter<HomeAdapter.DataViewHolder>() {
 

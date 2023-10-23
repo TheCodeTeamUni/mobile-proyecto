@@ -9,8 +9,8 @@ import kotlinx.coroutines.withContext
 class CollectorService {
     private val retrofit = RetrofitBuilder.getRetrofit()
 
-    suspend fun getCollectors():List<CollectorResponse> {
-        return   withContext(Dispatchers.IO) {
+    suspend fun getCollectors(): List<CollectorResponse> {
+        return withContext(Dispatchers.IO) {
             val response = retrofit.create(ApiService::class.java).getAllCollectors()
             response.body() ?: emptyList()
         }

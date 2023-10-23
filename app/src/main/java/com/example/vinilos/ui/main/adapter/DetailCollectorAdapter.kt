@@ -22,15 +22,16 @@ class DetailCollectorAdapter(private val collectorDetail: CollectorResponse) {
     private fun adaptStringFavoritePerformers(binding: ActivityDetailCollectorBinding): String {
         val sb = StringBuilder()
         for (i in collectorDetail.favoritePerformers) {
-            sb.append( "- ${i.name}" + "\n")
+            sb.append("- ${i.name}" + "\n")
         }
         return sb.toString()
     }
+
     private fun adaptStringComments(binding: ActivityDetailCollectorBinding): String {
         val sb = StringBuilder()
         Log.e("***", collectorDetail.comments.size.toString())
-        for (i in collectorDetail.comments){
-            sb.append( "- ${i.description}" + " ${i.rating}" + "\n")
+        for (i in collectorDetail.comments) {
+            sb.append("- ${i.description}" + " ${i.rating}" + "\n")
         }
         return sb.toString()
     }

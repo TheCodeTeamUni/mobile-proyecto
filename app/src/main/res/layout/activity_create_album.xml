@@ -68,9 +68,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:textColor="@color/black_text"
                     android:hint="@string/form_add_name_album"
                     android:tag="@string/form_add_name_album"
+                    android:textColor="@color/black_text"
                     android:tooltipText="Nombre del album" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -91,22 +91,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:textColor="@color/black_text"
                     android:hint="@string/form_add_name_url_cover"
                     android:tag="@string/form_add_name_url_cover"
+                    android:textColor="@color/black_text"
                     android:tooltipText="URL de la imagen" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout_genero"
-                android:background="@color/white"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
+                android:background="@color/white"
                 android:hint="@string/form_add_genero_album"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -166,9 +166,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:textColor="@color/black_text"
                     android:hint="@string/form_add_description_album"
                     android:tag="@string/form_add_description_album"
+                    android:textColor="@color/black_text"
                     android:tooltipText="Casa Disquera" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -189,9 +189,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:textColor="@color/black_text"
                     android:hint="@string/form_add_date_album"
                     android:tag="@string/form_add_date_album"
+                    android:textColor="@color/black_text"
                     android:tooltipText="Fecha de lanzamiento" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -205,10 +205,10 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="50dp"
+                android:background="@drawable/login_button"
                 android:text="@string/add_album"
                 android:textColor="@color/turquoise"
                 android:textColorLink="@color/turquoise"
-                android:background="@drawable/login_button"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"

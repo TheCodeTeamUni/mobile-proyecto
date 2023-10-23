@@ -1,59 +1,74 @@
 package com.example.vinilos.data.api
 
 
+import com.example.vinilos.LoginBody
+import com.example.vinilos.data.AuthResponse
+import com.example.vinilos.data.RegisterBody
+import com.example.vinilos.data.UniqueEmailValidationResponse
+import com.example.vinilos.data.ValidateEmailBody
 import com.example.vinilos.data.model.AlbumResponse
 import com.example.vinilos.data.model.ArtistResponse
 import com.example.vinilos.data.model.CollectorResponse
 import com.google.gson.JsonObject
 import retrofit2.Response
 import retrofit2.http.Body
-
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface ApiService {
-        @GET("albums")
-        suspend fun getAlbums(): List<AlbumResponse>
 
-        @GET("albums/{id}")
-        suspend fun getAlbumDetail(@Path("id") id: String): AlbumResponse
+    @POST("users/validate")
+    suspend fun validateEmailAddress(@Body body: ValidateEmailBody): Response<UniqueEmailValidationResponse>
 
-        @GET("albums")
-        suspend fun getAllAlbums():Response<List<AlbumResponse>>
+    @POST("users/signup")
+    suspend fun registerUser(@Body body: RegisterBody): Response<AuthResponse>
 
-        @POST("albums")
-        suspend fun createAlbum(
-                @Body album : HashMap<String,String>
-        ):Response<AlbumResponse>
+    @POST("users/login")
+    suspend fun loginUser(@Body body: LoginBody): Response<AuthResponse>
 
-        @GET("musicians")
-        suspend fun getMusicians(): List<ArtistResponse>
+    @GET("albums")
+    suspend fun getAlbums(): List<AlbumResponse>
 
-        @GET("artist")
-        suspend fun getAllArtist(): Response<List<ArtistResponse>>
+    @GET("albums/{id}")
+    suspend fun getAlbumDetail(@Path("id") id: String): AlbumResponse
 
-        @GET("bands")
-        suspend fun getBands(): List<ArtistResponse>
+    @GET("albums")
+    suspend fun getAllAlbums(): Response<List<AlbumResponse>>
 
-        @GET("collectors")
-        suspend fun getCollectors(): List<CollectorResponse>
+    @POST("albums")
+    suspend fun createAlbum(
+        @Body album: HashMap<String, String>
+    ): Response<AlbumResponse>
 
-        @GET("collectors")
-        suspend fun getAllCollectors(): Response<List<CollectorResponse>>
+    @GET("musicians")
+    suspend fun getMusicians(): List<ArtistResponse>
 
-        @GET("musicians/{id}")
-        suspend fun getMusiciansDetail(@Path("id") id: String): ArtistResponse
+    @GET("artist")
+    suspend fun getAllArtist(): Response<List<ArtistResponse>>
 
-        @GET("bands/{id}")
-        suspend fun getBandsDetail(@Path("id") id: String): ArtistResponse
+    @GET("bands")
+    suspend fun getBands(): List<ArtistResponse>
 
-        @GET("collectors/{id}")
-        suspend fun getCollectorsDetail(@Path("id") id: String): CollectorResponse
+    @GET("collectors")
+    suspend fun getCollectors(): List<CollectorResponse>
 
-        @POST("albums/{id}/tracks")
-        suspend fun postAlbumTrack(@Path("id") id: String, @Body track: JsonObject): AlbumResponse
+    @GET("collectors")
+    suspend fun getAllCollectors(): Response<List<CollectorResponse>>
 
-        @POST("albums")
-        suspend fun postAlbum(@Body album: JsonObject): AlbumResponse
+    @GET("musicians/{id}")
+    suspend fun getMusiciansDetail(@Path("id") id: String): ArtistResponse
+
+    @GET("bands/{id}")
+    suspend fun getBandsDetail(@Path("id") id: String): ArtistResponse
+
+    @GET("collectors/{id}")
+    suspend fun getCollectorsDetail(@Path("id") id: String): CollectorResponse
+
+    @POST("albums/{id}/tracks")
+    suspend fun postAlbumTrack(@Path("id") id: String, @Body track: JsonObject): AlbumResponse
+
+    @POST("albums")
+    suspend fun postAlbum(@Body album: JsonObject): AlbumResponse
+
 }

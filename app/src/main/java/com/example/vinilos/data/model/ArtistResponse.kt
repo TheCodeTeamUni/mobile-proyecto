@@ -2,7 +2,6 @@ package com.example.vinilos.data.model
 
 import com.google.gson.annotations.SerializedName
 import java.util.*
-import kotlin.collections.ArrayList
 
 class ArtistResponse {
     @SerializedName("id")
