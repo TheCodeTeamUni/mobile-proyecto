@@ -1,8 +1,8 @@
 package com.example.vinilos.data.repository
 
 import com.example.vinilos.LoginBody
-import com.example.vinilos.data.RegisterBody
-import com.example.vinilos.data.ValidateEmailBody
+import com.example.vinilos.data.model.RegisterBody
+import com.example.vinilos.data.model.ValidateEmailBody
 import com.example.vinilos.data.api.ApiService
 import com.example.vinilos.utils.RequestStatus
 import com.example.vinilos.utils.SimplifiedMessage

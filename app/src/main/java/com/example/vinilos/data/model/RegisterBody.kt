@@ -1,4 +1,4 @@
-package com.example.vinilos.data
+package com.example.vinilos.data.model
 
 data class RegisterBody(
     val username: String,

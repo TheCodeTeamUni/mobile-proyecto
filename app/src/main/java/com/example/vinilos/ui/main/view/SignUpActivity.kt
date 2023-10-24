@@ -15,8 +15,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
-import com.example.vinilos.data.RegisterBody
-import com.example.vinilos.data.ValidateEmailBody
+import com.example.vinilos.data.model.RegisterBody
+import com.example.vinilos.data.model.ValidateEmailBody
 import com.example.vinilos.data.api.RetrofitClient
 import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModel

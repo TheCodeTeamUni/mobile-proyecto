@@ -2,10 +2,10 @@ package com.example.vinilos.data.api
 
 
 import com.example.vinilos.LoginBody
-import com.example.vinilos.data.AuthResponse
-import com.example.vinilos.data.RegisterBody
-import com.example.vinilos.data.UniqueEmailValidationResponse
-import com.example.vinilos.data.ValidateEmailBody
+import com.example.vinilos.data.model.AuthResponse
+import com.example.vinilos.data.model.RegisterBody
+import com.example.vinilos.data.model.UniqueEmailValidationResponse
+import com.example.vinilos.data.model.ValidateEmailBody
 import com.example.vinilos.data.model.AlbumResponse
 import com.example.vinilos.data.model.ArtistResponse
 import com.example.vinilos.data.model.CollectorResponse
