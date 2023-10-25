@@ -3,6 +3,7 @@ package com.example.vinilos.ui.main.view
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -12,28 +13,30 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import com.example.vinilos.data.api.RetrofitClient
 import com.example.vinilos.data.model.RegisterBody
 import com.example.vinilos.data.model.ValidateEmailBody
-import com.example.vinilos.data.api.RetrofitClient
 import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModel
 import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModelFactory
 import com.example.vinilos.utils.VibrateView
 import com.vinylsMobile.vinylsapplication.R
-import com.vinylsMobile.vinylsapplication.databinding.ActivitySignUpBinding
+import com.vinylsMobile.vinylsapplication.databinding.ActivityCompanyRegisterBinding
 
-class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener,
-    View.OnKeyListener, TextWatcher {
 
-    private lateinit var mBinding: ActivitySignUpBinding
+class CompanyRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener,
+View.OnKeyListener, TextWatcher {
+
+    private lateinit var mBinding: ActivityCompanyRegisterBinding
     private lateinit var mViewModel: SignUpActivityViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = ActivitySignUpBinding.inflate(LayoutInflater.from(this))
+
+        mBinding = ActivityCompanyRegisterBinding.inflate(LayoutInflater.from(this))
         setContentView(mBinding.root)
         mBinding.userNameEt.onFocusChangeListener = this
         mBinding.emailAddressEt.onFocusChangeListener = this
@@ -48,6 +51,11 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             SignUpActivityViewModelFactory(AuthRepository(RetrofitClient.getService()), application)
         ).get(SignUpActivityViewModel::class.java)
         setupObservers()
+
+        mBinding.loginSignUpBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupObservers() {
@@ -134,7 +142,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.userNameTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(this@CompanyRegisterActivity, this)
             }
         }
 
@@ -157,7 +165,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.emailAddressTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(this@CompanyRegisterActivity, this)
             }
         }
 
@@ -179,7 +187,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.passwordTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(this@CompanyRegisterActivity, this)
             }
         }
         return errorMessage == null
@@ -200,7 +208,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.confirmPasswordTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(this@CompanyRegisterActivity, this)
             }
         }
         return errorMessage == null
@@ -220,7 +228,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.confirmPasswordTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(this@CompanyRegisterActivity, this)
             }
         }
         return errorMessage == null
@@ -343,7 +351,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
                     mBinding.userNameEt.text!!.toString(),
                     mBinding.emailAddressEt.text!!.toString(),
                     mBinding.passwordEt.text!!.toString(),
-                    type = "1"
+                    type = "2"
                 )
             )
         }

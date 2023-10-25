@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChan
                     submitForm()
                 }
                 R.id.sign_up_btn -> {
-                    startActivity(Intent(this, SignUpActivity::class.java))
+                    startActivity(Intent(this, SelectProfileActivity::class.java))
                 }
             }
 
