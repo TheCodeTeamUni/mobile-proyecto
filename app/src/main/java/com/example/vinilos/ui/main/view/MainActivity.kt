@@ -12,6 +12,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.example.vinilos.LoginBody
 import com.example.vinilos.data.api.RetrofitClient
+import com.example.vinilos.data.model.RegisterBody
 import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.ui.main.viewmodel.MainActivityViewModel
 import com.example.vinilos.ui.main.viewmodel.MainActivityViewModelFactory
@@ -87,7 +88,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChan
         }
         mViewModel.getUser().observe(this) {
             if (it == null) {
-                startActivity(Intent(this, HomeActivity::class.java))
+                startActivity(Intent(this, CandidatePortalActivity::class.java))
                 //Toast.makeText(applicationContext, "START SESSION", Toast.LENGTH_LONG).show()
             }
         }
