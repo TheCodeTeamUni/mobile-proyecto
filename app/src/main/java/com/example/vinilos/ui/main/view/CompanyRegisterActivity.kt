@@ -123,7 +123,7 @@ View.OnKeyListener, TextWatcher {
         mViewModel.getUser().observe(this) {
             if (it == null) {
                 startActivity(Intent(this, MainActivity::class.java))
-                Toast.makeText(applicationContext, "USUARIO CREADO", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "COMPANY CREATED", Toast.LENGTH_LONG).show()
             }
         }
     }

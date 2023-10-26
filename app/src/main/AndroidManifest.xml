@@ -13,6 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vinilos">
         <activity
+            android:name="com.example.vinilos.ui.main.view.CompanyPortalActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.CandidatePortalActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name="com.example.vinilos.ui.main.view.CompanyRegisterActivity"
             android:exported="false">
             <meta-data

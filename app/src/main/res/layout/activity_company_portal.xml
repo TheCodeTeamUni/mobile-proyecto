@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/base_sign_up"
+    tools:context="com.example.vinilos.ui.main.view.CompanyPortalActivity">
+
+    <RelativeLayout
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:clickable="true"
+        android:elevation="100dp"
+        android:focusable="true"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_centerInParent="true"
+            android:elevation="100dp"
+            android:indeterminate="true" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Company Portal"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.157" />
+
+    <ImageView
+        android:id="@+id/employment_profile_icon"
+        android:layout_width="151dp"
+        android:layout_height="154dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="352dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/logo"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:src="@drawable/employment_information_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/professional_information_icon"
+        android:layout_width="151dp"
+        android:layout_height="154dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="160dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/logo"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:src="@drawable/professional_information_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/aspirant_profile_icon"
+        android:layout_width="151dp"
+        android:layout_height="154dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="352dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:src="@drawable/personal_information_icon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.173"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/technical_test_result_icon"
+        android:layout_width="151dp"
+        android:layout_height="154dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="160dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/logo"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:src="@drawable/tecnical_test_result"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

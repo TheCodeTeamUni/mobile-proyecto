@@ -120,7 +120,7 @@ class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnF
         mViewModel.getUser().observe(this) {
             if (it == null) {
                 startActivity(Intent(this, MainActivity::class.java))
-                Toast.makeText(applicationContext, "USUARIO CREADO", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "USER CREATED", Toast.LENGTH_LONG).show()
             }
         }
     }

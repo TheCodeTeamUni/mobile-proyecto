@@ -215,7 +215,6 @@
                 android:insetBottom="0dp"
                 android:text="@string/SignUp"
                 app:cornerRadius="30dp" />
-            />
 
 
         </LinearLayout>
