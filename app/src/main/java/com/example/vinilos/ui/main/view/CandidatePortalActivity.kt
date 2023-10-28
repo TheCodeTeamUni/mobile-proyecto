@@ -7,6 +7,6 @@ import com.vinylsMobile.vinylsapplication.R
 class CandidatePortalActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_candidate_portal)
+        setContentView(R.layout.activity_company_portal)
     }
 }

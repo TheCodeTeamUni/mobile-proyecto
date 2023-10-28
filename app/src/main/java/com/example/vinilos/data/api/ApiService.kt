@@ -15,9 +15,6 @@ interface ApiService {
     @POST("users/validate")
     suspend fun validateEmailAddress(@Body body: ValidateEmailBody): Response<UniqueEmailValidationResponse>
 
-   // @POST("users/signup")
-    //suspend fun registerUser(@Body body: RegisterBody): Response<AuthResponse>
-
     @POST("users/signup")
     suspend fun registerUser(@Body body: RegisterBody): Response<RegisterResponse>
 
