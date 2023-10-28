@@ -117,8 +117,15 @@ class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnF
                 }
             }
         }
-        mViewModel.getUser().observe(this) {
+        /*mViewModel.getUser().observe(this) {
             if (it == null) {
+                startActivity(Intent(this, MainActivity::class.java))
+                Toast.makeText(applicationContext, "USER CREATED", Toast.LENGTH_LONG).show()
+            }
+        }*/
+        mViewModel.getSignUp().observe(this){
+            if (it != null) {
+                println("Esto imprime esto; " + it)
                 startActivity(Intent(this, MainActivity::class.java))
                 Toast.makeText(applicationContext, "USER CREATED", Toast.LENGTH_LONG).show()
             }

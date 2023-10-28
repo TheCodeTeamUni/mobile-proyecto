@@ -120,8 +120,9 @@ View.OnKeyListener, TextWatcher {
                 }
             }
         }
-        mViewModel.getUser().observe(this) {
-            if (it == null) {
+        mViewModel.getSignUp().observe(this){
+            if (it != null) {
+                println("Esto imprime esto; " + it)
                 startActivity(Intent(this, MainActivity::class.java))
                 Toast.makeText(applicationContext, "COMPANY CREATED", Toast.LENGTH_LONG).show()
             }
