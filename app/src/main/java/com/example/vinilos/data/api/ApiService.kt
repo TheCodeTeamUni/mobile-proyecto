@@ -1,7 +1,7 @@
 package com.example.vinilos.data.api
 
 
-import com.example.vinilos.LoginBody
+import com.example.vinilos.data.model.LoginBody
 import com.example.vinilos.data.model.*
 import com.google.gson.JsonObject
 import retrofit2.Response
@@ -18,8 +18,11 @@ interface ApiService {
     @POST("users/signup")
     suspend fun registerUser(@Body body: RegisterBody): Response<RegisterResponse>
 
+    //@POST("users/login")
+    //suspend fun loginUser(@Body body: LoginBody): Response<AuthResponse>
+
     @POST("users/login")
-    suspend fun loginUser(@Body body: LoginBody): Response<AuthResponse>
+    suspend fun loginUser(@Body body: LoginBody): Response<LoginResponse>
 
     @GET("albums")
     suspend fun getAlbums(): List<AlbumResponse>
