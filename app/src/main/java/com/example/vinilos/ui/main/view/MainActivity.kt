@@ -96,6 +96,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChan
                 println("Esto imprime esto: " + it)
                 startActivity(Intent(this, CandidatePortalActivity::class.java))
             }else {
+                println("Esto imprime esto: " + it)
                 startActivity(Intent(this, CompanyPortalActivity::class.java))
             }
         }

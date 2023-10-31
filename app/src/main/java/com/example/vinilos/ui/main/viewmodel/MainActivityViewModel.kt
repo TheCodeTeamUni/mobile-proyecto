@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.vinilos.data.model.LoginBody
 import com.example.vinilos.data.model.User
 import com.example.vinilos.data.repository.AuthRepository
+import com.example.vinilos.utils.AuthToken
 import com.example.vinilos.utils.RequestStatus
 import kotlinx.coroutines.launch
 
@@ -33,7 +34,8 @@ class MainActivityViewModel(val authRepository: AuthRepository, val application:
                     is RequestStatus.Success -> {
                         isLoading.value = false
                         login.value = it.data.type
-                        //login.value = it.data.token
+                        AuthToken.getInstance(application.baseContext).token = it.data.token
+                        login.value = it.data.token
                         println("Respuesta obtenida")
                     }
                     is RequestStatus.Error -> {
