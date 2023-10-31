@@ -23,17 +23,17 @@ import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModel
 import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModelFactory
 import com.example.vinilos.utils.VibrateView
 import com.vinylsMobile.vinylsapplication.R
-import com.vinylsMobile.vinylsapplication.databinding.ActivitySignUpBinding
+import com.vinylsMobile.vinylsapplication.databinding.ActivityUserRegisterBinding
 
-class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener,
+class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener,
     View.OnKeyListener, TextWatcher {
 
-    private lateinit var mBinding: ActivitySignUpBinding
+    private lateinit var mBinding: ActivityUserRegisterBinding
     private lateinit var mViewModel: SignUpActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = ActivitySignUpBinding.inflate(LayoutInflater.from(this))
+        mBinding = ActivityUserRegisterBinding.inflate(LayoutInflater.from(this))
         setContentView(mBinding.root)
         mBinding.userNameEt.onFocusChangeListener = this
         mBinding.emailAddressEt.onFocusChangeListener = this
@@ -48,6 +48,11 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             SignUpActivityViewModelFactory(AuthRepository(RetrofitClient.getService()), application)
         ).get(SignUpActivityViewModel::class.java)
         setupObservers()
+
+        mBinding.loginSignUpBtn.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupObservers() {
@@ -112,10 +117,17 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
                 }
             }
         }
-        mViewModel.getUser().observe(this) {
+        /*mViewModel.getUser().observe(this) {
             if (it == null) {
                 startActivity(Intent(this, MainActivity::class.java))
-                Toast.makeText(applicationContext, "USUARIO CREADO", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "USER CREATED", Toast.LENGTH_LONG).show()
+            }
+        }*/
+        mViewModel.getSignUp().observe(this){
+            if (it != null) {
+                println("Esto imprime esto; " + it)
+                startActivity(Intent(this, MainActivity::class.java))
+                Toast.makeText(applicationContext, "USER CREATED", Toast.LENGTH_LONG).show()
             }
         }
     }
@@ -134,7 +146,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.userNameTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(this@UserRegisterActivity, this)
             }
         }
 
@@ -157,7 +169,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.emailAddressTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(this@UserRegisterActivity, this)
             }
         }
 
@@ -179,7 +191,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.passwordTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(this@UserRegisterActivity, this)
             }
         }
         return errorMessage == null
@@ -200,7 +212,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.confirmPasswordTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(this@UserRegisterActivity, this)
             }
         }
         return errorMessage == null
@@ -220,7 +232,7 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusCh
             mBinding.confirmPasswordTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@SignUpActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(this@UserRegisterActivity, this)
             }
         }
         return errorMessage == null

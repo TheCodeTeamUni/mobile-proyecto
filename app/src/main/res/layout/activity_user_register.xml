@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/base_sign_up"
-    tools:context="com.example.vinilos.ui.main.view.SignUpActivity">
+    tools:context="com.example.vinilos.ui.main.view.UserRegisterActivity">
 
     <RelativeLayout
         android:id="@+id/progressBar"
@@ -28,6 +28,33 @@
             android:indeterminate="true" />
 
     </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/aspirant_profile_icon"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="36dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/logo"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:src="@drawable/icon_profile_candidate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/userRegisterTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Register"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
 
     <TextView
         android:id="@+id/textView3"
@@ -188,7 +215,6 @@
                 android:insetBottom="0dp"
                 android:text="@string/SignUp"
                 app:cornerRadius="30dp" />
-            />
 
 
         </LinearLayout>

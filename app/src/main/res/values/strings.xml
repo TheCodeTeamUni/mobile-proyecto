@@ -27,6 +27,7 @@
     <string name="NeedAnAccount">¿Need an account?</string>
     <string name="AlreadyRegister">¿Already Registered?</string>
     <string name="SignUp">Create User</string>
+    <string name="SignUpCompany">Create Company</string>
     <string name="SignUpInLogin">SignUp</string>
     <string name="collector_label">Coleccionista:</string>
     <string name="favorite_performers">Interpretes favoritos:</string>

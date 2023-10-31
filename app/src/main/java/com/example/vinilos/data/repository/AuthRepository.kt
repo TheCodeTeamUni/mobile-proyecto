@@ -1,6 +1,6 @@
 package com.example.vinilos.data.repository
 
-import com.example.vinilos.LoginBody
+import com.example.vinilos.data.model.LoginBody
 import com.example.vinilos.data.model.RegisterBody
 import com.example.vinilos.data.model.ValidateEmailBody
 import com.example.vinilos.data.api.ApiService

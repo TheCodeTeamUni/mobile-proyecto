@@ -37,7 +37,7 @@ class AlbumDetailDiscographyTest {
     fun albumDetailDiscographyTest() {
         val materialButton = onView(
             allOf(
-                withId(R.id.collector_button), withText("Coleccionistas"),
+                withId(R.id.userNameEt), withText("Coleccionistas"),
                 childAtPosition(
                     childAtPosition(
                         withId(R.id.viewRoot),

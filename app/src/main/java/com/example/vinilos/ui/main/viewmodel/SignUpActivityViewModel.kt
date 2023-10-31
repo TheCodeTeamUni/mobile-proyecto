@@ -14,17 +14,17 @@ import kotlinx.coroutines.launch
 
 class SignUpActivityViewModel(val authRepository: AuthRepository, val application: Application) :
     ViewModel() {
-    private var isLoading: MutableLiveData<Boolean> =
-        MutableLiveData<Boolean>().apply { value = false }
+    private var isLoading: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply { value = false }
     private var errorMessage: MutableLiveData<HashMap<String, String>> = MutableLiveData()
-    private var isUniqueEmail: MutableLiveData<Boolean> =
-        MutableLiveData<Boolean>().apply { value = false }
+    private var isUniqueEmail: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply { value = false }
+    private var signUp: MutableLiveData<Int> = MutableLiveData()
     private var user: MutableLiveData<User> = MutableLiveData()
 
     fun getIsLoading(): LiveData<Boolean> = isLoading
     fun getErrorMessage(): LiveData<HashMap<String, String>> = errorMessage
     fun getIsUniqueEmail(): LiveData<Boolean> = isUniqueEmail
     fun getUser(): LiveData<User> = user
+    fun getSignUp(): LiveData<Int> = signUp
 
     fun validateEmailAddress(body: ValidateEmailBody) {
         viewModelScope.launch {
@@ -59,7 +59,7 @@ class SignUpActivityViewModel(val authRepository: AuthRepository, val applicatio
                     }
                     is RequestStatus.Success -> {
                         isLoading.value = false
-                        user.value = it.data.user
+                        signUp.value = it.data.id
                         println("Respuesta obtenida")
                     }
                     is RequestStatus.Error -> {
