@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -14,7 +13,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vinilos">
         <activity
-            android:name="com.example.vinilos.ui.main.view.SignUpActivity"
+            android:name="com.example.vinilos.ui.main.view.CompanyPortalActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.CandidatePortalActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.CompanyRegisterActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.UserRegisterActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

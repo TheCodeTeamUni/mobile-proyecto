@@ -1,14 +1,8 @@
 package com.example.vinilos.data.api
 
 
-import com.example.vinilos.LoginBody
-import com.example.vinilos.data.AuthResponse
-import com.example.vinilos.data.RegisterBody
-import com.example.vinilos.data.UniqueEmailValidationResponse
-import com.example.vinilos.data.ValidateEmailBody
-import com.example.vinilos.data.model.AlbumResponse
-import com.example.vinilos.data.model.ArtistResponse
-import com.example.vinilos.data.model.CollectorResponse
+import com.example.vinilos.data.model.LoginBody
+import com.example.vinilos.data.model.*
 import com.google.gson.JsonObject
 import retrofit2.Response
 import retrofit2.http.Body
@@ -22,10 +16,13 @@ interface ApiService {
     suspend fun validateEmailAddress(@Body body: ValidateEmailBody): Response<UniqueEmailValidationResponse>
 
     @POST("users/signup")
-    suspend fun registerUser(@Body body: RegisterBody): Response<AuthResponse>
+    suspend fun registerUser(@Body body: RegisterBody): Response<RegisterResponse>
+
+    //@POST("users/login")
+    //suspend fun loginUser(@Body body: LoginBody): Response<AuthResponse>
 
     @POST("users/login")
-    suspend fun loginUser(@Body body: LoginBody): Response<AuthResponse>
+    suspend fun loginUser(@Body body: LoginBody): Response<LoginResponse>
 
     @GET("albums")
     suspend fun getAlbums(): List<AlbumResponse>

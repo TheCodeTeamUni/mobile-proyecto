@@ -5,21 +5,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.vinilos.LoginBody
-import com.example.vinilos.data.User
+import com.example.vinilos.data.model.LoginBody
+import com.example.vinilos.data.model.User
 import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.utils.RequestStatus
 import kotlinx.coroutines.launch
 
-class MainActivityViewModel(val authRepository: AuthRepository, val application: Application) :
-    ViewModel() {
-    private var isLoading: MutableLiveData<Boolean> =
-        MutableLiveData<Boolean>().apply { value = false }
+class MainActivityViewModel(val authRepository: AuthRepository, val application: Application) : ViewModel() {
+    private var isLoading: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply { value = false }
     private var errorMessage: MutableLiveData<HashMap<String, String>> = MutableLiveData()
     private var user: MutableLiveData<User> = MutableLiveData()
+    private var login: MutableLiveData<String> = MutableLiveData()
 
     fun getIsLoading(): LiveData<Boolean> = isLoading
     fun getErrorMessage(): LiveData<HashMap<String, String>> = errorMessage
+    fun getLogin(): LiveData<String> = login
     fun getUser(): LiveData<User> = user
 
     fun loginUser(body: LoginBody) {
@@ -32,7 +32,8 @@ class MainActivityViewModel(val authRepository: AuthRepository, val application:
                     }
                     is RequestStatus.Success -> {
                         isLoading.value = false
-                        user.value = it.data.user
+                        login.value = it.data.type
+                        //login.value = it.data.token
                         println("Respuesta obtenida")
                     }
                     is RequestStatus.Error -> {

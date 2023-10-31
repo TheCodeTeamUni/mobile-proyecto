@@ -19,12 +19,12 @@ class SelectProfileActivity : AppCompatActivity() {
         }
 
         binding.aspirantProfileIcon.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
+            val intent = Intent(this, UserRegisterActivity::class.java)
             startActivity(intent)
         }
 
         binding.buildProfileIcon.setOnClickListener {
-            val intent = Intent(this, SignUpActivity::class.java)
+            val intent = Intent(this, CompanyRegisterActivity::class.java)
             startActivity(intent)
         }
 
