@@ -12,16 +12,13 @@ import retrofit2.http.Path
 
 interface ApiService {
 
-    @POST("users/validate")
+    @POST("abcjobs/validate")
     suspend fun validateEmailAddress(@Body body: ValidateEmailBody): Response<UniqueEmailValidationResponse>
 
-    @POST("users/signup")
+    @POST("abcjobs/signup")
     suspend fun registerUser(@Body body: RegisterBody): Response<RegisterResponse>
 
-    //@POST("users/login")
-    //suspend fun loginUser(@Body body: LoginBody): Response<AuthResponse>
-
-    @POST("users/login")
+    @POST("abcjobs/login")
     suspend fun loginUser(@Body body: LoginBody): Response<LoginResponse>
 
     @GET("albums")

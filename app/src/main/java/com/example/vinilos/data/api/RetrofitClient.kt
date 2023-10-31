@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
     private const val BASE_URL =
-        "http://jobs-app-users-env.eba-pfppdukn.us-east-1.elasticbeanstalk.com/"
+        "http://jobs-app-integrator-env.eba-fmggp8g3.us-east-1.elasticbeanstalk.com/"
 
     val client: OkHttpClient = OkHttpClient.Builder()
         .connectTimeout(60, TimeUnit.SECONDS)
