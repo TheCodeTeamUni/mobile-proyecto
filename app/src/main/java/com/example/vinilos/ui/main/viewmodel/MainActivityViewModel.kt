@@ -35,7 +35,7 @@ class MainActivityViewModel(val authRepository: AuthRepository, val application:
                         isLoading.value = false
                         login.value = it.data.type
                         AuthToken.getInstance(application.baseContext).token = it.data.token
-                        login.value = it.data.token
+                        //login.value = it.data.token
                         println("Respuesta obtenida")
                     }
                     is RequestStatus.Error -> {
