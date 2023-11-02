@@ -20,8 +20,7 @@ import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityMainBinding
 
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener,
-    View.OnKeyListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener, View.OnKeyListener {
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mViewModel: MainActivityViewModel
 
@@ -42,7 +41,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChan
             this,
             MainActivityViewModelFactory(AuthRepository(RetrofitClient.getService()), application)
         ).get(MainActivityViewModel::class.java)
-
         setupObservers()
 
     }
@@ -208,8 +206,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChan
         }
     }
 
-    override fun onKey(view: View?, event: Int, keyEvent: KeyEvent?): Boolean {
-        if (event == KeyEvent.KEYCODE_ENTER && keyEvent!!.action == KeyEvent.ACTION_UP) {
+    override fun onKey(view: View?, keyCode: Int, keyEvent: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_ENTER && keyEvent!!.action == KeyEvent.ACTION_UP) {
             submitForm()
         }
         return false

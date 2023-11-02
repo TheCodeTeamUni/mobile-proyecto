@@ -25,8 +25,7 @@ import com.example.vinilos.utils.VibrateView
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityUserRegisterBinding
 
-class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener,
-    View.OnKeyListener, TextWatcher {
+class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener, View.OnKeyListener, TextWatcher {
 
     private lateinit var mBinding: ActivityUserRegisterBinding
     private lateinit var mViewModel: SignUpActivityViewModel
@@ -43,6 +42,7 @@ class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnF
         mBinding.confirmPasswordEt.addTextChangedListener(this)
         mBinding.createUserBtn.setOnClickListener(this)
         mBinding.loginSignUpBtn.setOnClickListener(this)
+
         mViewModel = ViewModelProvider(
             this,
             SignUpActivityViewModelFactory(AuthRepository(RetrofitClient.getService()), application)
@@ -117,12 +117,6 @@ class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnF
                 }
             }
         }
-        /*mViewModel.getUser().observe(this) {
-            if (it == null) {
-                startActivity(Intent(this, MainActivity::class.java))
-                Toast.makeText(applicationContext, "USER CREATED", Toast.LENGTH_LONG).show()
-            }
-        }*/
         mViewModel.getSignUp().observe(this){
             if (it != null) {
                 println("Esto imprime esto; " + it)
@@ -311,11 +305,9 @@ class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnF
                             }
                         }
                     }
-
                 }
             }
         }
-
     }
 
     override fun onKey(view: View?, keyCode: Int, keyEvent: KeyEvent?): Boolean {

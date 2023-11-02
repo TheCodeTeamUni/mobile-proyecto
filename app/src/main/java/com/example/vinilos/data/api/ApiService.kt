@@ -21,6 +21,12 @@ interface ApiService {
     @POST("abcjobs/login")
     suspend fun loginUser(@Body body: LoginBody): Response<LoginResponse>
 
+    @POST("abcjobs/aspirantes/personal")
+    suspend fun registerCandidatePersonalInformation(@Body body: RegisterCandidatePersonalInformationBody): Response<RegisterCandidatePersonalInformationResponse>
+
+    @POST("abcjobs/aspirantes/workexperience")
+    suspend fun registerCandidateWorkExperienceInformation(@Body body: RegisterCandidateWorkExperienceInformationBody): Response<RegisterCandidateWorkExperienceInformationResponse>
+
     @GET("albums")
     suspend fun getAlbums(): List<AlbumResponse>
 
