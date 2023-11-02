@@ -17,11 +17,11 @@ interface ApiService {
     @POST("abcjobs/login")
     suspend fun loginUser(@Body body: LoginBody): Response<LoginResponse>
 
-    @Headers("Authorization: Bearer {token}")
+    //@Headers("Authorization: Bearer {token}")
     @POST("abcjobs/aspirantes/personal")
     suspend fun registerCandidatePersonalInformation(@Body body: RegisterCandidatePersonalInformationBody): Response<RegisterCandidatePersonalInformationResponse>
 
-    @Headers("Authorization: Bearer {token}")
+    //@Headers("Authorization: Bearer {token}")
     @POST("abcjobs/aspirantes/workexperience")
     suspend fun registerCandidateWorkExperienceInformation(@Body body: RegisterCandidateWorkExperienceInformationBody): Response<RegisterCandidateWorkExperienceInformationResponse>
 

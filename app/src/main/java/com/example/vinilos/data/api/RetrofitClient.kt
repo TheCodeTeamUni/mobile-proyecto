@@ -1,5 +1,6 @@
 package com.example.vinilos.data.api
 
+import com.example.vinilos.utils.HeaderInterceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -13,6 +14,7 @@ object RetrofitClient {
         .connectTimeout(60, TimeUnit.SECONDS)
         .readTimeout(60, TimeUnit.SECONDS)
         .writeTimeout(60, TimeUnit.SECONDS)
+        .addInterceptor(HeaderInterceptor())
         .build()
 
     fun getService(): ApiService {
