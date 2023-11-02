@@ -15,9 +15,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import com.example.vinilos.data.api.RetrofitClient
 import com.example.vinilos.data.model.RegisterBody
 import com.example.vinilos.data.model.ValidateEmailBody
-import com.example.vinilos.data.api.RetrofitClient
 import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModel
 import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModelFactory
@@ -25,7 +25,8 @@ import com.example.vinilos.utils.VibrateView
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityUserRegisterBinding
 
-class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener, View.OnKeyListener, TextWatcher {
+class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener,
+    View.OnKeyListener, TextWatcher {
 
     private lateinit var mBinding: ActivityUserRegisterBinding
     private lateinit var mViewModel: SignUpActivityViewModel
@@ -117,7 +118,7 @@ class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnF
                 }
             }
         }
-        mViewModel.getSignUp().observe(this){
+        mViewModel.getSignUp().observe(this) {
             if (it != null) {
                 println("Esto imprime esto; " + it)
                 startActivity(Intent(this, MainActivity::class.java))

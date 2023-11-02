@@ -6,12 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.vinilos.data.model.RegisterCandidateWorkExperienceInformationBody
-import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.data.repository.RegisterInformationRepository
 import com.example.vinilos.utils.RequestStatus
 import kotlinx.coroutines.launch
 
-class RegisterWorkExperienceViewModel(val registerInformation: RegisterInformationRepository, val application: Application) : ViewModel() {
+class RegisterWorkExperienceViewModel(
+    val registerInformation: RegisterInformationRepository,
+    val application: Application) : ViewModel() {
     private var isLoading: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply { value = false }
     private var errorMessage: MutableLiveData<HashMap<String, String>> = MutableLiveData()
     private var registerWorkExperience: MutableLiveData<Int> = MutableLiveData()
@@ -20,7 +21,7 @@ class RegisterWorkExperienceViewModel(val registerInformation: RegisterInformati
     fun getErrorMessage(): LiveData<HashMap<String, String>> = errorMessage
     fun getRegisterWorkExperience(): LiveData<Int> = registerWorkExperience
 
-    fun registerWorkExperience(body: RegisterCandidateWorkExperienceInformationBody){
+    fun registerWorkExperience(body: RegisterCandidateWorkExperienceInformationBody) {
         viewModelScope.launch {
             registerInformation.registerWorkExperience(body).collect {
                 when (it) {

@@ -15,10 +15,10 @@
         android:clickable="true"
         android:elevation="100dp"
         android:focusable="true"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintLeft_toRightOf="parent"
-        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent">
 
         <ProgressBar
@@ -187,7 +187,6 @@
                     android:paddingVertical="12dp"
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
-
 
 
             <com.google.android.material.button.MaterialButton

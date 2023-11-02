@@ -3,7 +3,6 @@ package com.example.vinilos.ui.main.view
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.example.vinilos.data.api.RetrofitClient
@@ -26,8 +26,9 @@ import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityCompanyRegisterBinding
 
 
-class CompanyRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener,
-View.OnKeyListener, TextWatcher {
+class CompanyRegisterActivity : AppCompatActivity(), View.OnClickListener,
+    View.OnFocusChangeListener,
+    View.OnKeyListener, TextWatcher {
 
     private lateinit var mBinding: ActivityCompanyRegisterBinding
     private lateinit var mViewModel: SignUpActivityViewModel
@@ -120,7 +121,7 @@ View.OnKeyListener, TextWatcher {
                 }
             }
         }
-        mViewModel.getSignUp().observe(this){
+        mViewModel.getSignUp().observe(this) {
             if (it != null) {
                 println("Esto imprime esto; " + it)
                 startActivity(Intent(this, MainActivity::class.java))

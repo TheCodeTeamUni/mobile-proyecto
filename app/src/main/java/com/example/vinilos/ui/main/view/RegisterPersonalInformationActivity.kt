@@ -1,35 +1,27 @@
 package com.example.vinilos.ui.main.view
 
 import android.content.Intent
-import android.content.res.ColorStateList
-import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Patterns
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.example.vinilos.data.api.RetrofitClient
-import com.example.vinilos.data.model.RegisterBody
 import com.example.vinilos.data.model.RegisterCandidatePersonalInformationBody
-import com.example.vinilos.data.model.ValidateEmailBody
-import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.data.repository.RegisterInformationRepository
 import com.example.vinilos.ui.main.viewmodel.RegisterPersonalInformationViewModel
 import com.example.vinilos.ui.main.viewmodel.RegisterPersonalInformationViewModelFactory
-import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModel
-import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModelFactory
 import com.example.vinilos.utils.VibrateView
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityRegisterPersonalInformationBinding
 
-class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener,
+class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickListener,
+    View.OnFocusChangeListener,
     View.OnKeyListener {
 
     private lateinit var mBinding: ActivityRegisterPersonalInformationBinding
@@ -53,7 +45,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
         mBinding.saveInformationBtn.setOnClickListener(this)
         mViewModel = ViewModelProvider(
             this,
-            RegisterPersonalInformationViewModelFactory(RegisterInformationRepository(RetrofitClient.getService()), application)
+            RegisterPersonalInformationViewModelFactory(
+                RegisterInformationRepository(RetrofitClient.getService()),
+                application
+            )
         ).get(RegisterPersonalInformationViewModel::class.java)
         setupObservers()
     }
@@ -64,7 +59,20 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
         }
 
         mViewModel.getErrorMessage().observe(this) {
-            val formErrorKeys = arrayOf("name", "lastName", "typeDocument", "document", "gender", "alternativeEmail", "telephone", "country", "address", "birthdate", "description", "photo")
+            val formErrorKeys = arrayOf(
+                "name",
+                "lastName",
+                "typeDocument",
+                "document",
+                "gender",
+                "alternativeEmail",
+                "telephone",
+                "country",
+                "address",
+                "birthdate",
+                "description",
+                "photo"
+            )
             val message = StringBuilder()
             it.map { entry ->
                 if (formErrorKeys.contains(entry.key)) {
@@ -157,11 +165,12 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
                 }
             }
         }
-        mViewModel.getRegisterPersonalInformation().observe(this){
+        mViewModel.getRegisterPersonalInformation().observe(this) {
             if (it != null) {
                 println("Esto imprime esto; " + it)
                 startActivity(Intent(this, CandidatePortalActivity::class.java))
-                Toast.makeText(applicationContext, "REGISTERED INFORMATION", Toast.LENGTH_LONG).show()
+                Toast.makeText(applicationContext, "REGISTERED INFORMATION", Toast.LENGTH_LONG)
+                    .show()
             }
         }
     }
@@ -179,7 +188,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
             mBinding.userNameTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@RegisterPersonalInformationActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@RegisterPersonalInformationActivity,
+                    this
+                )
             }
         }
 
@@ -199,7 +211,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
             mBinding.lastNameTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@RegisterPersonalInformationActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@RegisterPersonalInformationActivity,
+                    this
+                )
             }
         }
 
@@ -219,7 +234,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
             mBinding.documentTypeTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@RegisterPersonalInformationActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@RegisterPersonalInformationActivity,
+                    this
+                )
             }
         }
 
@@ -239,7 +257,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
             mBinding.documentTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@RegisterPersonalInformationActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@RegisterPersonalInformationActivity,
+                    this
+                )
             }
         }
 
@@ -259,7 +280,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
             mBinding.genderTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@RegisterPersonalInformationActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@RegisterPersonalInformationActivity,
+                    this
+                )
             }
         }
 
@@ -282,7 +306,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
             mBinding.emailAddressTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@RegisterPersonalInformationActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@RegisterPersonalInformationActivity,
+                    this
+                )
             }
         }
 
@@ -302,7 +329,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
             mBinding.telephoneTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@RegisterPersonalInformationActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@RegisterPersonalInformationActivity,
+                    this
+                )
             }
         }
 
@@ -322,7 +352,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
             mBinding.countryTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@RegisterPersonalInformationActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@RegisterPersonalInformationActivity,
+                    this
+                )
             }
         }
 
@@ -342,7 +375,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
             mBinding.addressTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@RegisterPersonalInformationActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@RegisterPersonalInformationActivity,
+                    this
+                )
             }
         }
 
@@ -362,7 +398,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
             mBinding.birthDateTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@RegisterPersonalInformationActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@RegisterPersonalInformationActivity,
+                    this
+                )
             }
         }
 
@@ -382,7 +421,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
             mBinding.descriptionTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@RegisterPersonalInformationActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@RegisterPersonalInformationActivity,
+                    this
+                )
             }
         }
 
@@ -402,7 +444,10 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
             mBinding.photoTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
-                if (shouldVibrateView) VibrateView.vibrate(this@RegisterPersonalInformationActivity, this)
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@RegisterPersonalInformationActivity,
+                    this
+                )
             }
         }
 

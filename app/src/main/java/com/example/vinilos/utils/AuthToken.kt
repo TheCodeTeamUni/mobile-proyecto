@@ -12,7 +12,7 @@ class AuthToken private constructor(context: Context) {
         private var instance: AuthToken? = null
 
         fun getInstance(context: Context): AuthToken =
-            instance?: synchronized(this) { AuthToken(context).apply { instance = this } }
+            instance ?: synchronized(this) { AuthToken(context).apply { instance = this } }
     }
 
     private val sharedPreferences: SharedPreferences =

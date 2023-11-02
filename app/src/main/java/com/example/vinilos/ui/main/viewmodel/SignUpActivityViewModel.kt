@@ -6,13 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.vinilos.data.model.RegisterBody
-import com.example.vinilos.data.model.User
 import com.example.vinilos.data.model.ValidateEmailBody
 import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.utils.RequestStatus
 import kotlinx.coroutines.launch
 
-class SignUpActivityViewModel(val authRepository: AuthRepository, val application: Application) : ViewModel() {
+class SignUpActivityViewModel(val authRepository: AuthRepository, val application: Application) :
+    ViewModel() {
     private var isLoading: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply { value = false }
     private var errorMessage: MutableLiveData<HashMap<String, String>> = MutableLiveData()
     private var isUniqueEmail: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply { value = false }

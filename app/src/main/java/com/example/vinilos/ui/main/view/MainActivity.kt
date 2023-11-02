@@ -10,8 +10,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
-import com.example.vinilos.data.model.LoginBody
 import com.example.vinilos.data.api.RetrofitClient
+import com.example.vinilos.data.model.LoginBody
 import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.ui.main.viewmodel.MainActivityViewModel
 import com.example.vinilos.ui.main.viewmodel.MainActivityViewModelFactory
@@ -20,7 +20,8 @@ import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityMainBinding
 
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener, View.OnKeyListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener,
+    View.OnKeyListener {
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mViewModel: MainActivityViewModel
 
@@ -89,11 +90,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChan
                 //Toast.makeText(applicationContext, "START SESSION", Toast.LENGTH_LONG).show()
             }
         }*/
-        mViewModel.getLogin().observe(this){
-            if (it != null && it == "1"){
+        mViewModel.getLogin().observe(this) {
+            if (it != null && it == "1") {
                 println("Esto imprime esto: " + it)
                 startActivity(Intent(this, CandidatePortalActivity::class.java))
-            }else {
+            } else {
                 println("Esto imprime esto: " + it)
                 startActivity(Intent(this, CompanyPortalActivity::class.java))
             }

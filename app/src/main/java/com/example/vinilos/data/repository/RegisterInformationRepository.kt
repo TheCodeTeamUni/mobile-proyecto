@@ -23,6 +23,7 @@ class RegisterInformationRepository(private val consumer: ApiService) {
             )
         }
     }
+
     fun registerWorkExperience(body: RegisterCandidateWorkExperienceInformationBody) = flow {
         emit(RequestStatus.Waiting)
         val response = consumer.registerCandidateWorkExperienceInformation(body)

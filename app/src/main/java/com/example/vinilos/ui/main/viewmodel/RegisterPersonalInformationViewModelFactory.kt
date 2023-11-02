@@ -9,12 +9,15 @@ import java.security.InvalidParameterException
 class RegisterPersonalInformationViewModelFactory(
     private val registerInformationRepository: RegisterInformationRepository,
     private val application: Application
-    ) : ViewModelProvider.Factory  {
+) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(RegisterPersonalInformationViewModel::class.java)) {
-            return RegisterPersonalInformationViewModel(registerInformationRepository, application) as T
+            return RegisterPersonalInformationViewModel(
+                registerInformationRepository,
+                application
+            ) as T
         }
         throw InvalidParameterException("Unable to construct RegisterPersonalInformationViewModel")
     }

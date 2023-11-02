@@ -12,7 +12,6 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.example.vinilos.data.api.RetrofitClient
 import com.example.vinilos.data.model.RegisterCandidateWorkExperienceInformationBody
-import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.data.repository.RegisterInformationRepository
 import com.example.vinilos.ui.main.viewmodel.RegisterWorkExperienceViewModel
 import com.example.vinilos.ui.main.viewmodel.RegisterWorkExperienceViewModelFactory
