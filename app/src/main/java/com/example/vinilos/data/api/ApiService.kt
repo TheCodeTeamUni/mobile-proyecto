@@ -4,7 +4,10 @@ package com.example.vinilos.data.api
 import com.example.vinilos.data.model.*
 import com.google.gson.JsonObject
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
 
@@ -17,11 +20,9 @@ interface ApiService {
     @POST("abcjobs/login")
     suspend fun loginUser(@Body body: LoginBody): Response<LoginResponse>
 
-    //@Headers("Authorization: Bearer {token}")
     @POST("abcjobs/aspirantes/personal")
     suspend fun registerCandidatePersonalInformation(@Body body: RegisterCandidatePersonalInformationBody): Response<RegisterCandidatePersonalInformationResponse>
 
-    //@Headers("Authorization: Bearer {token}")
     @POST("abcjobs/aspirantes/workexperience")
     suspend fun registerCandidateWorkExperienceInformation(@Body body: RegisterCandidateWorkExperienceInformationBody): Response<RegisterCandidateWorkExperienceInformationResponse>
 

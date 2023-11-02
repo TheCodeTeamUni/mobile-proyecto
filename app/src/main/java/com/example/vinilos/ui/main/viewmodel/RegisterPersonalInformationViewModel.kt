@@ -12,8 +12,10 @@ import kotlinx.coroutines.launch
 
 class RegisterPersonalInformationViewModel(
     val registerInformationRepository: RegisterInformationRepository,
-    val application: Application) : ViewModel() {
-    private var isLoading: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply { value = false }
+    val application: Application
+) : ViewModel() {
+    private var isLoading: MutableLiveData<Boolean> =
+        MutableLiveData<Boolean>().apply { value = false }
     private var errorMessage: MutableLiveData<HashMap<String, String>> = MutableLiveData()
     private var registerPersonalInformation: MutableLiveData<Int> = MutableLiveData()
 
