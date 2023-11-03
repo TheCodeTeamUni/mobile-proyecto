@@ -5,24 +5,24 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.vinilos.data.model.RegisterCandidateWorkExperienceInformationBody
+import com.example.vinilos.data.model.RegisterCandidateEducationInformationBody
 import com.example.vinilos.data.repository.RegisterInformationRepository
 import com.example.vinilos.utils.RequestStatus
 import kotlinx.coroutines.launch
 
-class RegisterWorkExperienceViewModel(
+class RegisterEducationViewModel (
     private val registerInformation: RegisterInformationRepository, val application: Application) : ViewModel() {
     private var isLoading: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply { value = false }
     private var errorMessage: MutableLiveData<HashMap<String, String>> = MutableLiveData()
-    private var registerWorkExperience: MutableLiveData<Int> = MutableLiveData()
+    private var registerEducationInformation: MutableLiveData<Int> = MutableLiveData()
 
     fun getIsLoading(): LiveData<Boolean> = isLoading
     fun getErrorMessage(): LiveData<HashMap<String, String>> = errorMessage
-    fun getRegisterWorkExperience(): LiveData<Int> = registerWorkExperience
+    fun getRegisterEducationInformation(): LiveData<Int> = registerEducationInformation
 
-    fun registerWorkExperience(body: RegisterCandidateWorkExperienceInformationBody) {
+    fun registerEducationInformation(body: RegisterCandidateEducationInformationBody) {
         viewModelScope.launch {
-            registerInformation.registerWorkExperience(body).collect {
+            registerInformation.registerEducationInformation(body).collect {
                 when (it) {
                     is RequestStatus.Waiting -> {
                         isLoading.value = true
@@ -30,7 +30,7 @@ class RegisterWorkExperienceViewModel(
                     }
                     is RequestStatus.Success -> {
                         isLoading.value = false
-                        registerWorkExperience.value = it.data.id
+                        registerEducationInformation.value = it.data.id
                         println("Respuesta obtenida")
                     }
                     is RequestStatus.Error -> {

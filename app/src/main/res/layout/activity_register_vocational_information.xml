@@ -94,16 +94,16 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/companyTil"
+                android:id="@+id/educationTypeTil"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/companyEt"
+                    android:id="@+id/educationTypeEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/company"
+                    android:hint="@string/information_type"
                     android:inputType="text"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="12dp"
@@ -113,17 +113,17 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/positionTil"
+                android:id="@+id/levelTil"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/positionEt"
+                    android:id="@+id/levelEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/position"
+                    android:hint="@string/level"
                     android:inputType="textEmailAddress"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="12dp"
@@ -132,17 +132,17 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/actualJobTil"
+                android:id="@+id/titleTil"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ActualJobEt"
+                    android:id="@+id/titleEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/actual_job"
+                    android:hint="@string/title"
                     android:inputType="textEmailAddress"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="12dp"
@@ -150,6 +150,43 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/gradeTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/gradeEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/grade"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="12dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/institutionTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/institutionEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/institution"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="12dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/startDateTil"
@@ -167,7 +204,6 @@
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="12dp"
                     tools:ignore="TouchTargetSizeCheck" />
-
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -188,9 +224,8 @@
                     tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
-
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/createUserBtn"
+                android:id="@+id/saveInformationBtn"
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

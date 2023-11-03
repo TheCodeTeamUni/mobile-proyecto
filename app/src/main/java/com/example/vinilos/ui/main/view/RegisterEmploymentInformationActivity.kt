@@ -19,8 +19,7 @@ import com.example.vinilos.utils.VibrateView
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityRegisterEmploymentInformationBinding
 
-class RegisterEmploymentInformationActivity : AppCompatActivity(), View.OnClickListener,
-    View.OnFocusChangeListener, View.OnKeyListener {
+class RegisterEmploymentInformationActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener, View.OnKeyListener {
     private lateinit var mBinding: ActivityRegisterEmploymentInformationBinding
     private lateinit var mViewModel: RegisterWorkExperienceViewModel
 
