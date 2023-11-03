@@ -36,7 +36,7 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
         mBinding.documentTypeEt.onFocusChangeListener = this
         mBinding.documentEt.onFocusChangeListener = this
         mBinding.genderEt.onFocusChangeListener = this
-        mBinding.emailAddressEt.onFocusChangeListener = this
+        //mBinding.emailAddressEt.onFocusChangeListener = this
         mBinding.telephoneEt.onFocusChangeListener = this
         mBinding.countryEt.onFocusChangeListener = this
         mBinding.birthDateEt.onFocusChangeListener = this
@@ -65,7 +65,7 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
                 "typeDocument",
                 "document",
                 "gender",
-                "alternativeEmail",
+                //"alternativeEmail",
                 "telephone",
                 "country",
                 "address",
@@ -109,12 +109,12 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
                                 error = entry.value
                             }
                         }
-                        "alternativeEmail" -> {
+                        /*"alternativeEmail" -> {
                             mBinding.emailAddressTil.apply {
                                 isErrorEnabled = true
                                 error = entry.value
                             }
-                        }
+                        }*/
                         "telephone" -> {
                             mBinding.telephoneTil.apply {
                                 isErrorEnabled = true
@@ -290,7 +290,7 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
         return errorMessage == null
     }
 
-    private fun validateEmail(
+    /*private fun validateEmail(
         shouldUpdateView: Boolean = true,
         shouldVibrateView: Boolean = true
     ): Boolean {
@@ -314,7 +314,7 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
         }
 
         return errorMessage == null
-    }
+    }*/
 
     private fun validateTelephone(
         shouldVibrateView: Boolean = true
@@ -512,7 +512,7 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
                         validateGender()
                     }
                 }
-                R.id.emailAddressEt -> {
+                /*R.id.emailAddressEt -> {
                     if (hasFocus) {
                         if (mBinding.emailAddressTil.isErrorEnabled) {
                             mBinding.emailAddressTil.isErrorEnabled = false
@@ -520,7 +520,7 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
                     } else {
                         validateEmail()
                     }
-                }
+                }*/
                 R.id.telephoneEt -> {
                     if (hasFocus) {
                         if (mBinding.telephoneTil.isErrorEnabled) {
@@ -599,7 +599,7 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
                     mBinding.documentTypeEt.text!!.toString(),
                     mBinding.genderEt.text!!.toString(),
                     mBinding.documentEt.text!!.toString(),
-                    mBinding.emailAddressEt.text!!.toString(),
+                    //mBinding.emailAddressEt.text!!.toString(),
                     mBinding.telephoneEt.text!!.toString(),
                     mBinding.countryEt.text!!.toString(),
                     mBinding.addressEt.text!!.toString(),
@@ -619,7 +619,7 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
         if (!validateTypeDocument(shouldVibrateView = false)) isValid = false
         if (!validateDocument(shouldVibrateView = false)) isValid = false
         if (!validateGender(shouldVibrateView = false)) isValid = false
-        if (!validateEmail(shouldVibrateView = false)) isValid = false
+        //if (!validateEmail(shouldVibrateView = false)) isValid = false
         if (!validateTelephone(shouldVibrateView = false)) isValid = false
         if (!validateCountry(shouldVibrateView = false)) isValid = false
         if (!validateAddress(shouldVibrateView = false)) isValid = false

@@ -6,7 +6,7 @@ data class RegisterCandidatePersonalInformationBody(
     val typeDocument: String,
     val document: String,
     val gender: String,
-    val alternativeEmail: String,
+    //val alternativeEmail: String,
     val telephone: String,
     val country: String,
     val address: String,

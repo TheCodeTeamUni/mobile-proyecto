@@ -296,7 +296,7 @@ class RegisterEmploymentInformationActivity : AppCompatActivity(), View.OnClickL
                 RegisterCandidateWorkExperienceInformationBody(
                     mBinding.companyEt.text!!.toString(),
                     mBinding.positionEt.text!!.toString(),
-                    mBinding.actualJobEt.text!!.toString(),
+                    actualJob = true,
                     mBinding.startDateEt.text!!.toString(),
                     mBinding.endDateEt.text!!.toString(),
                 )
