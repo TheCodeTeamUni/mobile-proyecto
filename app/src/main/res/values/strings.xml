@@ -51,6 +51,7 @@
     <string name="username">Username</string>
     <string name="company">Company</string>
     <string name="information_type">Education Type</string>
+    <string name="skill">Skills</string>
     <string name="candidate_name">Name</string>
     <string name="candidate_last_name">Last Name</string>
     <string name="candidate_document_type">Document Type</string>
@@ -59,8 +60,10 @@
     <string name="email">Email</string>
     <string name="position">Position</string>
     <string name="level">Level Education</string>
+    <string name="level_skill">Skills Level</string>
     <string name="actual_job">Actual Job</string>
     <string name="title">Title</string>
+    <string name="experience">Experience</string>
     <string name="start_date">Start Date</string>
     <string name="grade">Grade</string>
     <string name="end_date">End Date</string>

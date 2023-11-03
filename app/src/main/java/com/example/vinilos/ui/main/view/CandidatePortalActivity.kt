@@ -27,5 +27,10 @@ class CandidatePortalActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterVocationalInformationActivity::class.java)
             startActivity(intent)
         }
+
+        binding.skillIcon.setOnClickListener {
+            val intent = Intent(this, RegisterSkillInformationActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

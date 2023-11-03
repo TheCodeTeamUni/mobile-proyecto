@@ -147,24 +147,6 @@
                         tools:ignore="TouchTargetSizeCheck" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!--com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/emailAddressTil"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/emailAddressEt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/alternative_email"
-                        android:inputType="textEmailAddress"
-                        android:paddingHorizontal="8dp"
-                        android:paddingVertical="12dp"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                </com.google.android.material.textfield.TextInputLayout-->
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/telephoneTil"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"

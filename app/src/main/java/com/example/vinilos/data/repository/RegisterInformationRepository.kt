@@ -3,6 +3,7 @@ package com.example.vinilos.data.repository
 import com.example.vinilos.data.api.ApiService
 import com.example.vinilos.data.model.RegisterCandidateEducationInformationBody
 import com.example.vinilos.data.model.RegisterCandidatePersonalInformationBody
+import com.example.vinilos.data.model.RegisterCandidateSkillInformationBody
 import com.example.vinilos.data.model.RegisterCandidateWorkExperienceInformationBody
 import com.example.vinilos.utils.RequestStatus
 import com.example.vinilos.utils.SimplifiedMessage
@@ -44,6 +45,22 @@ class RegisterInformationRepository(private val consumer: ApiService) {
     fun registerEducationInformation(body: RegisterCandidateEducationInformationBody) = flow {
         emit(RequestStatus.Waiting)
         val response = consumer.registerCandidateEducationInformation(body)
+        if (response.isSuccessful) {
+            emit(RequestStatus.Success(response.body()!!))
+        } else {
+            emit(
+                RequestStatus.Error(
+                    SimplifiedMessage.get(
+                        response.errorBody()!!.byteStream().reader().readText()
+                    )
+                )
+            )
+        }
+    }
+
+    fun registerSkillInformation(body: RegisterCandidateSkillInformationBody) = flow {
+        emit(RequestStatus.Waiting)
+        val response = consumer.registerCandidateSkillInformation(body)
         if (response.isSuccessful) {
             emit(RequestStatus.Success(response.body()!!))
         } else {
