@@ -93,7 +93,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/technical_test_result_icon"
+        android:id="@+id/skill_icon"
         android:layout_width="151dp"
         android:layout_height="154dp"
         android:layout_gravity="center_horizontal"
@@ -102,7 +102,7 @@
         android:contentDescription="@string/logo"
         android:minWidth="48dp"
         android:minHeight="48dp"
-        android:src="@drawable/tecnical_test_result"
+        android:src="@drawable/skills_information_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"

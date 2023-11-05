@@ -15,9 +15,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
+import com.example.vinilos.data.api.RetrofitClient
 import com.example.vinilos.data.model.RegisterBody
 import com.example.vinilos.data.model.ValidateEmailBody
-import com.example.vinilos.data.api.RetrofitClient
 import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModel
 import com.example.vinilos.ui.main.viewmodel.SignUpActivityViewModelFactory
@@ -43,6 +43,7 @@ class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnF
         mBinding.confirmPasswordEt.addTextChangedListener(this)
         mBinding.createUserBtn.setOnClickListener(this)
         mBinding.loginSignUpBtn.setOnClickListener(this)
+
         mViewModel = ViewModelProvider(
             this,
             SignUpActivityViewModelFactory(AuthRepository(RetrofitClient.getService()), application)
@@ -117,13 +118,7 @@ class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnF
                 }
             }
         }
-        /*mViewModel.getUser().observe(this) {
-            if (it == null) {
-                startActivity(Intent(this, MainActivity::class.java))
-                Toast.makeText(applicationContext, "USER CREATED", Toast.LENGTH_LONG).show()
-            }
-        }*/
-        mViewModel.getSignUp().observe(this){
+        mViewModel.getSignUp().observe(this) {
             if (it != null) {
                 println("Esto imprime esto; " + it)
                 startActivity(Intent(this, MainActivity::class.java))
@@ -311,11 +306,9 @@ class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnF
                             }
                         }
                     }
-
                 }
             }
         }
-
     }
 
     override fun onKey(view: View?, keyCode: Int, keyEvent: KeyEvent?): Boolean {

@@ -5,26 +5,27 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.vinilos.data.model.LoginBody
-import com.example.vinilos.data.repository.AuthRepository
-import com.example.vinilos.utils.AuthToken
+import com.example.vinilos.data.model.RegisterCandidatePersonalInformationBody
+import com.example.vinilos.data.repository.RegisterInformationRepository
 import com.example.vinilos.utils.RequestStatus
 import kotlinx.coroutines.launch
 
-class MainActivityViewModel(val authRepository: AuthRepository, val application: Application) :
-    ViewModel() {
+class RegisterPersonalInformationViewModel(
+    private val registerInformationRepository: RegisterInformationRepository,
+    val application: Application
+) : ViewModel() {
     private var isLoading: MutableLiveData<Boolean> =
         MutableLiveData<Boolean>().apply { value = false }
     private var errorMessage: MutableLiveData<HashMap<String, String>> = MutableLiveData()
-    private var login: MutableLiveData<String> = MutableLiveData()
+    private var registerPersonalInformation: MutableLiveData<Int> = MutableLiveData()
 
     fun getIsLoading(): LiveData<Boolean> = isLoading
     fun getErrorMessage(): LiveData<HashMap<String, String>> = errorMessage
-    fun getLogin(): LiveData<String> = login
+    fun getRegisterPersonalInformation(): LiveData<Int> = registerPersonalInformation
 
-    fun loginUser(body: LoginBody) {
+    fun personalInformationRegister(body: RegisterCandidatePersonalInformationBody) {
         viewModelScope.launch {
-            authRepository.loginUser(body).collect {
+            registerInformationRepository.personalInformationRegister(body).collect {
                 when (it) {
                     is RequestStatus.Waiting -> {
                         isLoading.value = true
@@ -32,9 +33,7 @@ class MainActivityViewModel(val authRepository: AuthRepository, val application:
                     }
                     is RequestStatus.Success -> {
                         isLoading.value = false
-                        login.value = it.data.type
-                        AuthToken.getInstance(application.baseContext).token = it.data.token
-                        //login.value = it.data.token
+                        registerPersonalInformation.value = it.data.id
                         println("Respuesta obtenida")
                     }
                     is RequestStatus.Error -> {
