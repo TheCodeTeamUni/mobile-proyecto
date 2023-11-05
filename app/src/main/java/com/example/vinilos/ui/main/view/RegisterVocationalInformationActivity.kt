@@ -19,7 +19,8 @@ import com.example.vinilos.utils.VibrateView
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityRegisterVocationalInformationBinding
 
-class RegisterVocationalInformationActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChangeListener, View.OnKeyListener {
+class RegisterVocationalInformationActivity : AppCompatActivity(), View.OnClickListener,
+    View.OnFocusChangeListener, View.OnKeyListener {
     private lateinit var mBinding: ActivityRegisterVocationalInformationBinding
     private lateinit var mViewModel: RegisterEducationViewModel
 
@@ -53,7 +54,15 @@ class RegisterVocationalInformationActivity : AppCompatActivity(), View.OnClickL
 
         mViewModel.getErrorMessage().observe(this) {
             //username, email, password
-            val formErrorKeys = arrayOf("typeEducation", "level", "title", "grade", "institution","startDate","endDate")
+            val formErrorKeys = arrayOf(
+                "typeEducation",
+                "level",
+                "title",
+                "grade",
+                "institution",
+                "startDate",
+                "endDate"
+            )
             val message = StringBuilder()
             it.map { entry ->
                 if (formErrorKeys.contains(entry.key)) {

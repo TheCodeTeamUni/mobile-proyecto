@@ -10,9 +10,11 @@ import com.example.vinilos.data.repository.RegisterInformationRepository
 import com.example.vinilos.utils.RequestStatus
 import kotlinx.coroutines.launch
 
-class RegisterEducationViewModel (
-    private val registerInformation: RegisterInformationRepository, val application: Application) : ViewModel() {
-    private var isLoading: MutableLiveData<Boolean> = MutableLiveData<Boolean>().apply { value = false }
+class RegisterEducationViewModel(
+    private val registerInformation: RegisterInformationRepository, val application: Application
+) : ViewModel() {
+    private var isLoading: MutableLiveData<Boolean> =
+        MutableLiveData<Boolean>().apply { value = false }
     private var errorMessage: MutableLiveData<HashMap<String, String>> = MutableLiveData()
     private var registerEducationInformation: MutableLiveData<Int> = MutableLiveData()
 

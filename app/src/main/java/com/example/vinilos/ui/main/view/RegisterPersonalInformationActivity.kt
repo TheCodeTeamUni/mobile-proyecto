@@ -2,7 +2,6 @@ package com.example.vinilos.ui.main.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Patterns
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -555,8 +554,8 @@ class RegisterPersonalInformationActivity : AppCompatActivity(), View.OnClickLis
                     mBinding.userNameEt.text!!.toString(),
                     mBinding.lastNameEt.text!!.toString(),
                     mBinding.documentTypeEt.text!!.toString(),
-                    mBinding.genderEt.text!!.toString(),
                     mBinding.documentEt.text!!.toString(),
+                    mBinding.genderEt.text!!.toString(),
                     mBinding.telephoneEt.text!!.toString(),
                     mBinding.countryEt.text!!.toString(),
                     mBinding.addressEt.text!!.toString(),

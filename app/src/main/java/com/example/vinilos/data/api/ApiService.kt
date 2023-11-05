@@ -29,7 +29,7 @@ interface ApiService {
     @POST("abcjobs/aspirantes/education")
     suspend fun registerCandidateEducationInformation(@Body body: RegisterCandidateEducationInformationBody): Response<RegisterCandidateEducationInformationResponse>
 
-    @POST ("abcjobs/aspirantes/skill")
+    @POST("abcjobs/aspirantes/skill")
     suspend fun registerCandidateSkillInformation(@Body body: RegisterCandidateSkillInformationBody): Response<RegisterCandidateSkillInformationResponse>
 
     @GET("albums")
@@ -42,9 +42,7 @@ interface ApiService {
     suspend fun getAllAlbums(): Response<List<AlbumResponse>>
 
     @POST("albums")
-    suspend fun createAlbum(
-        @Body album: HashMap<String, String>
-    ): Response<AlbumResponse>
+    suspend fun createAlbum(@Body album: HashMap<String, String>): Response<AlbumResponse>
 
     @GET("musicians")
     suspend fun getMusicians(): List<ArtistResponse>
