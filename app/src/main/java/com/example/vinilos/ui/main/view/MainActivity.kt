@@ -10,8 +10,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
-import com.example.vinilos.data.model.LoginBody
 import com.example.vinilos.data.api.RetrofitClient
+import com.example.vinilos.data.model.LoginBody
 import com.example.vinilos.data.repository.AuthRepository
 import com.example.vinilos.ui.main.viewmodel.MainActivityViewModel
 import com.example.vinilos.ui.main.viewmodel.MainActivityViewModelFactory
@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChan
             this,
             MainActivityViewModelFactory(AuthRepository(RetrofitClient.getService()), application)
         ).get(MainActivityViewModel::class.java)
-
         setupObservers()
 
     }
@@ -91,11 +90,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChan
                 //Toast.makeText(applicationContext, "START SESSION", Toast.LENGTH_LONG).show()
             }
         }*/
-        mViewModel.getLogin().observe(this){
-            if (it != null && it == "1"){
+        mViewModel.getLogin().observe(this) {
+            if (it != null && it == "1") {
                 println("Esto imprime esto: " + it)
                 startActivity(Intent(this, CandidatePortalActivity::class.java))
-            }else {
+            } else {
+                println("Esto imprime esto: " + it)
                 startActivity(Intent(this, CompanyPortalActivity::class.java))
             }
         }
@@ -207,8 +207,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChan
         }
     }
 
-    override fun onKey(view: View?, event: Int, keyEvent: KeyEvent?): Boolean {
-        if (event == KeyEvent.KEYCODE_ENTER && keyEvent!!.action == KeyEvent.ACTION_UP) {
+    override fun onKey(view: View?, keyCode: Int, keyEvent: KeyEvent?): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_ENTER && keyEvent!!.action == KeyEvent.ACTION_UP) {
             submitForm()
         }
         return false

@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitBuilder {
 
     private const val BASE_URL =
-        "http://jobs-app-users-env.eba-pfppdukn.us-east-1.elasticbeanstalk.com/"
+        "http://jobs-app-integrator-env.eba-fmggp8g3.us-east-1.elasticbeanstalk.com/"
 
     fun getRetrofit(): Retrofit {
         return Retrofit.Builder()

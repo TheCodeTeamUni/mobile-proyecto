@@ -1,7 +1,6 @@
 package com.example.vinilos.data.api
 
 
-import com.example.vinilos.data.model.LoginBody
 import com.example.vinilos.data.model.*
 import com.google.gson.JsonObject
 import retrofit2.Response
@@ -12,17 +11,26 @@ import retrofit2.http.Path
 
 interface ApiService {
 
-    @POST("users/validate")
+    @POST("abcjobs/validate")
     suspend fun validateEmailAddress(@Body body: ValidateEmailBody): Response<UniqueEmailValidationResponse>
 
-    @POST("users/signup")
+    @POST("abcjobs/signup")
     suspend fun registerUser(@Body body: RegisterBody): Response<RegisterResponse>
 
-    //@POST("users/login")
-    //suspend fun loginUser(@Body body: LoginBody): Response<AuthResponse>
-
-    @POST("users/login")
+    @POST("abcjobs/login")
     suspend fun loginUser(@Body body: LoginBody): Response<LoginResponse>
+
+    @POST("abcjobs/aspirantes/personal")
+    suspend fun registerCandidatePersonalInformation(@Body body: RegisterCandidatePersonalInformationBody): Response<RegisterCandidatePersonalInformationResponse>
+
+    @POST("abcjobs/aspirantes/workexperience")
+    suspend fun registerCandidateWorkExperienceInformation(@Body body: RegisterCandidateWorkExperienceInformationBody): Response<RegisterCandidateWorkExperienceInformationResponse>
+
+    @POST("abcjobs/aspirantes/education")
+    suspend fun registerCandidateEducationInformation(@Body body: RegisterCandidateEducationInformationBody): Response<RegisterCandidateEducationInformationResponse>
+
+    @POST("abcjobs/aspirantes/skill")
+    suspend fun registerCandidateSkillInformation(@Body body: RegisterCandidateSkillInformationBody): Response<RegisterCandidateSkillInformationResponse>
 
     @GET("albums")
     suspend fun getAlbums(): List<AlbumResponse>
@@ -34,9 +42,7 @@ interface ApiService {
     suspend fun getAllAlbums(): Response<List<AlbumResponse>>
 
     @POST("albums")
-    suspend fun createAlbum(
-        @Body album: HashMap<String, String>
-    ): Response<AlbumResponse>
+    suspend fun createAlbum(@Body album: HashMap<String, String>): Response<AlbumResponse>
 
     @GET("musicians")
     suspend fun getMusicians(): List<ArtistResponse>

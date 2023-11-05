@@ -2,7 +2,7 @@
 <network-security-config>
     <domain-config cleartextTrafficPermitted="true">
         <domain includeSubdomains="true">
-            jobs-app-users-env.eba-pfppdukn.us-east-1.elasticbeanstalk.com
+            jobs-app-integrator-env.eba-fmggp8g3.us-east-1.elasticbeanstalk.com
         </domain>
     </domain-config>
 </network-security-config>
