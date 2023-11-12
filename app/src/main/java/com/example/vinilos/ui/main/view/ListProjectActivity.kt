@@ -11,7 +11,7 @@ import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityHomeBinding
 
 
-class HomeActivity : AppCompatActivity() {
+class ListProjectActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     private lateinit var navController: NavController
 

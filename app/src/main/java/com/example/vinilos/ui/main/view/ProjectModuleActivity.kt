@@ -3,7 +3,6 @@ package com.example.vinilos.ui.main.view
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityProjectModuleBinding
 
 class ProjectModuleActivity : AppCompatActivity() {
@@ -20,7 +19,7 @@ class ProjectModuleActivity : AppCompatActivity() {
         }
 
         binding.listProjectsIcon.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
+            val intent = Intent(this, ListProjectActivity::class.java)
             startActivity(intent)
         }
     }
