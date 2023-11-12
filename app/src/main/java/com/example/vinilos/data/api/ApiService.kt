@@ -35,7 +35,7 @@ interface ApiService {
     @POST("abcjobs/company/project")
     suspend fun createProject(@Body body: CreateProjectBody): Response<CreateProjectResponse>
 
-    @GET("albums")
+    @GET("abcjobs/company/project")
     suspend fun getAlbums(): List<AlbumResponse>
 
     @GET("albums/{id}")

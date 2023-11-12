@@ -18,5 +18,10 @@ class ProjectModuleActivity : AppCompatActivity() {
             val intent = Intent(this, CreateProjectActivity::class.java)
             startActivity(intent)
         }
+
+        binding.listProjectsIcon.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
