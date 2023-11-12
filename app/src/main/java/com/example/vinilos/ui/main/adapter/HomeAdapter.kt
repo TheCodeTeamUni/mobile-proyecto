@@ -26,8 +26,7 @@ class HomeAdapter(
             bindPar.root.apply {
                 bindPar.textViewElementTitle.text = album.nameProject
                 bindPar.textElementDetail.text = album.description
-                Glide.with(bindPar.imageElementList.context)
-                    .load(R.drawable.list_project_icon)
+                Glide.with(bindPar.imageElementList.context).load(R.drawable.list_project_icon)
                     .into(bindPar.imageElementList)
             }
         }
@@ -44,16 +43,12 @@ class HomeAdapter(
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         holder.bindPar.root.setOnClickListener {
-            //Log.d("hola"," mundo")
             val intent = Intent(context, DetailAlbumActivity::class.java).apply {
                 putExtra(ID, albums[position].aspirants.toString())
                 putExtra(NAME, albums[position].nameProject)
             }
-
             context.startActivity(intent)
-
         }
-
         holder.bind(albums[position])
     }
 
@@ -62,6 +57,5 @@ class HomeAdapter(
             clear()
             addAll(albums)
         }
-
     }
 }

@@ -27,7 +27,7 @@ class HomeActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController)
 
-        binding.bottomNavigationView.setOnItemSelectedListener {
+        /*binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 binding.bottomNavigationView.menu.getItem(0).itemId -> {
                     setFragment(AlbumListFragment.newInstance())
@@ -43,7 +43,7 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
             false
-        }
+        }*/
     }
 
     private fun setFragment(fr: Fragment) {

@@ -94,7 +94,7 @@ class AlbumListFragment : Fragment() {
     }
 
     private fun launchAlbumCreateActivity(view: View) {
-        val intent = Intent(activity, CreateAlbumActivity::class.java)
+        val intent = Intent(activity, CreateProjectActivity::class.java)
         startActivity(intent)
     }
 

@@ -20,30 +20,5 @@ class DetailAdapter(private val albumDetail: AlbumResponse) {
         binding.textContentGenre.text = albumDetail.endDate
         binding.textContentRecord.text = albumDetail.aspirants.toString()
         binding.textContentDescription.text = albumDetail.description
-        //binding.listTexTracks.text = adaptStringTracks(binding)
-    }
-
-    /*private fun adaptStringTracks(binding: ActivityDetailAlbumBinding): String {
-
-        val sb = StringBuilder()
-        for (i in albumDetail.tracks) {
-            sb.append("- ${i.name} (${i.duration})" + "\n")
-        }
-        return sb.toString()
-    }
-
-    private fun adaptStringPerformers(binding: ActivityDetailAlbumBinding): String {
-
-        val sb = StringBuilder()
-        for (i in albumDetail.performers) {
-            sb.append("- ${i.name} " + "\n")
-        }
-        return sb.toString()
-
-
-    }*/
-
-    private fun formatDate(date: Date?): String {
-        return DateFormat.getDateInstance(DateFormat.LONG).format(date).toString()
     }
 }
