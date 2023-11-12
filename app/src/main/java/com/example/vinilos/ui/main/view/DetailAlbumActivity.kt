@@ -76,7 +76,7 @@ class DetailAlbumActivity : AppCompatActivity() {
             Log.d("Cache decision", "Se saca de la red")
             setupObservers(id)
         } else {
-            Log.d("Cache decision", "return ${potentialResp.name} elements from cache")
+            Log.d("Cache decision", "return ${potentialResp.nameProject} elements from cache")
             retrieveAlbumDetail(
                 potentialResp,
                 false
@@ -107,10 +107,10 @@ class DetailAlbumActivity : AppCompatActivity() {
     }
 
     private fun retrieveAlbumDetail(album: AlbumResponse, b: Boolean) {
-        CacheManager.getInstance(application.applicationContext).addAlbum(album.id.toInt(), album)
+        CacheManager.getInstance(application.applicationContext).addAlbum(album.aspirants.toInt(), album)
         adapter = DetailAdapter(album)
         adapter.adaptData(binding)
-        supportActionBar?.title = album.name
+        supportActionBar?.title = album.nameProject
         supportActionBar?.subtitle = "Album"
     }
 

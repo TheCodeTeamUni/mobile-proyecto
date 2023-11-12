@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vinilos.data.model.AlbumResponse
 import com.example.vinilos.ui.main.view.DetailAlbumActivity
+import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ItemLayoutBinding
 
 const val ID = "id"
@@ -23,10 +24,10 @@ class HomeAdapter(
         val bindPar = binding
         fun bind(album: AlbumResponse) {
             bindPar.root.apply {
-                bindPar.textViewElementTitle.text = album.name
-                bindPar.textElementDetail.text = album.recordLabel
+                bindPar.textViewElementTitle.text = album.nameProject
+                bindPar.textElementDetail.text = album.description
                 Glide.with(bindPar.imageElementList.context)
-                    .load(album.cover)
+                    .load(R.drawable.list_project_icon)
                     .into(bindPar.imageElementList)
             }
         }
@@ -45,8 +46,8 @@ class HomeAdapter(
         holder.bindPar.root.setOnClickListener {
             //Log.d("hola"," mundo")
             val intent = Intent(context, DetailAlbumActivity::class.java).apply {
-                putExtra(ID, albums[position].id.toString())
-                putExtra(NAME, albums[position].name)
+                putExtra(ID, albums[position].aspirants.toString())
+                putExtra(NAME, albums[position].nameProject)
             }
 
             context.startActivity(intent)

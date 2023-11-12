@@ -59,8 +59,8 @@ class DetailArtistAdapter(private val artistDetail: ArtistResponse, private val 
         val sb = StringBuilder()
         for (i in artistDetail.albums) {
             sb.append(
-                "- ${i.name} (${
-                    DateFormat.getDateInstance(DateFormat.MEDIUM).format(i.releaseDate)
+                "- ${i.nameProject} (${
+                    DateFormat.getDateInstance(DateFormat.MEDIUM).format(i.startDate)
                 })" + "\n"
             )
         }

@@ -4,7 +4,22 @@ import com.google.gson.annotations.SerializedName
 import java.util.*
 
 class AlbumResponse {
-    @SerializedName("id")
+    @SerializedName("nameProject")
+    var nameProject: String? = null
+
+    @SerializedName("startDate")
+    var startDate: String? = null
+
+    @SerializedName("endDate")
+    var endDate: String? = null
+
+    @SerializedName("aspirants")
+    var aspirants: Number = 0
+
+    @SerializedName("description")
+    var description: String? = null
+
+    /*@SerializedName("id")
     var id: Number = 0
 
     @SerializedName("name")
@@ -29,5 +44,5 @@ class AlbumResponse {
     var performers: ArrayList<ArtistResponse> = ArrayList()
 
     @SerializedName("tracks")
-    var tracks: ArrayList<TracksResponse> = ArrayList()
+    var tracks: ArrayList<TracksResponse> = ArrayList()*/
 }
