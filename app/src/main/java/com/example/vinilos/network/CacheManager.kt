@@ -1,9 +1,9 @@
 package com.example.vinilos.network
 
 import android.content.Context
-import com.example.vinilos.data.model.ProjectResponse
 import com.example.vinilos.data.model.ArtistResponse
 import com.example.vinilos.data.model.CollectorResponse
+import com.example.vinilos.data.model.ProjectResponse
 
 class CacheManager(context: Context) {
     companion object {

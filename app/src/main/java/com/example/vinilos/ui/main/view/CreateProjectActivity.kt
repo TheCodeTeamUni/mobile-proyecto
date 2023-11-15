@@ -1,31 +1,28 @@
 package com.example.vinilos.ui.main.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.example.vinilos.data.api.RetrofitClient
 import com.example.vinilos.data.model.CreateProjectBody
-import com.example.vinilos.data.model.RegisterCandidateEducationInformationBody
 import com.example.vinilos.data.repository.RegisterInformationRepository
 import com.example.vinilos.ui.main.viewmodel.CreateProjectViewModel
 import com.example.vinilos.ui.main.viewmodel.CreateProjectViewModelFactory
-import com.example.vinilos.ui.main.viewmodel.RegisterEducationViewModel
-import com.example.vinilos.ui.main.viewmodel.RegisterEducationViewModelFactory
 import com.example.vinilos.utils.VibrateView
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityCreateProjectBinding
 
 class CreateProjectActivity : AppCompatActivity(), View.OnClickListener,
     View.OnFocusChangeListener, View.OnKeyListener {
-    private lateinit var mBinding:ActivityCreateProjectBinding
-    private lateinit var mViewModel:CreateProjectViewModel
+    private lateinit var mBinding: ActivityCreateProjectBinding
+    private lateinit var mViewModel: CreateProjectViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

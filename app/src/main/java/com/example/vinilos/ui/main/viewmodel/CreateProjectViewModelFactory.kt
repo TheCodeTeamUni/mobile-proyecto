@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.vinilos.data.repository.RegisterInformationRepository
 import java.security.InvalidParameterException
 
-class CreateProjectViewModelFactory (
+class CreateProjectViewModelFactory(
     private val registerInformation: RegisterInformationRepository,
     private val application: Application
 ) : ViewModelProvider.Factory {

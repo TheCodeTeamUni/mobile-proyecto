@@ -87,115 +87,115 @@
         app:strokeColor="@color/black"
         app:strokeWidth="0.5dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:orientation="vertical">
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/projectNameTil"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/projectNameEt"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Project Name"
-            android:inputType="text"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="12dp"
-            android:textColorHint="#757575"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:layout_margin="12dp"
+            android:orientation="vertical">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/projectNameTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/startDateTil"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/projectNameEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Project Name"
+                    android:inputType="text"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="12dp"
+                    android:textColorHint="#757575"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/startDateEt"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/startDateTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/start_date"
-                android:inputType="textEmailAddress"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="12dp"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="12dp">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/endDateTil"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/startDateEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/start_date"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="12dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/endDateEt"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/endDateTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/end_date"
-                android:inputType="textEmailAddress"
-                android:paddingHorizontal="8dp"
-                android:paddingVertical="12dp"
-                tools:ignore="TouchTargetSizeCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="12dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/descriptionTil"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/endDateEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/end_date"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="12dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/descriptionEt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Description"
-            android:inputType="textEmailAddress"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="12dp"
-            tools:ignore="TouchTargetSizeCheck" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/descriptionTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
 
-    </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/descriptionEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Description"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="12dp"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/aspirantTil"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp">
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/aspirantEt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Aspirant"
-            android:inputType="textEmailAddress"
-            android:paddingHorizontal="8dp"
-            android:paddingVertical="12dp"
-            tools:ignore="TouchTargetSizeCheck" />
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/aspirantTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/saveInformationBtn"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="@string/SaveInformation"
-            app:cornerRadius="30dp" />
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/aspirantEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Aspirant"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="12dp"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/saveInformationBtn"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/SaveInformation"
+                app:cornerRadius="30dp" />
+        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

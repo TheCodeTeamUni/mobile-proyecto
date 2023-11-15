@@ -13,9 +13,9 @@ import com.example.vinilos.data.api.RetrofitBuilder
 import com.example.vinilos.data.model.ProjectResponse
 import com.example.vinilos.network.CacheManager
 import com.example.vinilos.ui.base.ViewModelFactory
-import com.example.vinilos.ui.main.adapter.ProjectDetailAdapter
 import com.example.vinilos.ui.main.adapter.ID
 import com.example.vinilos.ui.main.adapter.NAME
+import com.example.vinilos.ui.main.adapter.ProjectDetailAdapter
 import com.example.vinilos.ui.main.viewmodel.ProjectViewModel
 import com.example.vinilos.utils.Status
 import com.vinylsMobile.vinylsapplication.R
@@ -107,7 +107,8 @@ class DetailProjectActivity : AppCompatActivity() {
     }
 
     private fun retrieveAlbumDetail(album: ProjectResponse, b: Boolean) {
-        CacheManager.getInstance(application.applicationContext).addAlbum(album.aspirants.toInt(), album)
+        CacheManager.getInstance(application.applicationContext)
+            .addAlbum(album.aspirants.toInt(), album)
         adapter = ProjectDetailAdapter(album)
         adapter.adaptData(binding)
         supportActionBar?.title = album.nameProject
