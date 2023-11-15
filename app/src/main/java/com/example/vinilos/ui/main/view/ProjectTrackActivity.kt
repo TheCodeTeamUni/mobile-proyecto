@@ -10,15 +10,15 @@ import androidx.lifecycle.lifecycleScope
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
 import com.example.vinilos.ui.base.ViewModelFactory
-import com.example.vinilos.ui.main.viewmodel.HomeViewModel
+import com.example.vinilos.ui.main.viewmodel.ProjectViewModel
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityTrackAlbumBinding
 import kotlinx.coroutines.launch
 
-class AlbumTrackActivity : AppCompatActivity() {
+class ProjectTrackActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityTrackAlbumBinding
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var homeViewModel: ProjectViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +59,7 @@ class AlbumTrackActivity : AppCompatActivity() {
         homeViewModel = ViewModelProviders.of(
             this,
             ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
-        )[HomeViewModel::class.java]
+        )[ProjectViewModel::class.java]
     }
 
     private fun createTrackToAlbum(name: String, duration: String, id: Number) {

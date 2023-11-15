@@ -10,20 +10,20 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
-import com.example.vinilos.data.model.AlbumResponse
+import com.example.vinilos.data.model.ProjectResponse
 import com.example.vinilos.network.CacheManager
 import com.example.vinilos.ui.base.ViewModelFactory
-import com.example.vinilos.ui.main.adapter.DetailAdapter
+import com.example.vinilos.ui.main.adapter.ProjectDetailAdapter
 import com.example.vinilos.ui.main.adapter.ID
 import com.example.vinilos.ui.main.adapter.NAME
-import com.example.vinilos.ui.main.viewmodel.HomeViewModel
+import com.example.vinilos.ui.main.viewmodel.ProjectViewModel
 import com.example.vinilos.utils.Status
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailAlbumBinding
 
-class DetailAlbumActivity : AppCompatActivity() {
-    private lateinit var mainViewModel: HomeViewModel
-    private lateinit var adapter: DetailAdapter
+class DetailProjectActivity : AppCompatActivity() {
+    private lateinit var mainViewModel: ProjectViewModel
+    private lateinit var adapter: ProjectDetailAdapter
 
     private lateinit var binding: ActivityDetailAlbumBinding
     private lateinit var idAlbum: String
@@ -65,12 +65,12 @@ class DetailAlbumActivity : AppCompatActivity() {
         mainViewModel = ViewModelProviders.of(
             this,
             ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
-        )[HomeViewModel::class.java]
+        )[ProjectViewModel::class.java]
     }
 
     private fun getArtistObservers(id: String) {
         var potentialResp =
-            CacheManager.getInstance(application.applicationContext).getAlbum(id.toInt())
+            CacheManager.getInstance(application.applicationContext).getProject(id.toInt())
 
         if (potentialResp == null) {
             Log.d("Cache decision", "Se saca de la red")
@@ -85,7 +85,7 @@ class DetailAlbumActivity : AppCompatActivity() {
     }
 
     private fun setupObservers(id: String) {
-        mainViewModel.getAlbumDetail(id).observe(this, {
+        mainViewModel.getProjectDetail(id).observe(this, {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
@@ -106,16 +106,16 @@ class DetailAlbumActivity : AppCompatActivity() {
         })
     }
 
-    private fun retrieveAlbumDetail(album: AlbumResponse, b: Boolean) {
+    private fun retrieveAlbumDetail(album: ProjectResponse, b: Boolean) {
         CacheManager.getInstance(application.applicationContext).addAlbum(album.aspirants.toInt(), album)
-        adapter = DetailAdapter(album)
+        adapter = ProjectDetailAdapter(album)
         adapter.adaptData(binding)
         supportActionBar?.title = album.nameProject
         supportActionBar?.subtitle = "Album"
     }
 
     private fun launchAlbumTrackActivityView(albumId: String, albumName: String) {
-        val intent = Intent(this, AlbumTrackActivity::class.java)
+        val intent = Intent(this, ProjectTrackActivity::class.java)
         intent.putExtra("idAlbum", albumId)
         intent.putExtra("nameAlbum", albumName)
         startActivity(intent)

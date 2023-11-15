@@ -2,7 +2,7 @@ package com.example.vinilos.data.model
 
 import com.google.gson.annotations.SerializedName
 
-class AlbumResponse {
+class ProjectResponse {
     @SerializedName("nameProject")
     var nameProject: String? = null
 

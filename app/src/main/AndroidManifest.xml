@@ -91,7 +91,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.vinilos.ui.main.view.AlbumTrackActivity"
+            android:name="com.example.vinilos.ui.main.view.ProjectTrackActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -110,7 +110,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.vinilos.ui.main.view.DetailAlbumActivity"
+            android:name="com.example.vinilos.ui.main.view.DetailProjectActivity"
             android:exported="false"
             android:parentActivityName="com.example.vinilos.ui.main.view.ListProjectActivity"
             android:theme="@style/Theme.Vinilos.NoActionBar" />

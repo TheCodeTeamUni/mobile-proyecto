@@ -12,23 +12,23 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
-import com.example.vinilos.data.model.AlbumResponse
+import com.example.vinilos.data.model.ProjectResponse
 import com.example.vinilos.ui.base.ViewModelFactory
 import com.example.vinilos.ui.main.adapter.HomeAdapter
-import com.example.vinilos.ui.main.viewmodel.HomeViewModel
+import com.example.vinilos.ui.main.viewmodel.ProjectViewModel
 import com.example.vinilos.utils.Status
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.vinylsMobile.vinylsapplication.databinding.FragmentAlbumListBinding
+import com.vinylsMobile.vinylsapplication.databinding.FragmentProjectListBinding
 
 /**
  * A simple [Fragment] subclass.
- * Use the [AlbumListFragment.newInstance] factory method to
+ * Use the [ProjectListFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class AlbumListFragment : Fragment() {
-    private lateinit var homeViewModel: HomeViewModel
+class ProjectListFragment : Fragment() {
+    private lateinit var homeViewModel: ProjectViewModel
     private lateinit var adapter: HomeAdapter
-    private lateinit var binding: FragmentAlbumListBinding
+    private lateinit var binding: FragmentProjectListBinding
 
     private fun setupUI() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
@@ -43,7 +43,7 @@ class AlbumListFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        homeViewModel.getAlbums().observe(viewLifecycleOwner, {
+        homeViewModel.getProjects().observe(viewLifecycleOwner, {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
@@ -69,7 +69,7 @@ class AlbumListFragment : Fragment() {
         homeViewModel = ViewModelProviders.of(
             this,
             ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
-        )[HomeViewModel::class.java]
+        )[ProjectViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -77,7 +77,7 @@ class AlbumListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentAlbumListBinding.inflate(layoutInflater, container, false)
+        binding = FragmentProjectListBinding.inflate(layoutInflater, container, false)
         setupUI()
         bindMenuEvents()
         setupViewModel()
@@ -107,12 +107,12 @@ class AlbumListFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(): AlbumListFragment {
-            return AlbumListFragment()
+        fun newInstance(): ProjectListFragment {
+            return ProjectListFragment()
         }
     }
 
-    private fun retrieveList(albums: List<AlbumResponse>) {
+    private fun retrieveList(albums: List<ProjectResponse>) {
         adapter.apply {
             addAlbums(albums)
             notifyDataSetChanged()

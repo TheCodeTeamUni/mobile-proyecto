@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.vinilos.data.model.AlbumResponse
-import com.example.vinilos.ui.main.view.DetailAlbumActivity
+import com.example.vinilos.data.model.ProjectResponse
+import com.example.vinilos.ui.main.view.DetailProjectActivity
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ItemLayoutBinding
 
@@ -15,14 +15,14 @@ const val ID = "id"
 const val NAME = "name"
 
 class HomeAdapter(
-    private val albums: ArrayList<AlbumResponse>
+    private val albums: ArrayList<ProjectResponse>
 ) : RecyclerView.Adapter<HomeAdapter.DataViewHolder>() {
 
     lateinit var context: Context
 
     class DataViewHolder(binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         val bindPar = binding
-        fun bind(album: AlbumResponse) {
+        fun bind(album: ProjectResponse) {
             bindPar.root.apply {
                 bindPar.textViewElementTitle.text = album.nameProject
                 bindPar.textElementDetail.text = album.description
@@ -43,7 +43,7 @@ class HomeAdapter(
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         holder.bindPar.root.setOnClickListener {
-            val intent = Intent(context, DetailAlbumActivity::class.java).apply {
+            val intent = Intent(context, DetailProjectActivity::class.java).apply {
                 putExtra(ID, albums[position].aspirants.toString())
                 putExtra(NAME, albums[position].nameProject)
             }
@@ -52,7 +52,7 @@ class HomeAdapter(
         holder.bind(albums[position])
     }
 
-    fun addAlbums(albums: List<AlbumResponse>) {
+    fun addAlbums(albums: List<ProjectResponse>) {
         this.albums.apply {
             clear()
             addAll(albums)

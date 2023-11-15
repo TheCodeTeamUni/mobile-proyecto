@@ -1,7 +1,7 @@
 package com.example.vinilos.network
 
 import android.content.Context
-import com.example.vinilos.data.model.AlbumResponse
+import com.example.vinilos.data.model.ProjectResponse
 import com.example.vinilos.data.model.ArtistResponse
 import com.example.vinilos.data.model.CollectorResponse
 
@@ -17,14 +17,14 @@ class CacheManager(context: Context) {
     }
 
     //Albums Cache elements
-    private var albums: HashMap<Int, AlbumResponse> = hashMapOf()
-    fun addAlbum(albumId: Int, albumes: AlbumResponse) {
+    private var albums: HashMap<Int, ProjectResponse> = hashMapOf()
+    fun addAlbum(albumId: Int, albumes: ProjectResponse) {
         if (!albums.containsKey(albumId)) {
             albums[albumId] = albumes
         }
     }
 
-    fun getAlbum(albumId: Int): AlbumResponse? {
+    fun getProject(albumId: Int): ProjectResponse? {
         return if (albums.containsKey(albumId)) albums[albumId]!! else null
     }
 

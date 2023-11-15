@@ -22,5 +22,5 @@ class CollectorResponse {
     var favoritePerformers: ArrayList<ArtistResponse> = ArrayList()
 
     @SerializedName("collectorAlbums")
-    var collectorAlbums: ArrayList<AlbumResponse> = ArrayList()
+    var collectorAlbums: ArrayList<ProjectResponse> = ArrayList()
 }
