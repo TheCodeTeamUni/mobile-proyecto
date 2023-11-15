@@ -23,7 +23,7 @@ class ArtistResponse {
     var description: String? = null
 
     @SerializedName("albums")
-    var albums: ArrayList<AlbumResponse> = ArrayList()
+    var albums: ArrayList<ProjectResponse> = ArrayList()
 
     @SerializedName("performerPrizes")
     var performerPrizes: ArrayList<PerformerPrizes> = ArrayList()

@@ -1,10 +1,7 @@
 package com.example.vinilos.data.repository
 
 import com.example.vinilos.data.api.ApiService
-import com.example.vinilos.data.model.RegisterCandidateEducationInformationBody
-import com.example.vinilos.data.model.RegisterCandidatePersonalInformationBody
-import com.example.vinilos.data.model.RegisterCandidateSkillInformationBody
-import com.example.vinilos.data.model.RegisterCandidateWorkExperienceInformationBody
+import com.example.vinilos.data.model.*
 import com.example.vinilos.utils.RequestStatus
 import com.example.vinilos.utils.SimplifiedMessage
 import kotlinx.coroutines.flow.flow
@@ -73,4 +70,21 @@ class RegisterInformationRepository(private val consumer: ApiService) {
             )
         }
     }
+
+    fun createProject(body: CreateProjectBody) = flow {
+        emit(RequestStatus.Waiting)
+        val response = consumer.createProject(body)
+        if (response.isSuccessful) {
+            emit(RequestStatus.Success(response.body()!!))
+        } else {
+            emit(
+                RequestStatus.Error(
+                    SimplifiedMessage.get(
+                        response.errorBody()!!.byteStream().reader().readText()
+                    )
+                )
+            )
+        }
+    }
+
 }

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/base"
-    tools:context="com.example.vinilos.ui.main.view.DetailAlbumActivity">
+    tools:context="com.example.vinilos.ui.main.view.DetailProjectActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"

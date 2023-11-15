@@ -2,28 +2,28 @@ package com.example.vinilos.ui.main.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import com.example.vinilos.data.model.AlbumModel
+import com.example.vinilos.data.model.ProjectModel
 import com.example.vinilos.data.model.TracksModel
-import com.example.vinilos.data.repository.AlbumRepository
+import com.example.vinilos.data.repository.ProjectRepository
 import com.example.vinilos.utils.Resource
 import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class HomeViewModel(private val AlbumRepository: AlbumRepository) : ViewModel() {
-    fun getAlbums() = liveData(Dispatchers.IO) {
+class ProjectViewModel(private val AlbumRepository: ProjectRepository) : ViewModel() {
+    fun getProjects() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
-            emit(Resource.success(data = AlbumRepository.getAlbums()))
+            emit(Resource.success(data = AlbumRepository.getProjects()))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, msg = exception.message ?: "Un error ha ocurrido!"))
         }
     }
 
-    fun getAlbumDetail(id: String) = liveData(Dispatchers.IO) {
+    fun getProjectDetail(id: String) = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
-            emit(Resource.success(data = AlbumRepository.getAlbumDetail(id)))
+            emit(Resource.success(data = AlbumRepository.getProjectDetail(id)))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, msg = exception.message ?: "Un error ha ocurrido!"))
         }
@@ -38,7 +38,7 @@ class HomeViewModel(private val AlbumRepository: AlbumRepository) : ViewModel() 
             )
         }
 
-    suspend fun createAlbumPost(album: AlbumModel) = withContext(Dispatchers.IO) {
+    suspend fun createAlbumPost(album: ProjectModel) = withContext(Dispatchers.IO) {
         AlbumRepository.postAlbum(jsonPostAlbumString(album))
     }
 
@@ -49,7 +49,7 @@ class HomeViewModel(private val AlbumRepository: AlbumRepository) : ViewModel() 
         return paramObject
     }
 
-    private fun jsonPostAlbumString(album: AlbumModel): JsonObject {
+    private fun jsonPostAlbumString(album: ProjectModel): JsonObject {
         val paramObject = JsonObject()
         paramObject.addProperty("name", album.name)
         paramObject.addProperty("cover", album.cover)

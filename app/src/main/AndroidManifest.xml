@@ -14,6 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vinilos">
         <activity
+            android:name="com.example.vinilos.ui.main.view.CreateProjectActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.ProjectModuleActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name="com.example.vinilos.ui.main.view.RegisterSkillInformationActivity"
             android:exported="false">
             <meta-data
@@ -77,7 +91,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.vinilos.ui.main.view.AlbumTrackActivity"
+            android:name="com.example.vinilos.ui.main.view.ProjectTrackActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -86,29 +100,29 @@
         <activity
             android:name="com.example.vinilos.ui.main.view.DetailCollectorActivity"
             android:exported="false"
-            android:parentActivityName="com.example.vinilos.ui.main.view.HomeActivity"
+            android:parentActivityName="com.example.vinilos.ui.main.view.ListProjectActivity"
             android:theme="@style/Theme.Vinilos.NoActionBar" />
         <activity
-            android:name="com.example.vinilos.ui.main.view.HomeActivity"
+            android:name="com.example.vinilos.ui.main.view.ListProjectActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.vinilos.ui.main.view.DetailAlbumActivity"
+            android:name="com.example.vinilos.ui.main.view.DetailProjectActivity"
             android:exported="false"
-            android:parentActivityName="com.example.vinilos.ui.main.view.HomeActivity"
+            android:parentActivityName="com.example.vinilos.ui.main.view.ListProjectActivity"
             android:theme="@style/Theme.Vinilos.NoActionBar" />
         <activity
             android:name="com.example.vinilos.ui.main.view.DetailArtistActivity"
             android:exported="false"
-            android:parentActivityName="com.example.vinilos.ui.main.view.HomeActivity"
+            android:parentActivityName="com.example.vinilos.ui.main.view.ListProjectActivity"
             android:theme="@style/Theme.Vinilos.NoActionBar" />
         <activity
             android:name="com.example.vinilos.ui.main.view.CreateAlbumActivity"
             android:exported="false"
-            android:parentActivityName="com.example.vinilos.ui.main.view.HomeActivity"
+            android:parentActivityName="com.example.vinilos.ui.main.view.ListProjectActivity"
             android:theme="@style/Theme.Vinilos.NoActionBar" />
         <activity
             android:name="com.example.vinilos.ui.main.view.MainActivity"

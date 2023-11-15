@@ -32,17 +32,20 @@ interface ApiService {
     @POST("abcjobs/aspirantes/skill")
     suspend fun registerCandidateSkillInformation(@Body body: RegisterCandidateSkillInformationBody): Response<RegisterCandidateSkillInformationResponse>
 
-    @GET("albums")
-    suspend fun getAlbums(): List<AlbumResponse>
+    @POST("abcjobs/company/project")
+    suspend fun createProject(@Body body: CreateProjectBody): Response<CreateProjectResponse>
+
+    @GET("abcjobs/company/project")
+    suspend fun getProjects(): List<ProjectResponse>
 
     @GET("albums/{id}")
-    suspend fun getAlbumDetail(@Path("id") id: String): AlbumResponse
+    suspend fun getProjectDetail(@Path("id") id: String): ProjectResponse
 
-    @GET("albums")
-    suspend fun getAllAlbums(): Response<List<AlbumResponse>>
+    @GET("abcjobs/company/project")
+    suspend fun getAllProjects(): Response<List<ProjectResponse>>
 
     @POST("albums")
-    suspend fun createAlbum(@Body album: HashMap<String, String>): Response<AlbumResponse>
+    suspend fun createAlbum(@Body album: HashMap<String, String>): Response<ProjectResponse>
 
     @GET("musicians")
     suspend fun getMusicians(): List<ArtistResponse>
@@ -69,9 +72,9 @@ interface ApiService {
     suspend fun getCollectorsDetail(@Path("id") id: String): CollectorResponse
 
     @POST("albums/{id}/tracks")
-    suspend fun postAlbumTrack(@Path("id") id: String, @Body track: JsonObject): AlbumResponse
+    suspend fun postAlbumTrack(@Path("id") id: String, @Body track: JsonObject): ProjectResponse
 
     @POST("albums")
-    suspend fun postAlbum(@Body album: JsonObject): AlbumResponse
+    suspend fun postAlbum(@Body album: JsonObject): ProjectResponse
 
 }
