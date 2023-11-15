@@ -21,9 +21,6 @@ class DetailArtistAdapter(private val artistDetail: ArtistResponse, private val 
         binding.textContentDescription.text = artistDetail.description
         binding.listTexAlbums.text = adaptStringAbums(binding)
         binding.listTexPrizes.text = adaptStringPrizes(binding)
-//        adaptTablePrizes(binding)
-//        adaptTableALbums(binding)
-
     }
 
     private fun textBandArtist(binding: ActivityDetailArtistBinding): String {
@@ -36,31 +33,12 @@ class DetailArtistAdapter(private val artistDetail: ArtistResponse, private val 
         return DateFormat.getDateInstance(DateFormat.LONG).format(date).toString()
     }
 
-
-//    private fun adaptTableALbums(binding: ActivityDetailArtistBinding) {
-//        val row = TableRow(binding.root.context)
-//
-//        val nombreAlbum = TextView(binding.root.context)
-//        val generoAlbum = TextView(binding.root.context)
-//
-//        for (i in artistDetail.albums) {
-//            nombreAlbum.text = i.name
-//            generoAlbum.text = i.genre
-//
-//            row.addView(nombreAlbum)
-//            row.addView(generoAlbum)
-//            binding.tableMain.addView(row)
-//
-//        }
-//    }
-
-
     private fun adaptStringAbums(binding: ActivityDetailArtistBinding): String {
         val sb = StringBuilder()
         for (i in artistDetail.albums) {
             sb.append(
-                "- ${i.name} (${
-                    DateFormat.getDateInstance(DateFormat.MEDIUM).format(i.releaseDate)
+                "- ${i.nameProject} (${
+                    DateFormat.getDateInstance(DateFormat.MEDIUM).format(i.startDate)
                 })" + "\n"
             )
         }
@@ -74,16 +52,4 @@ class DetailArtistAdapter(private val artistDetail: ArtistResponse, private val 
         }
         return sb.toString()
     }
-
-//    private fun adaptTablePrizes(binding: ActivityDetailArtistBinding) {
-//        val row = TableRow(binding.root.context)
-//
-//        val fecha = TextView(binding.root.context)
-//        for (i in artistDetail.performerPrizes) {
-//            fecha.text = i.premiationDate.toString()
-//
-//            row.addView(fecha)
-//            binding.tablePrizes.addView(row)
-//        }
-//    }
 }

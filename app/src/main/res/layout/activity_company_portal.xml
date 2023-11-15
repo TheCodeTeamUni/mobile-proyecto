@@ -64,7 +64,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/employment_profile_icon"
+        android:id="@+id/project_module_icon"
         android:layout_width="151dp"
         android:layout_height="154dp"
         android:layout_gravity="center_horizontal"

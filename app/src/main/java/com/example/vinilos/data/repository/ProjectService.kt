@@ -2,22 +2,22 @@ package com.example.vinilos.data.repository
 
 import com.example.vinilos.data.api.ApiService
 import com.example.vinilos.data.api.RetrofitBuilder
-import com.example.vinilos.data.model.AlbumResponse
+import com.example.vinilos.data.model.ProjectResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 
-class AlbumService {
+class ProjectService {
     private val retrofit = RetrofitBuilder.getRetrofit()
 
-    suspend fun getAlbums(): List<AlbumResponse> {
+    suspend fun getAlbums(): List<ProjectResponse> {
         return withContext(Dispatchers.IO) {
-            val response = retrofit.create(ApiService::class.java).getAllAlbums()
+            val response = retrofit.create(ApiService::class.java).getAllProjects()
             response.body() ?: emptyList()
         }
     }
 
-    suspend fun createAlbum(album: HashMap<String, String>): Response<AlbumResponse> {
+    suspend fun createAlbum(album: HashMap<String, String>): Response<ProjectResponse> {
         return retrofit.create(ApiService::class.java).createAlbum(album)
     }
 }

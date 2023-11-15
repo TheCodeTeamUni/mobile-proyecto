@@ -1,6 +1,6 @@
 package com.example.vinilos.data.model
 
-class AlbumModel(
+class ProjectModel(
     name: String,
     cover: String,
     genre: String,

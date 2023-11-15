@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/base"
-    tools:context="com.example.vinilos.ui.main.view.HomeActivity">
+    tools:context="com.example.vinilos.ui.main.view.ListProjectActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
@@ -16,7 +16,7 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph_album" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+    <!--com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,6 +24,6 @@
         app:itemIconTint="@android:color/tab_indicator_text"
         app:itemTextColor="@android:color/tab_indicator_text"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/navigation_menu_icons" />
+        app:menu="@menu/navigation_menu_icons" /-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,16 +8,16 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.vinylsMobile.vinylsapplication.R
-import com.vinylsMobile.vinylsapplication.databinding.ActivityHomeBinding
+import com.vinylsMobile.vinylsapplication.databinding.ActivityCommonBinding
 
 
-class HomeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityHomeBinding
+class ListProjectActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCommonBinding
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
+        binding = ActivityCommonBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
         val navHostFragment =
@@ -27,7 +27,7 @@ class HomeActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController)
 
-        binding.bottomNavigationView.setOnItemSelectedListener {
+        /*binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 binding.bottomNavigationView.menu.getItem(0).itemId -> {
                     setFragment(AlbumListFragment.newInstance())
@@ -43,7 +43,7 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
             false
-        }
+        }*/
     }
 
     private fun setFragment(fr: Fragment) {
