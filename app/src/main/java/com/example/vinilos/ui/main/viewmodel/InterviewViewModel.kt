@@ -4,26 +4,27 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.vinilos.data.model.ProjectModel
 import com.example.vinilos.data.model.TracksModel
+import com.example.vinilos.data.repository.InterviewRepository
 import com.example.vinilos.data.repository.ProjectRepository
 import com.example.vinilos.utils.Resource
 import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class ProjectViewModel(private val projectRepository: ProjectRepository) : ViewModel() {
-    fun getProjects() = liveData(Dispatchers.IO) {
+class InterviewViewModel(private val InterviewRepository: InterviewRepository) : ViewModel() {
+    fun getInterviews() = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
-            emit(Resource.success(data = projectRepository.getProjects()))
+            emit(Resource.success(data = InterviewRepository.getInterviews()))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, msg = exception.message ?: "Un error ha ocurrido!"))
         }
     }
 
-    fun getProjectDetail(id: String) = liveData(Dispatchers.IO) {
+    fun getInterviewDetail(id: String) = liveData(Dispatchers.IO) {
         emit(Resource.loading(data = null))
         try {
-            emit(Resource.success(data = projectRepository.getProjectDetail(id)))
+            emit(Resource.success(data = InterviewRepository.getInterviewDetail(id)))
         } catch (exception: Exception) {
             emit(Resource.error(data = null, msg = exception.message ?: "Un error ha ocurrido!"))
         }
@@ -32,14 +33,14 @@ class ProjectViewModel(private val projectRepository: ProjectRepository) : ViewM
     suspend fun createTrackToAlbum(name: String, duration: String, id: Number) =
         withContext(Dispatchers.IO) {
             val track = TracksModel(name, duration)
-            projectRepository.postAlbumTrack(
+            InterviewRepository.postAlbumTrack(
                 id.toString(),
                 jsonPostString(track.name, track.duration)
             )
         }
 
     suspend fun createAlbumPost(album: ProjectModel) = withContext(Dispatchers.IO) {
-        projectRepository.postAlbum(jsonPostAlbumString(album))
+        InterviewRepository.postAlbum(jsonPostAlbumString(album))
     }
 
     private fun jsonPostString(name: String, duration: String): JsonObject {

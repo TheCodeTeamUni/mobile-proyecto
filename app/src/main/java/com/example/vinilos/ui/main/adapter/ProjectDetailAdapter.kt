@@ -5,14 +5,14 @@ import com.bumptech.glide.Glide
 
 import com.example.vinilos.data.model.ProjectResponse
 import com.vinylsMobile.vinylsapplication.R
-import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailAlbumBinding
+import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailProjectBinding
 
 class ProjectDetailAdapter(private val projectDetail: ProjectResponse) {
 
-    fun adaptData(binding: ActivityDetailAlbumBinding) {
-        Glide.with(binding.imageViewAlbumDetails.context)
+    fun adaptData(binding: ActivityDetailProjectBinding) {
+        Glide.with(binding.imageViewProjectDetails.context)
             .load(R.drawable.list_project_icon)
-            .into(binding.imageViewAlbumDetails)
+            .into(binding.imageViewProjectDetails)
         binding.textContentAlbum.text = projectDetail.nameProject
         binding.textContentDate.text = projectDetail.startDate
         binding.textContentGenre.text = projectDetail.endDate

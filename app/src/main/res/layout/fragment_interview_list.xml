@@ -26,13 +26,13 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_fab_create_project"
+        android:id="@+id/btn_fab_create_interview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="30dp"
-        android:contentDescription="@string/add_album_btn"
+        android:contentDescription="Crear Entrevista"
         android:src="@drawable/ic_add_album"
         app:backgroundTint="@color/turquoise" />
 </FrameLayout>

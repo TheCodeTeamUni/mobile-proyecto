@@ -3,6 +3,7 @@ package com.example.vinilos.network
 import android.content.Context
 import com.example.vinilos.data.model.ArtistResponse
 import com.example.vinilos.data.model.CollectorResponse
+import com.example.vinilos.data.model.InterviewResponse
 import com.example.vinilos.data.model.ProjectResponse
 
 class CacheManager(context: Context) {
@@ -17,15 +18,26 @@ class CacheManager(context: Context) {
     }
 
     //Albums Cache elements
-    private var albums: HashMap<Int, ProjectResponse> = hashMapOf()
-    fun addAlbum(albumId: Int, albumes: ProjectResponse) {
-        if (!albums.containsKey(albumId)) {
-            albums[albumId] = albumes
+    private var projects: HashMap<Int, ProjectResponse> = hashMapOf()
+    fun addProject(projectId: Int, proyectos: ProjectResponse) {
+        if (!projects.containsKey(projectId)) {
+            projects[projectId] = proyectos
         }
     }
 
-    fun getProject(albumId: Int): ProjectResponse? {
-        return if (albums.containsKey(albumId)) albums[albumId]!! else null
+    fun getProject(projectId: Int): ProjectResponse? {
+        return if (projects.containsKey(projectId)) projects[projectId]!! else null
+    }
+
+    private var interviews: HashMap<Int, InterviewResponse> = hashMapOf()
+    fun addInterview(interviewId: Int, entrevistas: InterviewResponse) {
+        if (!interviews.containsKey(interviewId)) {
+            interviews[interviewId] = entrevistas
+        }
+    }
+
+    fun getInterview(interviewId: Int): InterviewResponse? {
+        return if (interviews.containsKey(interviewId)) interviews[interviewId]!! else null
     }
 
     //Artist cache elements

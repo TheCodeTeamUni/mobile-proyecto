@@ -10,38 +10,42 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
+import com.example.vinilos.data.model.InterviewResponse
 import com.example.vinilos.data.model.ProjectResponse
 import com.example.vinilos.network.CacheManager
+import com.example.vinilos.ui.base.InterviewViewModelFactory
 import com.example.vinilos.ui.base.ViewModelFactory
 import com.example.vinilos.ui.main.adapter.ID
+import com.example.vinilos.ui.main.adapter.InterviewDetailAdapter
 import com.example.vinilos.ui.main.adapter.NAME
 import com.example.vinilos.ui.main.adapter.ProjectDetailAdapter
+import com.example.vinilos.ui.main.viewmodel.InterviewViewModel
 import com.example.vinilos.ui.main.viewmodel.ProjectViewModel
 import com.example.vinilos.utils.Status
 import com.vinylsMobile.vinylsapplication.R
-import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailProjectBinding
+import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailInterviewBinding
 
-class DetailProjectActivity : AppCompatActivity() {
-    private lateinit var projectViewModel: ProjectViewModel
-    private lateinit var adapter: ProjectDetailAdapter
+class DetailInterviewActivity : AppCompatActivity() {
+    private lateinit var interviewViewModel: InterviewViewModel
+    private lateinit var adapter: InterviewDetailAdapter
 
-    private lateinit var binding: ActivityDetailProjectBinding
-    private lateinit var idAlbum: String
-    private lateinit var nameAlbum: String
+    private lateinit var binding: ActivityDetailInterviewBinding
+    private lateinit var idInterview: String
+    private lateinit var nameInterview: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityDetailProjectBinding.inflate(layoutInflater)
+        binding = ActivityDetailInterviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val id = intent.getStringExtra(ID)!!
-        idAlbum = id
+        idInterview = id
         val name = intent.getStringExtra(NAME)!!
-        nameAlbum = name
+        nameInterview = name
 
         setupViewModel()
         setupObservers(id)
@@ -55,29 +59,29 @@ class DetailProjectActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_album_add_song -> {
-                launchAlbumTrackActivityView(idAlbum, nameAlbum)
+                launchAlbumTrackActivityView(idInterview, nameInterview)
             }
         }
         return super.onOptionsItemSelected(item)
     }
 
     private fun setupViewModel() {
-        projectViewModel = ViewModelProviders.of(
+        interviewViewModel = ViewModelProviders.of(
             this,
-            ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
-        )[ProjectViewModel::class.java]
+            InterviewViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
+        )[InterviewViewModel::class.java]
     }
 
     private fun getArtistObservers(id: String) {
         var potentialResp =
-            CacheManager.getInstance(application.applicationContext).getProject(id.toInt())
+            CacheManager.getInstance(application.applicationContext).getInterview(id.toInt())
 
         if (potentialResp == null) {
             Log.d("Cache decision", "Se saca de la red")
             setupObservers(id)
         } else {
             Log.d("Cache decision", "return ${potentialResp.nameProject} elements from cache")
-            retrieveAlbumDetail(
+            retrieveInterviewDetail(
                 potentialResp,
                 false
             )
@@ -85,13 +89,13 @@ class DetailProjectActivity : AppCompatActivity() {
     }
 
     private fun setupObservers(id: String) {
-        projectViewModel.getProjectDetail(id).observe(this, {
+        interviewViewModel.getInterviewDetail(id).observe(this, {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-                        resource.data?.let { albumDetail ->
-                            retrieveAlbumDetail(
-                                albumDetail,
+                        resource.data?.let { interviewDetail ->
+                            retrieveInterviewDetail(
+                                interviewDetail,
                                 false
                             )
                         }
@@ -106,12 +110,12 @@ class DetailProjectActivity : AppCompatActivity() {
         })
     }
 
-    private fun retrieveAlbumDetail(album: ProjectResponse, b: Boolean) {
+    private fun retrieveInterviewDetail(interview: InterviewResponse, b: Boolean) {
         CacheManager.getInstance(application.applicationContext)
-            .addProject(album.aspirants.toInt(), album)
-        adapter = ProjectDetailAdapter(album)
+            .addInterview(interview.aspirants.toInt(), interview)
+        adapter = InterviewDetailAdapter(interview)
         adapter.adaptData(binding)
-        supportActionBar?.title = album.nameProject
+        supportActionBar?.title = interview.nameProject
         supportActionBar?.subtitle = "Album"
     }
 

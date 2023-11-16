@@ -47,7 +47,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageViewAlbumDetails"
+                android:id="@+id/imageViewInterviewDetails"
                 android:layout_width="0dp"
                 android:layout_height="280dp"
                 android:layout_marginTop="12dp"
@@ -70,7 +70,7 @@
                 android:textColor="@color/turquoise"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageViewAlbumDetails" />
+                app:layout_constraintTop_toBottomOf="@+id/imageViewInterviewDetails" />
 
             <TextView
                 android:id="@+id/textContentAlbum"

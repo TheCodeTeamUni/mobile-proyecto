@@ -12,27 +12,29 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
-import com.example.vinilos.data.model.ProjectResponse
+import com.example.vinilos.data.model.InterviewResponse
+import com.example.vinilos.ui.base.InterviewViewModelFactory
 import com.example.vinilos.ui.base.ViewModelFactory
-import com.example.vinilos.ui.main.adapter.ListProjectAdapter
-import com.example.vinilos.ui.main.viewmodel.ProjectViewModel
+import com.example.vinilos.ui.main.adapter.ListInterviewAdapter
+import com.example.vinilos.ui.main.viewmodel.InterviewViewModel
 import com.example.vinilos.utils.Status
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.vinylsMobile.vinylsapplication.databinding.FragmentProjectListBinding
+import com.vinylsMobile.vinylsapplication.databinding.FragmentInterviewListBinding
+
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ProjectListFragment.newInstance] factory method to
+ * Use the [InterviewListFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ProjectListFragment : Fragment() {
-    private lateinit var projectViewModel: ProjectViewModel
-    private lateinit var adapter: ListProjectAdapter
-    private lateinit var binding: FragmentProjectListBinding
+class InterviewListFragment : Fragment() {
+    private lateinit var interviewViewModel: InterviewViewModel
+    private lateinit var adapter: ListInterviewAdapter
+    private lateinit var binding: FragmentInterviewListBinding
 
     private fun setupUI() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
-        adapter = ListProjectAdapter(arrayListOf())
+        adapter = ListInterviewAdapter(arrayListOf())
         binding.recyclerView.addItemDecoration(
             DividerItemDecoration(
                 binding.recyclerView.context,
@@ -43,13 +45,13 @@ class ProjectListFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        projectViewModel.getProjects().observe(viewLifecycleOwner, {
+        interviewViewModel.getInterviews().observe(viewLifecycleOwner, {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
                         binding.recyclerView.visibility = View.VISIBLE
                         binding.progressBar.visibility = View.GONE
-                        resource.data?.let { project -> retrieveList(project) }
+                        resource.data?.let { albums -> retrieveList(albums) }
                     }
                     Status.ERROR -> {
                         binding.recyclerView.visibility = View.VISIBLE
@@ -66,10 +68,10 @@ class ProjectListFragment : Fragment() {
     }
 
     private fun setupViewModel() {
-        projectViewModel = ViewModelProviders.of(
+        interviewViewModel = ViewModelProviders.of(
             this,
-            ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
-        )[ProjectViewModel::class.java]
+            InterviewViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
+        )[InterviewViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -77,7 +79,7 @@ class ProjectListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentProjectListBinding.inflate(layoutInflater, container, false)
+        binding = FragmentInterviewListBinding.inflate(layoutInflater, container, false)
         setupUI()
         bindMenuEvents()
         setupViewModel()
@@ -86,15 +88,15 @@ class ProjectListFragment : Fragment() {
     }
 
     private fun bindMenuEvents() {
-        val createProjectMenuButton: FloatingActionButton = binding.btnFabCreateProject
-        createProjectMenuButton.setOnClickListener { view ->
-            launchProjectCreateActivity(view)
+        val createInterviewMenuButton: FloatingActionButton = binding.btnFabCreateInterview
+        createInterviewMenuButton.setOnClickListener { view ->
+            launchInterviewCreateActivity(view)
         }
 
     }
 
-    private fun launchProjectCreateActivity(view: View) {
-        val intent = Intent(activity, CreateProjectActivity::class.java)
+    private fun launchInterviewCreateActivity(view: View) {
+        val intent = Intent(activity, CreateInterviewActivity::class.java)
         startActivity(intent)
     }
 
@@ -107,14 +109,14 @@ class ProjectListFragment : Fragment() {
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(): ProjectListFragment {
-            return ProjectListFragment()
+        fun newInstance(): InterviewListFragment {
+            return InterviewListFragment()
         }
     }
 
-    private fun retrieveList(projects: List<ProjectResponse>) {
+    private fun retrieveList(interviews: List<InterviewResponse>) {
         adapter.apply {
-            addProjects(projects)
+            addInterviews(interviews)
             notifyDataSetChanged()
         }
     }

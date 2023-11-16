@@ -6,27 +6,29 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.vinilos.data.model.InterviewResponse
 import com.example.vinilos.data.model.ProjectResponse
+import com.example.vinilos.ui.main.view.DetailInterviewActivity
 import com.example.vinilos.ui.main.view.DetailProjectActivity
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ItemLayoutBinding
 
-const val ID = "id"
-const val NAME = "name"
+const val ID_INTERVIEW = "id"
+const val NAME_INTERVIEW = "name"
 
-class ListProjectAdapter(
-    private val projects: ArrayList<ProjectResponse>
-) : RecyclerView.Adapter<ListProjectAdapter.DataViewHolder>() {
+class ListInterviewAdapter(
+    private val interviews: ArrayList<InterviewResponse>
+) : RecyclerView.Adapter<ListInterviewAdapter.DataViewHolder>() {
 
     lateinit var context: Context
 
     class DataViewHolder(binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         val bindPar = binding
-        fun bind(project: ProjectResponse) {
+        fun bind(interview: InterviewResponse) {
             bindPar.root.apply {
-                bindPar.textViewElementTitle.text = project.nameProject
-                bindPar.textElementDetail.text = project.description
-                Glide.with(bindPar.imageElementList.context).load(R.drawable.list_project_icon)
+                bindPar.textViewElementTitle.text = interview.nameProject
+                bindPar.textElementDetail.text = interview.description
+                Glide.with(bindPar.imageElementList.context).load(R.drawable.list_interviews_icon)
                     .into(bindPar.imageElementList)
             }
         }
@@ -39,23 +41,23 @@ class ListProjectAdapter(
         return DataViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = projects.size
+    override fun getItemCount(): Int = interviews.size
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         holder.bindPar.root.setOnClickListener {
-            val intent = Intent(context, DetailProjectActivity::class.java).apply {
-                putExtra(ID, projects[position].aspirants.toString())
-                putExtra(NAME, projects[position].nameProject)
+            val intent = Intent(context, DetailInterviewActivity::class.java).apply {
+                putExtra(ID_INTERVIEW, interviews[position].aspirants.toString())
+                putExtra(NAME_INTERVIEW, interviews[position].nameProject)
             }
             context.startActivity(intent)
         }
-        holder.bind(projects[position])
+        holder.bind(interviews[position])
     }
 
-    fun addProjects(projects: List<ProjectResponse>) {
-        this.projects.apply {
+    fun addInterviews(interviews: List<InterviewResponse>) {
+        this.interviews.apply {
             clear()
-            addAll(projects)
+            addAll(interviews)
         }
     }
 }

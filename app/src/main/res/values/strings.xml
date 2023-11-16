@@ -64,9 +64,9 @@
     <string name="actual_job">Actual Job</string>
     <string name="title">Title</string>
     <string name="experience">Experience</string>
-    <string name="start_date">Start Date</string>
+    <string name="start_date">Start Date (DD/MM/AAAA)</string>
     <string name="grade">Grade</string>
-    <string name="end_date">End Date</string>
+    <string name="end_date">End Date (DD/MM/AAAA)</string>
     <string name="institution">Institution</string>
     <string name="alternative_email">Alternative Email</string>
     <string name="telephone">Telephone Number</string>
@@ -74,7 +74,7 @@
     <string name="address">Address</string>
     <string name="description">Description</string>
     <string name="photo">Photo</string>
-    <string name="birthday">Birthday</string>
+    <string name="birthday">Birthday (DD/MM/AAAA)</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm password</string>
     <string-array name="list_generos">

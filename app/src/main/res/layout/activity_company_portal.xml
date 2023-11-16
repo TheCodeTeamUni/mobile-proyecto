@@ -63,6 +63,7 @@
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <ImageView
         android:id="@+id/project_module_icon"
         android:layout_width="151dp"
@@ -79,9 +80,8 @@
         app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent" />
 
-
     <ImageView
-        android:id="@+id/professional_information_icon"
+        android:id="@+id/interview_module_icon"
         android:layout_width="151dp"
         android:layout_height="154dp"
         android:layout_gravity="center_horizontal"

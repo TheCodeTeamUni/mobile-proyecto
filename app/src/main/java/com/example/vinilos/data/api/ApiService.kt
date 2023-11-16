@@ -38,7 +38,7 @@ interface ApiService {
     @GET("abcjobs/company/project")
     suspend fun getProjects(): List<ProjectResponse>
 
-    @GET("albums/{id}")
+    @GET("abcjobs/company/project/{id}")
     suspend fun getProjectDetail(@Path("id") id: String): ProjectResponse
 
     @GET("abcjobs/company/project")
@@ -46,6 +46,15 @@ interface ApiService {
 
     @POST("albums")
     suspend fun createAlbum(@Body album: HashMap<String, String>): Response<ProjectResponse>
+
+    @POST("abcjobs/company/project")
+    suspend fun createInterview(@Body body: CreateInterviewBody): Response<CreateInterviewResponse>
+
+    @GET("abcjobs/company/project")
+    suspend fun getInterviews(): List<InterviewResponse>
+
+    @GET("albums/{id}")
+    suspend fun getInterviewDetail(@Path("id") id: String): InterviewResponse
 
     @GET("musicians")
     suspend fun getMusicians(): List<ArtistResponse>

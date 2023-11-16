@@ -87,4 +87,20 @@ class RegisterInformationRepository(private val consumer: ApiService) {
         }
     }
 
+    fun createInterview(body: CreateInterviewBody) = flow {
+        emit(RequestStatus.Waiting)
+        val response = consumer.createInterview(body)
+        if (response.isSuccessful) {
+            emit(RequestStatus.Success(response.body()!!))
+        } else {
+            emit(
+                RequestStatus.Error(
+                    SimplifiedMessage.get(
+                        response.errorBody()!!.byteStream().reader().readText()
+                    )
+                )
+            )
+        }
+    }
+
 }
