@@ -25,6 +25,7 @@ class ListProjectAdapter(
         fun bind(project: ProjectResponse) {
             bindPar.root.apply {
                 bindPar.textViewElementTitle.text = project.nameProject
+                println("En esta parte imprime esto: " + project.nameProject)
                 bindPar.textElementDetail.text = project.description
                 Glide.with(bindPar.imageElementList.context).load(R.drawable.list_project_icon)
                     .into(bindPar.imageElementList)
@@ -44,7 +45,7 @@ class ListProjectAdapter(
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         holder.bindPar.root.setOnClickListener {
             val intent = Intent(context, DetailProjectActivity::class.java).apply {
-                putExtra(ID, projects[position].aspirants.toString())
+                putExtra(ID, projects[position].id.toString())
                 putExtra(NAME, projects[position].nameProject)
             }
             context.startActivity(intent)

@@ -26,8 +26,12 @@ class DetailProjectActivity : AppCompatActivity() {
     private lateinit var adapter: ProjectDetailAdapter
 
     private lateinit var binding: ActivityDetailProjectBinding
-    private lateinit var idAlbum: String
-    private lateinit var nameAlbum: String
+    private lateinit var idProject: String
+    private lateinit var nameProject: String
+    private lateinit var startDate: String
+    private lateinit var endDate: String
+    private lateinit var candidates: String
+    private lateinit var description: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,27 +39,29 @@ class DetailProjectActivity : AppCompatActivity() {
         binding = ActivityDetailProjectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+        //setSupportActionBar(binding.toolbar)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val id = intent.getStringExtra(ID)!!
-        idAlbum = id
+        idProject = id
         val name = intent.getStringExtra(NAME)!!
-        nameAlbum = name
+
+        nameProject = name
+        //println("Basura" + name)
 
         setupViewModel()
         setupObservers(id)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.submenu_album, menu)
+        menuInflater.inflate(R.menu.submenu_project, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_album_add_song -> {
-                launchAlbumTrackActivityView(idAlbum, nameAlbum)
+            R.id.nav_project_add_song -> {
+                launchProjectTrackActivityView(idProject, nameProject )
             }
         }
         return super.onOptionsItemSelected(item)
@@ -77,7 +83,7 @@ class DetailProjectActivity : AppCompatActivity() {
             setupObservers(id)
         } else {
             Log.d("Cache decision", "return ${potentialResp.nameProject} elements from cache")
-            retrieveAlbumDetail(
+            retrieveProjectDetail(
                 potentialResp,
                 false
             )
@@ -89,9 +95,9 @@ class DetailProjectActivity : AppCompatActivity() {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-                        resource.data?.let { albumDetail ->
-                            retrieveAlbumDetail(
-                                albumDetail,
+                        resource.data?.let { projectDetail ->
+                            retrieveProjectDetail(
+                                projectDetail,
                                 false
                             )
                         }
@@ -106,19 +112,20 @@ class DetailProjectActivity : AppCompatActivity() {
         })
     }
 
-    private fun retrieveAlbumDetail(album: ProjectResponse, b: Boolean) {
+    private fun retrieveProjectDetail(projectDetail: ProjectResponse, b: Boolean) {
         CacheManager.getInstance(application.applicationContext)
-            .addProject(album.aspirants.toInt(), album)
-        adapter = ProjectDetailAdapter(album)
+            .addProject(projectDetail.id.toInt(), projectDetail)
+        adapter = ProjectDetailAdapter(projectDetail)
         adapter.adaptData(binding)
-        supportActionBar?.title = album.nameProject
-        supportActionBar?.subtitle = "Album"
+        supportActionBar?.title = projectDetail.nameProject
+        println("En el adaptador imprime esto: " + projectDetail.nameProject)
+        supportActionBar?.subtitle = "Project"
     }
 
-    private fun launchAlbumTrackActivityView(albumId: String, albumName: String) {
+    private fun launchProjectTrackActivityView(projectId: String, projectName: String) {
         val intent = Intent(this, ProjectTrackActivity::class.java)
-        intent.putExtra("idAlbum", albumId)
-        intent.putExtra("nameAlbum", albumName)
+        intent.putExtra("idProject", projectId)
+        intent.putExtra("nameProject", projectName)
         startActivity(intent)
 //        this.finish()
     }
@@ -132,4 +139,5 @@ class DetailProjectActivity : AppCompatActivity() {
         }
         return super.onContextItemSelected(item)
     }
+
 }

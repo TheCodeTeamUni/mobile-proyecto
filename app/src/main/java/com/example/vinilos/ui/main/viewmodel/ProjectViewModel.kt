@@ -2,6 +2,7 @@ package com.example.vinilos.ui.main.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
+import com.example.vinilos.data.model.CreateProjectBody
 import com.example.vinilos.data.model.ProjectModel
 import com.example.vinilos.data.model.TracksModel
 import com.example.vinilos.data.repository.ProjectRepository
@@ -38,8 +39,8 @@ class ProjectViewModel(private val projectRepository: ProjectRepository) : ViewM
             )
         }
 
-    suspend fun createAlbumPost(album: ProjectModel) = withContext(Dispatchers.IO) {
-        projectRepository.postAlbum(jsonPostAlbumString(album))
+    suspend fun createAlbumPost(project: CreateProjectBody) = withContext(Dispatchers.IO) {
+        projectRepository.postAlbum(jsonPostAlbumString(project))
     }
 
     private fun jsonPostString(name: String, duration: String): JsonObject {
@@ -49,14 +50,13 @@ class ProjectViewModel(private val projectRepository: ProjectRepository) : ViewM
         return paramObject
     }
 
-    private fun jsonPostAlbumString(album: ProjectModel): JsonObject {
+    private fun jsonPostAlbumString(project: CreateProjectBody): JsonObject {
         val paramObject = JsonObject()
-        paramObject.addProperty("name", album.name)
-        paramObject.addProperty("cover", album.cover)
-        paramObject.addProperty("releaseDate", album.dateCreation)
-        paramObject.addProperty("description", album.description)
-        paramObject.addProperty("genre", album.genre)
-        paramObject.addProperty("recordLabel", album.record)
+        paramObject.addProperty("nameProject", project.nameProject)
+        paramObject.addProperty("startDate", project.startDate)
+        paramObject.addProperty("endDate", project.endDate)
+        paramObject.addProperty("description", project.description)
+        paramObject.addProperty("aspirants", project.aspirants)
         return paramObject
     }
 }

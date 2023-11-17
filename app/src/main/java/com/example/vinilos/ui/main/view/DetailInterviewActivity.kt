@@ -11,16 +11,12 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
 import com.example.vinilos.data.model.InterviewResponse
-import com.example.vinilos.data.model.ProjectResponse
 import com.example.vinilos.network.CacheManager
 import com.example.vinilos.ui.base.InterviewViewModelFactory
-import com.example.vinilos.ui.base.ViewModelFactory
 import com.example.vinilos.ui.main.adapter.ID
 import com.example.vinilos.ui.main.adapter.InterviewDetailAdapter
 import com.example.vinilos.ui.main.adapter.NAME
-import com.example.vinilos.ui.main.adapter.ProjectDetailAdapter
 import com.example.vinilos.ui.main.viewmodel.InterviewViewModel
-import com.example.vinilos.ui.main.viewmodel.ProjectViewModel
 import com.example.vinilos.utils.Status
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailInterviewBinding
@@ -52,13 +48,13 @@ class DetailInterviewActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.submenu_album, menu)
+        menuInflater.inflate(R.menu.submenu_project, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_album_add_song -> {
+            R.id.nav_project_add_song -> {
                 launchAlbumTrackActivityView(idInterview, nameInterview)
             }
         }
