@@ -1,5 +1,6 @@
 package com.example.vinilos.ui.main.view
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -22,6 +23,8 @@ import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailProjectBinding
 
 class DetailProjectActivity : AppCompatActivity() {
+    lateinit var context: Context
+
     private lateinit var projectViewModel: ProjectViewModel
     private lateinit var adapter: ProjectDetailAdapter
 
@@ -69,6 +72,7 @@ class DetailProjectActivity : AppCompatActivity() {
         adapter = ProjectDetailAdapter(projectDetail)
         adapter.adaptData(binding)
         supportActionBar?.title =projectDetail.nameProject
+        context.startActivity(intent)
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {

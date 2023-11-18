@@ -16,13 +16,13 @@ class ProjectDetailAdapter(private val projectDetail: ProjectDetailResponse) {
         Glide.with(binding.imageViewProjectDetails.context)
             .load(R.drawable.list_project_icon)
             .into(binding.imageViewProjectDetails)
-        binding.textContentAlbum.text = "Project Name"//projectDetail.nameProject
-        binding.textContentDate.text = "12/12/2012"//projectDetail.startDate
+        binding.textContentAlbum.text = projectDetail.nameProject //"Project Name"//
+        binding.textContentDate.text = projectDetail.startDate //"12/12/2012"//
         println("Aca esta imprimiendo esto: " + projectDetail.nameProject)
-        binding.textContentGenre.text = "11/11/2015"//projectDetail.endDate
-        binding.textContentRecord.text = "3"//projectDetail.candidates
-        binding.textContentDescription.text = "Este es un proyecto de pruebas"//projectDetail.description
-        //binding.listTextAspirants.text = "mmorales@crehana.com"//projectDetail.aspirants.toString()
+        binding.textContentGenre.text = projectDetail.endDate //"11/11/2015"//
+        binding.textContentRecord.text = projectDetail.candidates
+        binding.textContentDescription.text = projectDetail.description //"Este es un proyecto de pruebas"//
+        binding.listTextAspirants.text = projectDetail.aspirants.toString() // "mmorales@crehana.com"
     }
 
 }
