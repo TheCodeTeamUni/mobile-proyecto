@@ -41,7 +41,6 @@ interface ApiService {
     @GET("abcjobs/company/project/{id}")
     suspend fun getProjectDetail(@Path("id") id: String): ProjectResponse
 
-
     //Old
 
     @GET("abcjobs/company/project")
@@ -59,34 +58,5 @@ interface ApiService {
     @GET("albums/{id}")
     suspend fun getInterviewDetail(@Path("id") id: String): InterviewResponse
 
-    @GET("musicians")
-    suspend fun getMusicians(): List<ArtistResponse>
-
-    @GET("artist")
-    suspend fun getAllArtist(): Response<List<ArtistResponse>>
-
-    @GET("bands")
-    suspend fun getBands(): List<ArtistResponse>
-
-    @GET("collectors")
-    suspend fun getCollectors(): List<CollectorResponse>
-
-    @GET("collectors")
-    suspend fun getAllCollectors(): Response<List<CollectorResponse>>
-
-    @GET("musicians/{id}")
-    suspend fun getMusiciansDetail(@Path("id") id: String): ArtistResponse
-
-    @GET("bands/{id}")
-    suspend fun getBandsDetail(@Path("id") id: String): ArtistResponse
-
-    @GET("collectors/{id}")
-    suspend fun getCollectorsDetail(@Path("id") id: String): CollectorResponse
-
-    @POST("albums/{id}/tracks")
-    suspend fun postAlbumTrack(@Path("id") id: String, @Body track: JsonObject): ProjectResponse
-
-    @POST("albums")
-    suspend fun postAlbum(@Body album: JsonObject): ProjectResponse
 
 }

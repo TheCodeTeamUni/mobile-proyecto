@@ -13,8 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
 import com.example.vinilos.data.model.InterviewResponse
-import com.example.vinilos.ui.base.InterviewViewModelFactory
-import com.example.vinilos.ui.base.ViewModelFactory
+import com.example.vinilos.ui.main.viewmodel.InterviewViewModelFactory
 import com.example.vinilos.ui.main.adapter.ListInterviewAdapter
 import com.example.vinilos.ui.main.viewmodel.InterviewViewModel
 import com.example.vinilos.utils.Status

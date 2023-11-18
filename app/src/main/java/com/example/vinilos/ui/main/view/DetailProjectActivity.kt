@@ -1,6 +1,5 @@
 package com.example.vinilos.ui.main.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -12,7 +11,7 @@ import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
 import com.example.vinilos.data.model.ProjectResponse
 import com.example.vinilos.network.CacheManager
-import com.example.vinilos.ui.base.ViewModelFactory
+import com.example.vinilos.ui.main.viewmodel.ProjectViewModelFactory
 import com.example.vinilos.ui.main.adapter.ID
 import com.example.vinilos.ui.main.adapter.NAME
 import com.example.vinilos.ui.main.adapter.ProjectDetailAdapter
@@ -58,19 +57,19 @@ class DetailProjectActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_project_add_song -> {
                 launchProjectTrackActivityView(idProject, nameProject )
             }
         }
         return super.onOptionsItemSelected(item)
-    }
+    }*/
 
     private fun setupViewModel() {
         projectViewModel = ViewModelProviders.of(
             this,
-            ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
+            ProjectViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
         )[ProjectViewModel::class.java]
     }
 
@@ -122,13 +121,13 @@ class DetailProjectActivity : AppCompatActivity() {
         supportActionBar?.subtitle = "Project"
     }
 
-    private fun launchProjectTrackActivityView(projectId: String, projectName: String) {
+    /*private fun launchProjectTrackActivityView(projectId: String, projectName: String) {
         val intent = Intent(this, ProjectTrackActivity::class.java)
         intent.putExtra("idProject", projectId)
         intent.putExtra("nameProject", projectName)
         startActivity(intent)
 //        this.finish()
-    }
+    }*/
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

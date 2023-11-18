@@ -1,6 +1,5 @@
 package com.example.vinilos.ui.main.view
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -12,7 +11,7 @@ import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
 import com.example.vinilos.data.model.InterviewResponse
 import com.example.vinilos.network.CacheManager
-import com.example.vinilos.ui.base.InterviewViewModelFactory
+import com.example.vinilos.ui.main.viewmodel.InterviewViewModelFactory
 import com.example.vinilos.ui.main.adapter.ID
 import com.example.vinilos.ui.main.adapter.InterviewDetailAdapter
 import com.example.vinilos.ui.main.adapter.NAME
@@ -52,14 +51,14 @@ class DetailInterviewActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_project_add_song -> {
                 launchAlbumTrackActivityView(idInterview, nameInterview)
             }
         }
         return super.onOptionsItemSelected(item)
-    }
+    }*/
 
     private fun setupViewModel() {
         interviewViewModel = ViewModelProviders.of(
@@ -115,13 +114,13 @@ class DetailInterviewActivity : AppCompatActivity() {
         supportActionBar?.subtitle = "Album"
     }
 
-    private fun launchAlbumTrackActivityView(albumId: String, albumName: String) {
+    /*private fun launchAlbumTrackActivityView(albumId: String, albumName: String) {
         val intent = Intent(this, ProjectTrackActivity::class.java)
         intent.putExtra("idAlbum", albumId)
         intent.putExtra("nameAlbum", albumName)
         startActivity(intent)
 //        this.finish()
-    }
+    }*/
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

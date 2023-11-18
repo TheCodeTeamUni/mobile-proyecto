@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
 import com.example.vinilos.data.model.ProjectResponse
-import com.example.vinilos.ui.base.ViewModelFactory
+import com.example.vinilos.ui.main.viewmodel.ProjectViewModelFactory
 import com.example.vinilos.ui.main.adapter.ListProjectAdapter
 import com.example.vinilos.ui.main.viewmodel.ProjectViewModel
 import com.example.vinilos.utils.Status
@@ -68,7 +68,7 @@ class ProjectListFragment : Fragment() {
     private fun setupViewModel() {
         projectViewModel = ViewModelProviders.of(
             this,
-            ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
+            ProjectViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
         )[ProjectViewModel::class.java]
     }
 

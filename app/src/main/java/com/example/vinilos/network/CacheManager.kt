@@ -1,8 +1,6 @@
 package com.example.vinilos.network
 
 import android.content.Context
-import com.example.vinilos.data.model.ArtistResponse
-import com.example.vinilos.data.model.CollectorResponse
 import com.example.vinilos.data.model.InterviewResponse
 import com.example.vinilos.data.model.ProjectResponse
 
@@ -17,7 +15,7 @@ class CacheManager(context: Context) {
             }
     }
 
-    //Albums Cache elements
+    //Projects Cache elements
     private var projects: HashMap<Int, ProjectResponse> = hashMapOf()
     fun addProject(projectId: Int, proyectos: ProjectResponse) {
         if (!projects.containsKey(projectId)) {
@@ -38,29 +36,5 @@ class CacheManager(context: Context) {
 
     fun getInterview(interviewId: Int): InterviewResponse? {
         return if (interviews.containsKey(interviewId)) interviews[interviewId]!! else null
-    }
-
-    //Artist cache elements
-    private var artists: HashMap<Int, ArtistResponse> = hashMapOf()
-    fun addArtist(artistId: Int, artista: ArtistResponse) {
-        if (!artists.containsKey(artistId)) {
-            artists[artistId] = artista
-        }
-    }
-
-    fun getArtist(artistId: Int): ArtistResponse? {
-        return if (artists.containsKey(artistId)) artists[artistId]!! else null
-    }
-
-    //Collectors Cache Elements
-    private var collectors: HashMap<Int, CollectorResponse> = hashMapOf()
-    fun addCollector(collectorId: Int, coleccionistas: CollectorResponse) {
-        if (!collectors.containsKey(collectorId)) {
-            collectors[collectorId] = coleccionistas
-        }
-    }
-
-    fun getCollectors(collectorId: Int): CollectorResponse? {
-        return if (collectors.containsKey(collectorId)) collectors[collectorId]!! else null
     }
 }
