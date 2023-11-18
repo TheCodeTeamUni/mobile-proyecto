@@ -2,6 +2,7 @@ package com.example.vinilos.network
 
 import android.content.Context
 import com.example.vinilos.data.model.InterviewResponse
+import com.example.vinilos.data.model.ProjectDetailResponse
 import com.example.vinilos.data.model.ProjectResponse
 
 class CacheManager(context: Context) {
@@ -16,11 +17,15 @@ class CacheManager(context: Context) {
     }
 
     //Projects Cache elements
-    private var projects: HashMap<Int, ProjectResponse> = hashMapOf()
-    fun addProject(projectId: Int, proyectos: ProjectResponse) {
+    private var projects: HashMap<Int, ProjectDetailResponse> = hashMapOf()
+    fun addProject(projectId: Int, proyectos: ProjectDetailResponse) {
         if (!projects.containsKey(projectId)) {
             projects[projectId] = proyectos
         }
+    }
+
+    fun getProjects(proyectId: Int) : ProjectDetailResponse? {
+        return if (projects.containsKey(proyectId)) projects[proyectId]!! else null
     }
 
 

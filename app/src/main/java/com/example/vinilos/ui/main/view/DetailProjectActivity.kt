@@ -1,14 +1,16 @@
 package com.example.vinilos.ui.main.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
-import com.example.vinilos.data.model.ProjectResponse
+import com.example.vinilos.data.model.ProjectDetailResponse
 import com.example.vinilos.network.CacheManager
 import com.example.vinilos.ui.main.adapter.ID
 import com.example.vinilos.ui.main.adapter.NAME
@@ -24,8 +26,6 @@ class DetailProjectActivity : AppCompatActivity() {
     private lateinit var adapter: ProjectDetailAdapter
 
     private lateinit var binding: ActivityDetailProjectBinding
-    private lateinit var idProject: String
-    private lateinit var nameProject: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,38 +36,24 @@ class DetailProjectActivity : AppCompatActivity() {
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val id = intent.getStringExtra(ID)!!
-        idProject = id
-        val name = intent.getStringExtra(NAME)!!
-
-        nameProject = name
-        //println("Basura" + name)
         setupViewModel()
-        setupObservers(id)
+        setupProjectObservers(id)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.submenu_project, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
 
     private fun setupViewModel() {
         projectViewModel = ViewModelProviders.of(
             this,
             ProjectViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
-        )[ProjectViewModel::class.java]
+        ).get(ProjectViewModel::class.java)
     }
 
-    private fun setupObservers(id: String) {
-        projectViewModel.getProjectDetail(id).observe(this, {
+    private fun setupProjectObservers(id:String) {
+        projectViewModel.getProjectDetail(id).observe(this, Observer {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-                        resource.data?.let { projectDetail ->
-                            retrieveProjectDetail(
-                                projectDetail,
-                                false
-                            )
-                        }
+                        resource.data?.let { projectDetail -> retrieveProjectDetail(projectDetail) }
                     }
                     Status.ERROR -> {
                         Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
@@ -79,14 +65,10 @@ class DetailProjectActivity : AppCompatActivity() {
         })
     }
 
-    private fun retrieveProjectDetail(projectDetail: ProjectResponse, b: Boolean) {
-        CacheManager.getInstance(application.applicationContext)
-            .addProject(projectDetail.id.toInt(), projectDetail)
+    private fun retrieveProjectDetail(projectDetail: ProjectDetailResponse) {
         adapter = ProjectDetailAdapter(projectDetail)
         adapter.adaptData(binding)
-        supportActionBar?.title = projectDetail.nameProject
-        println("En el adaptador imprime esto: " + projectDetail.nameProject)
-        supportActionBar?.subtitle = "Project"
+        supportActionBar?.title =projectDetail.nameProject
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {

@@ -38,7 +38,7 @@ interface ApiService {
     suspend fun getProjects(): List<ProjectResponse>
 
     @GET("abcjobs/company/project/{id}")
-    suspend fun getProjectDetail(@Path("id") id: String): ProjectResponse
+    suspend fun getProjectDetail(@Path("id") id: String): ProjectDetailResponse
 
     //Old
 
