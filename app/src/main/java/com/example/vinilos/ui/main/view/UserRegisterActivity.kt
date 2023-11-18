@@ -69,13 +69,7 @@ class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnF
                         setStartIconDrawable(R.drawable.check_circle_24)
                         setStartIconTintList(ColorStateList.valueOf(Color.GREEN))
                     }
-                } /*else {
-                    //mBinding.emailAddressTil.apply {
-                      //  if (startIconDrawable != null) startIconDrawable = null
-                        //isErrorEnabled = true
-                        //error = "Email is already in use"
-                    //}
-                }*/
+                }
             }
         }
 
@@ -340,7 +334,6 @@ class UserRegisterActivity : AppCompatActivity(), View.OnClickListener, View.OnF
     private fun onSubmit() {
         mViewModel.getIsLoading().observe(this) {
             mBinding.progressBar.isVisible = it
-            //Toast.makeText(applicationContext, "Usuario Creado", Toast.LENGTH_LONG).show()
         }
         if (validate()) {
             mViewModel.registerUser(

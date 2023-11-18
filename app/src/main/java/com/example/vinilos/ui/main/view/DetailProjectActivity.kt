@@ -1,7 +1,6 @@
 package com.example.vinilos.ui.main.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -11,11 +10,11 @@ import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
 import com.example.vinilos.data.model.ProjectResponse
 import com.example.vinilos.network.CacheManager
-import com.example.vinilos.ui.main.viewmodel.ProjectViewModelFactory
 import com.example.vinilos.ui.main.adapter.ID
 import com.example.vinilos.ui.main.adapter.NAME
 import com.example.vinilos.ui.main.adapter.ProjectDetailAdapter
 import com.example.vinilos.ui.main.viewmodel.ProjectViewModel
+import com.example.vinilos.ui.main.viewmodel.ProjectViewModelFactory
 import com.example.vinilos.utils.Status
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailProjectBinding
@@ -27,10 +26,6 @@ class DetailProjectActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailProjectBinding
     private lateinit var idProject: String
     private lateinit var nameProject: String
-    private lateinit var startDate: String
-    private lateinit var endDate: String
-    private lateinit var candidates: String
-    private lateinit var description: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +33,6 @@ class DetailProjectActivity : AppCompatActivity() {
         binding = ActivityDetailProjectBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //setSupportActionBar(binding.toolbar)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val id = intent.getStringExtra(ID)!!
@@ -47,7 +41,6 @@ class DetailProjectActivity : AppCompatActivity() {
 
         nameProject = name
         //println("Basura" + name)
-
         setupViewModel()
         setupObservers(id)
     }
@@ -57,36 +50,11 @@ class DetailProjectActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    /*override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.nav_project_add_song -> {
-                launchProjectTrackActivityView(idProject, nameProject )
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }*/
-
     private fun setupViewModel() {
         projectViewModel = ViewModelProviders.of(
             this,
             ProjectViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
         )[ProjectViewModel::class.java]
-    }
-
-    private fun getArtistObservers(id: String) {
-        var potentialResp =
-            CacheManager.getInstance(application.applicationContext).getProject(id.toInt())
-
-        if (potentialResp == null) {
-            Log.d("Cache decision", "Se saca de la red")
-            setupObservers(id)
-        } else {
-            Log.d("Cache decision", "return ${potentialResp.nameProject} elements from cache")
-            retrieveProjectDetail(
-                potentialResp,
-                false
-            )
-        }
     }
 
     private fun setupObservers(id: String) {
@@ -120,14 +88,6 @@ class DetailProjectActivity : AppCompatActivity() {
         println("En el adaptador imprime esto: " + projectDetail.nameProject)
         supportActionBar?.subtitle = "Project"
     }
-
-    /*private fun launchProjectTrackActivityView(projectId: String, projectName: String) {
-        val intent = Intent(this, ProjectTrackActivity::class.java)
-        intent.putExtra("idProject", projectId)
-        intent.putExtra("nameProject", projectName)
-        startActivity(intent)
-//        this.finish()
-    }*/
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

@@ -2,7 +2,6 @@ package com.example.vinilos.data.api
 
 
 import com.example.vinilos.data.model.*
-import com.google.gson.JsonObject
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

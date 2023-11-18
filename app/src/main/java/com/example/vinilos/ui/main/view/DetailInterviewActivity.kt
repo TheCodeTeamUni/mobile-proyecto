@@ -11,11 +11,11 @@ import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
 import com.example.vinilos.data.model.InterviewResponse
 import com.example.vinilos.network.CacheManager
-import com.example.vinilos.ui.main.viewmodel.InterviewViewModelFactory
 import com.example.vinilos.ui.main.adapter.ID
 import com.example.vinilos.ui.main.adapter.InterviewDetailAdapter
 import com.example.vinilos.ui.main.adapter.NAME
 import com.example.vinilos.ui.main.viewmodel.InterviewViewModel
+import com.example.vinilos.ui.main.viewmodel.InterviewViewModelFactory
 import com.example.vinilos.utils.Status
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailInterviewBinding

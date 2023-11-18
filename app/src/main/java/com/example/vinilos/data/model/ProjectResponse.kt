@@ -1,7 +1,6 @@
 package com.example.vinilos.data.model
 
 import com.google.gson.annotations.SerializedName
-import java.util.ArrayList
 
 class ProjectResponse {
 

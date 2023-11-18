@@ -23,9 +23,6 @@ class CacheManager(context: Context) {
         }
     }
 
-    fun getProject(projectId: Int): ProjectResponse? {
-        return if (projects.containsKey(projectId)) projects[projectId]!! else null
-    }
 
     private var interviews: HashMap<Int, InterviewResponse> = hashMapOf()
     fun addInterview(interviewId: Int, entrevistas: InterviewResponse) {

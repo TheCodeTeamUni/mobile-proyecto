@@ -6,12 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.vinilos.data.model.CreateInterviewBody
-import com.example.vinilos.data.model.CreateProjectBody
 import com.example.vinilos.data.repository.RegisterInformationRepository
 import com.example.vinilos.utils.RequestStatus
 import kotlinx.coroutines.launch
 
-class CreateInterviewViewModel (
+class CreateInterviewViewModel(
     private val registerInformation: RegisterInformationRepository, val application: Application
 ) : ViewModel() {
     private var isLoading: MutableLiveData<Boolean> =

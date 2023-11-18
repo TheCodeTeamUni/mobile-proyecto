@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.vinilos.data.repository.ProjectRepository
 import com.example.vinilos.utils.Resource
-import com.google.gson.JsonObject
 import kotlinx.coroutines.Dispatchers
 
 class ProjectViewModel(private val projectRepository: ProjectRepository) : ViewModel() {

@@ -1,7 +1,6 @@
 package com.example.vinilos.data.repository
 
 import com.example.vinilos.data.api.ApiHelper
-import com.google.gson.JsonObject
 
 class InterviewRepository(private val apiHelper: ApiHelper) {
 
