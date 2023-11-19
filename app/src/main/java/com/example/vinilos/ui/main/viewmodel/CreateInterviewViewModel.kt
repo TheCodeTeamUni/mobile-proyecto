@@ -16,11 +16,11 @@ class CreateInterviewViewModel(
     private var isLoading: MutableLiveData<Boolean> =
         MutableLiveData<Boolean>().apply { value = false }
     private var errorMessage: MutableLiveData<HashMap<String, String>> = MutableLiveData()
-    private var createInterview: MutableLiveData<Int> = MutableLiveData()
+    private var createInterview: MutableLiveData<String> = MutableLiveData()
 
     fun getIsLoading(): LiveData<Boolean> = isLoading
     fun getErrorMessage(): LiveData<HashMap<String, String>> = errorMessage
-    fun getCreateInterview(): LiveData<Int> = createInterview
+    fun getCreateInterview(): LiveData<String> = createInterview
 
     fun createInterview(body: CreateInterviewBody) {
         viewModelScope.launch {
@@ -32,7 +32,7 @@ class CreateInterviewViewModel(
                     }
                     is RequestStatus.Success -> {
                         isLoading.value = false
-                        createInterview.value = it.data.id
+                        createInterview.value = it.data.mensaje
                         println("Respuesta obtenida")
                     }
                     is RequestStatus.Error -> {

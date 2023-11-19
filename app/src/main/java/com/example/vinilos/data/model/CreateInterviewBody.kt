@@ -1,9 +1,11 @@
 package com.example.vinilos.data.model
 
 data class CreateInterviewBody(
-    val nameProject: String,
-    val startDate: String,
-    val endDate: String,
-    val description: String,
-    val aspirants: Int
+    val nameCompany: String,
+    val idAspirant: String,
+    val nameAspirant: String,
+    val lastNameAspirant: String,
+    val role: String,
+    val date: String,
+    val notes: String
 )

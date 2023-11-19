@@ -92,18 +92,35 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:orientation="vertical">
-
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/projectNameTil"
+                android:id="@+id/companyNameTil"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/projectNameEt"
+                    android:id="@+id/companyNameEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Project Name"
+                    android:hint="Company Name"
+                    android:inputType="text"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="12dp"
+                    android:textColorHint="#757575"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/idCandidateTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/idCandidateEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="ID Candidate"
                     android:inputType="text"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="12dp"
@@ -113,17 +130,36 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/startDateTil"
+                android:id="@+id/candidateNameTil"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/candidateNameEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Candidate Name"
+                    android:inputType="text"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="12dp"
+                    android:textColorHint="#757575"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lastNameCandidateInterviewTil"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/startDateEt"
+                    android:id="@+id/lastNameCandidateInterviewEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/start_date"
+                    android:hint="Candidate Last Name"
                     android:inputType="textEmailAddress"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="12dp"
@@ -131,17 +167,17 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/endDateTil"
+                android:id="@+id/rolTil"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/endDateEt"
+                    android:id="@+id/rolEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/end_date"
+                    android:hint="Candidate Rol"
                     android:inputType="textEmailAddress"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="12dp"
@@ -149,17 +185,17 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/descriptionTil"
+                android:id="@+id/dateInterviewTil"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/descriptionEt"
+                    android:id="@+id/dateInterviewEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Description"
+                    android:hint="@string/interview_date"
                     android:inputType="textEmailAddress"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="12dp"
@@ -168,17 +204,17 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/aspirantTil"
+                android:id="@+id/notesInterviewTil"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/aspirantEt"
+                    android:id="@+id/notesInterviewEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Aspirant"
+                    android:hint="Notes"
                     android:inputType="textEmailAddress"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="12dp"

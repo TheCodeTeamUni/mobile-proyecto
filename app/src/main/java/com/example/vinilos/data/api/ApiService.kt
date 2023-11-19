@@ -41,13 +41,13 @@ interface ApiService {
     @POST("abcjobs/company/project/{id}")
     suspend fun postAssignedCandidate(@Path("id") id: String, @Body body: AssignedCandidateBody): Response<AssignedCandidateResponse>
 
-    @POST("abcjobs/company/project")
+    @POST("abcjobs/company/interview")
     suspend fun createInterview(@Body body: CreateInterviewBody): Response<CreateInterviewResponse>
 
-    @GET("abcjobs/company/project")
+    @GET("abcjobs/company/interview")
     suspend fun getInterviews(): List<InterviewResponse>
 
-    @GET("albums/{id}")
+    @GET("abcjobs/company/interview/{id}")
     suspend fun getInterviewDetail(@Path("id") id: String): InterviewResponse
 
     //Old

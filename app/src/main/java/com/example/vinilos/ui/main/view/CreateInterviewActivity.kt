@@ -30,10 +30,13 @@ class CreateInterviewActivity : AppCompatActivity(), View.OnClickListener,
         mBinding = ActivityCreateInterviewBinding.inflate(LayoutInflater.from(this))
         setContentView(mBinding.root)
 
-        mBinding.projectNameEt.onFocusChangeListener = this
-        mBinding.startDateEt.onFocusChangeListener = this
-        mBinding.endDateEt.onFocusChangeListener = this
-        mBinding.descriptionEt.onFocusChangeListener = this
+        mBinding.companyNameEt.onFocusChangeListener = this
+        mBinding.idCandidateEt.onFocusChangeListener = this
+        mBinding.candidateNameEt.onFocusChangeListener = this
+        mBinding.lastNameCandidateInterviewEt.onFocusChangeListener = this
+        mBinding.rolEt.onFocusChangeListener = this
+        mBinding.dateInterviewEt.onFocusChangeListener = this
+        mBinding.notesInterviewEt.onFocusChangeListener = this
         mBinding.saveInformationBtn.setOnClickListener(this)
 
         mViewModel = ViewModelProvider(
@@ -50,44 +53,58 @@ class CreateInterviewActivity : AppCompatActivity(), View.OnClickListener,
         }
 
         mViewModel.getErrorMessage().observe(this) {
-            //username, email, password
+            //nameCompany, idAspirant, nameAspirant, lastNameAspirant, role, date, notes
             val formErrorKeys = arrayOf(
-                "nameProject",
-                "startDate",
-                "endDate",
-                "description",
-                "aspirants"
+                "nameCompany",
+                "idAspirant",
+                "nameAspirant",
+                "lastNameAspirant",
+                "role",
+                "date",
+                "notes"
             )
             val message = StringBuilder()
             it.map { entry ->
                 if (formErrorKeys.contains(entry.key)) {
                     when (entry.key) {
-                        "nameProject" -> {
-                            mBinding.projectNameTil.apply {
+                        "nameCompany" -> {
+                            mBinding.companyNameTil.apply {
                                 isErrorEnabled = true
                                 error = entry.value
                             }
                         }
-                        "startDate" -> {
-                            mBinding.startDateTil.apply {
+                        "idAspirant" -> {
+                            mBinding.idCandidateTil.apply {
                                 isErrorEnabled = true
                                 error = entry.value
                             }
                         }
-                        "endDate" -> {
-                            mBinding.endDateTil.apply {
+                        "nameAspirant" -> {
+                            mBinding.candidateNameTil.apply {
                                 isErrorEnabled = true
                                 error = entry.value
                             }
                         }
-                        "description" -> {
-                            mBinding.descriptionTil.apply {
+                        "lastNameAspirant" -> {
+                            mBinding.lastNameCandidateInterviewTil.apply {
                                 isErrorEnabled = true
                                 error = entry.value
                             }
                         }
-                        "aspirants" -> {
-                            mBinding.aspirantTil.apply {
+                        "rol" -> {
+                            mBinding.rolTil.apply {
+                                isErrorEnabled = true
+                                error = entry.value
+                            }
+                        }
+                        "date" -> {
+                            mBinding.dateInterviewTil.apply {
+                                isErrorEnabled = true
+                                error = entry.value
+                            }
+                        }
+                        "notes" -> {
+                            mBinding.notesInterviewTil.apply {
                                 isErrorEnabled = true
                                 error = entry.value
                             }
@@ -113,17 +130,17 @@ class CreateInterviewActivity : AppCompatActivity(), View.OnClickListener,
         }
     }
 
-    private fun validateProjectName(
+    private fun validateCompanyName(
         shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true
     ): Boolean {
         var errorMessage: String? = null
-        val value: String = mBinding.projectNameEt.text.toString()
+        val value: String = mBinding.companyNameEt.text.toString()
         if (value.isEmpty()) {
-            errorMessage = "Project Name is required"
+            errorMessage = "Company Name is required"
         }
 
         if (errorMessage != null) {
-            mBinding.projectNameTil.apply {
+            mBinding.companyNameTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
                 if (shouldVibrateView) VibrateView.vibrate(
@@ -135,17 +152,17 @@ class CreateInterviewActivity : AppCompatActivity(), View.OnClickListener,
         return errorMessage == null
     }
 
-    private fun validateStartDate(
+    private fun validateIdCandidate(
         shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true
     ): Boolean {
         var errorMessage: String? = null
-        val value: String = mBinding.startDateEt.text.toString()
+        val value: String = mBinding.idCandidateEt.text.toString()
         if (value.isEmpty()) {
-            errorMessage = "Start Date is required"
+            errorMessage = "Id Candidate is required"
         }
 
         if (errorMessage != null) {
-            mBinding.startDateTil.apply {
+            mBinding.idCandidateTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
                 if (shouldVibrateView) VibrateView.vibrate(
@@ -157,17 +174,17 @@ class CreateInterviewActivity : AppCompatActivity(), View.OnClickListener,
         return errorMessage == null
     }
 
-    private fun validateEndDate(
+    private fun validateCandidateName(
         shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true
     ): Boolean {
         var errorMessage: String? = null
-        val value: String = mBinding.endDateEt.text.toString()
+        val value: String = mBinding.candidateNameEt.text.toString()
         if (value.isEmpty()) {
-            errorMessage = "End Date is required"
+            errorMessage = "Candidate Name is required"
         }
 
         if (errorMessage != null) {
-            mBinding.endDateTil.apply {
+            mBinding.candidateNameTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
                 if (shouldVibrateView) VibrateView.vibrate(
@@ -179,17 +196,17 @@ class CreateInterviewActivity : AppCompatActivity(), View.OnClickListener,
         return errorMessage == null
     }
 
-    private fun validateDescription(
+    private fun validateLastNameCandidate(
         shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true
     ): Boolean {
         var errorMessage: String? = null
-        val value: String = mBinding.descriptionEt.text.toString()
+        val value: String = mBinding.lastNameCandidateInterviewEt.text.toString()
         if (value.isEmpty()) {
-            errorMessage = "Project Description is required"
+            errorMessage = "Last Name Candidate is required"
         }
 
         if (errorMessage != null) {
-            mBinding.descriptionTil.apply {
+            mBinding.lastNameCandidateInterviewTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
                 if (shouldVibrateView) VibrateView.vibrate(
@@ -201,17 +218,61 @@ class CreateInterviewActivity : AppCompatActivity(), View.OnClickListener,
         return errorMessage == null
     }
 
-    private fun validateAspirants(
+    private fun validateRol(
         shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true
     ): Boolean {
         var errorMessage: String? = null
-        val value: String = mBinding.aspirantEt.text.toString()
+        val value: String = mBinding.rolEt.text.toString()
         if (value.isEmpty()) {
-            errorMessage = "Aspirant is required"
+            errorMessage = "Rol is required"
         }
 
         if (errorMessage != null) {
-            mBinding.aspirantTil.apply {
+            mBinding.rolTil.apply {
+                isErrorEnabled = true
+                error = errorMessage
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@CreateInterviewActivity, this
+                )
+            }
+        }
+
+        return errorMessage == null
+    }
+
+    private fun validateInterviewDate(
+        shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true
+    ): Boolean {
+        var errorMessage: String? = null
+        val value: String = mBinding.dateInterviewEt.text.toString()
+        if (value.isEmpty()) {
+            errorMessage = "Date Interview is required"
+        }
+
+        if (errorMessage != null) {
+            mBinding.dateInterviewTil.apply {
+                isErrorEnabled = true
+                error = errorMessage
+                if (shouldVibrateView) VibrateView.vibrate(
+                    this@CreateInterviewActivity, this
+                )
+            }
+        }
+
+        return errorMessage == null
+    }
+
+    private fun validateNotes(
+        shouldUpdateView: Boolean = true, shouldVibrateView: Boolean = true
+    ): Boolean {
+        var errorMessage: String? = null
+        val value: String = mBinding.notesInterviewEt.text.toString()
+        if (value.isEmpty()) {
+            errorMessage = "Notes is required"
+        }
+
+        if (errorMessage != null) {
+            mBinding.notesInterviewTil.apply {
                 isErrorEnabled = true
                 error = errorMessage
                 if (shouldVibrateView) VibrateView.vibrate(
@@ -236,49 +297,67 @@ class CreateInterviewActivity : AppCompatActivity(), View.OnClickListener,
     override fun onFocusChange(view: View?, hasFocus: Boolean) {
         if (view != null) {
             when (view.id) {
-                R.id.projectNameEt -> {
+                R.id.companyNameEt -> {
                     if (hasFocus) {
-                        if (mBinding.projectNameTil.isErrorEnabled) {
-                            mBinding.projectNameTil.isErrorEnabled = false
+                        if (mBinding.companyNameTil.isErrorEnabled) {
+                            mBinding.companyNameTil.isErrorEnabled = false
                         }
                     } else {
-                        validateProjectName()
+                        validateCompanyName()
                     }
                 }
-                R.id.startDateEt -> {
+                R.id.idCandidateEt -> {
                     if (hasFocus) {
-                        if (mBinding.startDateTil.isErrorEnabled) {
-                            mBinding.startDateTil.isErrorEnabled = false
+                        if (mBinding.idCandidateTil.isErrorEnabled) {
+                            mBinding.idCandidateTil.isErrorEnabled = false
                         }
                     } else {
-                        validateStartDate()
+                        validateIdCandidate()
                     }
                 }
-                R.id.endDateEt -> {
+                R.id.nameCandidateEt -> {
                     if (hasFocus) {
-                        if (mBinding.endDateTil.isErrorEnabled) {
-                            mBinding.endDateTil.isErrorEnabled = false
+                        if (mBinding.candidateNameTil.isErrorEnabled) {
+                            mBinding.candidateNameTil.isErrorEnabled = false
                         }
                     } else {
-                        validateEndDate()
+                        validateCandidateName()
                     }
                 }
-                R.id.descriptionEt -> {
+                R.id.lastNameCandidateEt -> {
                     if (hasFocus) {
-                        if (mBinding.descriptionTil.isErrorEnabled) {
-                            mBinding.descriptionTil.isErrorEnabled = false
+                        if (mBinding.lastNameCandidateInterviewTil.isErrorEnabled) {
+                            mBinding.lastNameCandidateInterviewTil.isErrorEnabled = false
                         }
                     } else {
-                        validateDescription()
+                        validateLastNameCandidate()
                     }
                 }
-                R.id.aspirantEt -> {
+                R.id.rolEt -> {
                     if (hasFocus) {
-                        if (mBinding.aspirantTil.isErrorEnabled) {
-                            mBinding.aspirantTil.isErrorEnabled = false
+                        if (mBinding.rolTil.isErrorEnabled) {
+                            mBinding.rolTil.isErrorEnabled = false
                         }
                     } else {
-                        validateAspirants()
+                        validateRol()
+                    }
+                }
+                R.id.dateInterviewEt -> {
+                    if (hasFocus) {
+                        if (mBinding.dateInterviewTil.isErrorEnabled) {
+                            mBinding.dateInterviewTil.isErrorEnabled = false
+                        }
+                    } else {
+                        validateInterviewDate()
+                    }
+                }
+                R.id.notesEt -> {
+                    if (hasFocus) {
+                        if (mBinding.notesInterviewTil.isErrorEnabled) {
+                            mBinding.notesInterviewTil.isErrorEnabled = false
+                        }
+                    } else {
+                        validateNotes()
                     }
                 }
             }
@@ -299,12 +378,13 @@ class CreateInterviewActivity : AppCompatActivity(), View.OnClickListener,
         if (validate()) {
             mViewModel.createInterview(
                 CreateInterviewBody(
-                    mBinding.projectNameEt.text!!.toString(),
-                    //projectName = "Default",
-                    mBinding.startDateEt.text!!.toString(),
-                    mBinding.endDateEt.text!!.toString(),
-                    mBinding.descriptionEt.text!!.toString(),
-                    mBinding.aspirantEt.inputType,
+                    mBinding.companyNameEt.text!!.toString(),
+                    mBinding.idCandidateEt.text!!.toString(),
+                    mBinding.candidateNameEt.text!!.toString(),
+                    mBinding.lastNameCandidateInterviewEt.text!!.toString(),
+                    mBinding.rolEt.text!!.toString(),
+                    mBinding.dateInterviewEt.text!!.toString(),
+                    mBinding.notesInterviewEt.text!!.toString(),
                 )
             )
         }
@@ -313,11 +393,13 @@ class CreateInterviewActivity : AppCompatActivity(), View.OnClickListener,
     private fun validate(): Boolean {
         var isValid = true
 
-        if (!validateProjectName(shouldVibrateView = false)) isValid = false
-        if (!validateStartDate(shouldVibrateView = false)) isValid = false
-        if (!validateEndDate(shouldVibrateView = false)) isValid = false
-        if (!validateDescription(shouldVibrateView = false)) isValid = false
-        if (!validateAspirants(shouldVibrateView = false)) isValid = false
+        if (!validateCompanyName(shouldVibrateView = false)) isValid = false
+        if (!validateIdCandidate(shouldVibrateView = false)) isValid = false
+        if (!validateCandidateName(shouldVibrateView = false)) isValid = false
+        if (!validateLastNameCandidate(shouldVibrateView = false)) isValid = false
+        if (!validateRol(shouldVibrateView = false)) isValid = false
+        if (!validateInterviewDate(shouldVibrateView = false)) isValid = false
+        if (!validateNotes(shouldVibrateView = false)) isValid = false
 
         if (!isValid) VibrateView.vibrate(this, mBinding.cardView)
 
