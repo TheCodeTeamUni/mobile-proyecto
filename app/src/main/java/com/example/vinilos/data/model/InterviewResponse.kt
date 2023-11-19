@@ -3,18 +3,24 @@ package com.example.vinilos.data.model
 import com.google.gson.annotations.SerializedName
 
 class InterviewResponse {
-    @SerializedName("nameProject")
-    var nameProject: String? = null
+    @SerializedName("nameCompany")
+    var nameCompany: String? = null
 
-    @SerializedName("startDate")
-    var startDate: String? = null
+    @SerializedName("idAspirant")
+    var idAspirant: String? = null
 
-    @SerializedName("endDate")
-    var endDate: String? = null
+    @SerializedName("nameAspirant")
+    var nameAspirant: String? = null
 
-    @SerializedName("aspirants")
-    var aspirants: Number = 0
+    @SerializedName("lastNameAspirant")
+    var lastNameAspirant: String? = null
 
-    @SerializedName("description")
-    var description: String? = null
+    @SerializedName("role")
+    var role: String? = null
+
+    @SerializedName("date")
+    var date: String? = null
+
+    @SerializedName("notes")
+    var notes: String? = null
 }

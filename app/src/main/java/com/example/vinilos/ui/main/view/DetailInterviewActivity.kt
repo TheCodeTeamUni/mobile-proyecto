@@ -75,7 +75,7 @@ class DetailInterviewActivity : AppCompatActivity() {
             Log.d("Cache decision", "Se saca de la red")
             setupObservers(id)
         } else {
-            Log.d("Cache decision", "return ${potentialResp.nameProject} elements from cache")
+            Log.d("Cache decision", "return ${potentialResp.nameAspirant} elements from cache")
             retrieveInterviewDetail(
                 potentialResp,
                 false
@@ -106,11 +106,13 @@ class DetailInterviewActivity : AppCompatActivity() {
     }
 
     private fun retrieveInterviewDetail(interview: InterviewResponse, b: Boolean) {
-        CacheManager.getInstance(application.applicationContext)
-            .addInterview(interview.aspirants.toInt(), interview)
+        interview.nameAspirant?.let {
+            CacheManager.getInstance(application.applicationContext)
+                .addInterview(it.toInt(), interview)
+        }
         adapter = InterviewDetailAdapter(interview)
         adapter.adaptData(binding)
-        supportActionBar?.title = interview.nameProject
+        supportActionBar?.title = interview.nameAspirant
         supportActionBar?.subtitle = "Album"
     }
 

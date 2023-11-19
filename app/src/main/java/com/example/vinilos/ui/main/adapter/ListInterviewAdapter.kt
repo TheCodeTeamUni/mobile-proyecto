@@ -24,8 +24,8 @@ class ListInterviewAdapter(
         val bindPar = binding
         fun bind(interview: InterviewResponse) {
             bindPar.root.apply {
-                bindPar.textViewElementTitle.text = interview.nameProject
-                bindPar.textElementDetail.text = interview.description
+                bindPar.textViewElementTitle.text = interview.nameAspirant + " " + interview.lastNameAspirant
+                bindPar.textElementDetail.text = interview.date
                 Glide.with(bindPar.imageElementList.context).load(R.drawable.list_interviews_icon)
                     .into(bindPar.imageElementList)
             }
@@ -44,8 +44,8 @@ class ListInterviewAdapter(
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         holder.bindPar.root.setOnClickListener {
             val intent = Intent(context, DetailInterviewActivity::class.java).apply {
-                putExtra(ID_INTERVIEW, interviews[position].aspirants.toString())
-                putExtra(NAME_INTERVIEW, interviews[position].nameProject)
+                putExtra(ID_INTERVIEW, interviews[position].nameAspirant.toString())
+                putExtra(NAME_INTERVIEW, interviews[position].date)
             }
             context.startActivity(intent)
         }

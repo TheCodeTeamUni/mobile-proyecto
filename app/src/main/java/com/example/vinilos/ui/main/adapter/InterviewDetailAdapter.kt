@@ -12,10 +12,10 @@ class InterviewDetailAdapter(private val interviewDetail: InterviewResponse) {
         Glide.with(binding.imageViewInterviewDetails.context)
             .load(R.drawable.list_interviews_icon)
             .into(binding.imageViewInterviewDetails)
-        binding.textContentAlbum.text = interviewDetail.nameProject
-        binding.textContentDate.text = interviewDetail.startDate
-        binding.textContentGenre.text = interviewDetail.endDate
-        binding.textContentRecord.text = interviewDetail.aspirants.toString()
-        binding.textContentDescription.text = interviewDetail.description
+        binding.textContentCompanyName.text = interviewDetail.nameCompany
+        binding.textContentCandidateName.text = interviewDetail.nameAspirant
+        binding.textContentCandidateLastName.text = interviewDetail.lastNameAspirant
+        binding.textContentRol.text = interviewDetail.role
+        binding.textContentInterviewDate.text = interviewDetail.date
     }
 }
