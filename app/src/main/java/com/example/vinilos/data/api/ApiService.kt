@@ -2,11 +2,9 @@ package com.example.vinilos.data.api
 
 
 import com.example.vinilos.data.model.*
+import com.google.gson.JsonObject
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -40,13 +38,8 @@ interface ApiService {
     @GET("abcjobs/company/project/{id}")
     suspend fun getProjectDetail(@Path("id") id: String): ProjectDetailResponse
 
-    //Old
-
-    @GET("abcjobs/company/project")
-    suspend fun getAllProjects(): Response<List<ProjectResponse>>
-
-    @POST("albums")
-    suspend fun createAlbum(@Body album: HashMap<String, String>): Response<ProjectResponse>
+    @POST("abcjobs/company/project/{id}")
+    suspend fun postAssignedCandidate(@Path("id") id: String, @Body body: AssignedCandidateBody): Response<AssignedCandidateResponse>
 
     @POST("abcjobs/company/project")
     suspend fun createInterview(@Body body: CreateInterviewBody): Response<CreateInterviewResponse>
@@ -56,6 +49,14 @@ interface ApiService {
 
     @GET("albums/{id}")
     suspend fun getInterviewDetail(@Path("id") id: String): InterviewResponse
+
+    //Old
+
+    @GET("abcjobs/company/project")
+    suspend fun getAllProjects(): Response<List<ProjectResponse>>
+
+    @POST("albums")
+    suspend fun createAlbum(@Body album: HashMap<String, String>): Response<ProjectResponse>
 
 
 }

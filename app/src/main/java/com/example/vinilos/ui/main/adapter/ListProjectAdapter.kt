@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vinilos.data.model.ProjectResponse
+import com.example.vinilos.ui.main.view.AssignedCandidateActivity
 import com.example.vinilos.ui.main.view.DetailProjectActivity
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ItemLayoutBinding
@@ -44,7 +45,7 @@ class ListProjectAdapter(
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         holder.bindPar.root.setOnClickListener {
-            val intent = Intent(context, DetailProjectActivity::class.java).apply {
+            val intent = Intent(context, AssignedCandidateActivity::class.java).apply {
                 putExtra(ID, projects[position].id.toString())
                 putExtra(NAME, projects[position].nameProject)
             }

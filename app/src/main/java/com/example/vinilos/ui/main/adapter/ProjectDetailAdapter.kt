@@ -23,6 +23,7 @@ class ProjectDetailAdapter(private val projectDetail: ProjectDetailResponse) {
         binding.textContentRecord.text = projectDetail.candidates
         binding.textContentDescription.text = projectDetail.description //"Este es un proyecto de pruebas"//
         binding.listTextAspirants.text = projectDetail.aspirants.toString() // "mmorales@crehana.com"
+        println("Aca esta imprimiendo esto: " + projectDetail.aspirants)
     }
 
 }
