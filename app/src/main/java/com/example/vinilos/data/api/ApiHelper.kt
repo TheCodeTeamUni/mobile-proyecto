@@ -6,5 +6,7 @@ class ApiHelper(private val apiService: ApiService) {
     suspend fun getProjectDetail(id: String) = apiService.getProjectDetail(id)
     suspend fun getInterviews() = apiService.getInterviews()
     suspend fun getInterviewDetail(id: String) = apiService.getInterviewDetail(id)
+    suspend fun getCandidates() = apiService.getCandidates()
+    suspend fun getCandidateDetail(id: String) = apiService.getCandidateDetail(id)
 
 }

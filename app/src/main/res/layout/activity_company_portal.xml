@@ -48,7 +48,7 @@
 
 
     <ImageView
-        android:id="@+id/aspirant_profile_icon"
+        android:id="@+id/list_candidates_icon"
         android:layout_width="151dp"
         android:layout_height="154dp"
         android:layout_gravity="center_horizontal"

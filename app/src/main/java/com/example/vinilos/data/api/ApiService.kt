@@ -50,6 +50,15 @@ interface ApiService {
     @GET("abcjobs/company/interview/{id}")
     suspend fun getInterviewDetail(@Path("id") id: String): InterviewResponse
 
+    @GET("abcjobs/aspirantes")
+    suspend fun getCandidates(): List<CandidatesResponse>
+
+    @GET("abcjobs/search/aspirant/{id}")
+    suspend fun getCandidateDetail(@Path("id") id: String): CandidateDetailResponse
+
+    @GET("abcjobs/aspirantes")
+    suspend fun getAllCandidates(): Response<List<CandidatesResponse>>
+
     //Old
 
     @GET("abcjobs/company/project")
