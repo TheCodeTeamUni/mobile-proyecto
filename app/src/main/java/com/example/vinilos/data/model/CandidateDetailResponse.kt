@@ -9,6 +9,12 @@ class CandidateDetailResponse {
     @SerializedName("name")
     var name: String? = null
 
+    @SerializedName("typeDocument")
+    var typeDocument: String? = null
+
+    @SerializedName("document")
+    var document: String? = null
+
     @SerializedName("lastName")
     var lastName: String? = null
 
@@ -17,6 +23,9 @@ class CandidateDetailResponse {
 
     @SerializedName("telephone")
     var telephone: String? = null
+
+    @SerializedName("description")
+    var description: String? = null
 
     @SerializedName("alternativeEmail")
     var alternativeEmail: String? = null

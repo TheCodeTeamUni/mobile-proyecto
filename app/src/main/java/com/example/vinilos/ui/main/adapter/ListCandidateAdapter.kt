@@ -29,6 +29,7 @@ class ListCandidateAdapter (
                 Glide.with(bindPar.imageElementList.context)
                     .load(candidate.photo)
                     .into(bindPar.imageElementList)
+                bindPar.textElementContext.text = candidate.country
             }
         }
     }

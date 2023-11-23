@@ -1,9 +1,11 @@
 package com.example.vinilos.network
 
 import android.content.Context
+import com.example.vinilos.data.model.CandidateDetailResponse
 import com.example.vinilos.data.model.InterviewResponse
 import com.example.vinilos.data.model.ProjectDetailResponse
 import com.example.vinilos.data.model.ProjectResponse
+import com.example.vinilos.ui.main.adapter.CandidateDetailAdapter
 
 class CacheManager(context: Context) {
     companion object {
@@ -17,15 +19,15 @@ class CacheManager(context: Context) {
     }
 
     //Projects Cache elements
-    private var projects: HashMap<Int, ProjectDetailResponse> = hashMapOf()
-    fun addProject(projectId: Int, proyectos: ProjectDetailResponse) {
-        if (!projects.containsKey(projectId)) {
-            projects[projectId] = proyectos
+    private var candidates: HashMap<Int, CandidateDetailResponse> = hashMapOf()
+    fun addCandidate(candidateId: Int, candidatos: CandidateDetailResponse) {
+        if (!candidates.containsKey(candidateId)) {
+            candidates[candidateId] = candidatos
         }
     }
 
-    fun getProjects(proyectId: Int) : ProjectDetailResponse? {
-        return if (projects.containsKey(proyectId)) projects[proyectId]!! else null
+    fun getCandidates(candidateId: Int) : CandidateDetailResponse? {
+        return if (candidates.containsKey(candidateId)) candidates[candidateId]!! else null
     }
 
 

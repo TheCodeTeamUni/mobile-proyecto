@@ -7,11 +7,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class CandidateService {
-    private val retrofit = RetrofitBuilder.getRetrofit()
+    /*private val retrofit = RetrofitBuilder.getRetrofit()
     suspend fun getCandidates(): List<CandidatesResponse> {
         return withContext(Dispatchers.IO) {
             val response = retrofit.create(ApiService::class.java).getAllCandidates()
             response.body() ?: emptyList()
         }
-    }
+    }*/
 }
