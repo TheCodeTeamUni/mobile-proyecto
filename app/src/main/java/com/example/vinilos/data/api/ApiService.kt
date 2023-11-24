@@ -47,8 +47,8 @@ interface ApiService {
     @GET("abcjobs/company/interview")
     suspend fun getInterviews(): List<InterviewResponse>
 
-    @GET("abcjobs/company/interview/{id}")
-    suspend fun getInterviewDetail(@Path("id") id: String): InterviewResponse
+    @GET("abcjobs/interview/result/{id}")
+    suspend fun getInterviewDetail(@Path("id") id: String): InterviewResultResponse
 
     @GET("abcjobs/aspirantes")
     suspend fun getCandidates(): List<CandidatesResponse>

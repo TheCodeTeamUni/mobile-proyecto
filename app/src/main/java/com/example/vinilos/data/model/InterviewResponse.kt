@@ -3,8 +3,9 @@ package com.example.vinilos.data.model
 import com.google.gson.annotations.SerializedName
 
 class InterviewResponse {
-    @SerializedName("nameCompany")
-    var nameCompany: String? = null
+
+    @SerializedName("id")
+    var id: String? = null
 
     @SerializedName("idAspirant")
     var idAspirant: String? = null

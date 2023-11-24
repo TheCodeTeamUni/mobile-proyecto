@@ -12,7 +12,7 @@ import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ItemLayoutBinding
 
 const val ID_INTERVIEW = "id"
-const val NAME_INTERVIEW = "name"
+const val DATE_INTERVIEW = "date"
 
 class ListInterviewAdapter(
     private val interviews: ArrayList<InterviewResponse>
@@ -44,8 +44,8 @@ class ListInterviewAdapter(
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         holder.bindPar.root.setOnClickListener {
             val intent = Intent(context, DetailInterviewActivity::class.java).apply {
-                putExtra(ID_INTERVIEW, interviews[position].nameAspirant.toString())
-                putExtra(NAME_INTERVIEW, interviews[position].date)
+                putExtra(ID_INTERVIEW, interviews[position].id.toString())
+                //putExtra(DATE_INTERVIEW, interviews[position].date)
             }
             context.startActivity(intent)
         }

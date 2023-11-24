@@ -38,115 +38,68 @@
 
             <ImageView
                 android:id="@+id/imageViewInterviewDetails"
-                android:layout_width="0dp"
-                android:layout_height="280dp"
+                android:layout_width="198dp"
+                android:layout_height="189dp"
                 android:layout_marginTop="12dp"
                 android:contentDescription="@string/detail_album_description_image"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.104"
+                app:layout_constraintVertical_bias="0.239"
                 tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:id="@+id/textLabelCompanyName"
+                android:id="@+id/textLabelInterviewResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
-                android:text="Company Name"
+                android:text="Interview Result"
                 android:textColor="@color/turquoise"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewInterviewDetails" />
 
             <TextView
-                android:id="@+id/textContentCompanyName"
+                android:id="@+id/textContentInterviewResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:textColor="@color/TextColor"
-                app:layout_constraintBaseline_toBaselineOf="@+id/textLabelCompanyName"
-                app:layout_constraintStart_toEndOf="@+id/textLabelCompanyName"
-                tools:text="Company Name" />
+                app:layout_constraintBaseline_toBaselineOf="@+id/textLabelInterviewResult"
+                app:layout_constraintStart_toEndOf="@+id/textLabelInterviewResult"
+                tools:text="Interview Result" />
 
 
             <TextView
-                android:id="@+id/textLabelCandidateName"
+                android:id="@+id/textLabelInterviewNotes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
-                android:text="Candidate Name"
+                android:text="Interview Notes"
                 android:textColor="@color/turquoise"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textLabelCompanyName" />
+                app:layout_constraintTop_toBottomOf="@+id/textLabelInterviewResult" />
 
             <TextView
-                android:id="@+id/textContentCandidateName"
+                android:id="@+id/textContentInterviewNotes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="16dp"
                 android:textColor="@color/TextColor"
-                app:layout_constraintBaseline_toBaselineOf="@+id/textLabelCandidateName"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textLabelInterviewNotes"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textLabelCandidateName"
-                tools:text="Candidate Name" />
+                app:layout_constraintStart_toEndOf="@+id/textLabelInterviewNotes"
+                tools:text="Interview Notes" />
 
             <TextView
-                android:id="@+id/textLabelCandidateLastName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:text="Candidate Last Name"
-                android:textColor="@color/turquoise"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textLabelCandidateName" />
-
-            <TextView
-                android:id="@+id/textContentCandidateLastName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:textColor="@color/TextColor"
-                app:layout_constraintBaseline_toBaselineOf="@+id/textLabelCandidateLastName"
-                app:layout_constraintStart_toEndOf="@+id/textLabelCandidateLastName"
-                tools:text="Last Name" />
-
-            <TextView
-                android:id="@+id/textLabelRol"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:text="Candidate Rol"
-                android:textColor="@color/turquoise"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textLabelCandidateLastName" />
-
-
-            <TextView
-                android:id="@+id/textContentRol"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:textColor="@color/TextColor"
-                app:layout_constraintBaseline_toBaselineOf="@+id/textLabelRol"
-                app:layout_constraintStart_toEndOf="@+id/textLabelRol"
-                tools:text="Candidate Rol" />
-
-
-
-            <TextView
-                android:id="@+id/textLabelDateInterview"
+                android:id="@+id/textLabelInterviewDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -155,20 +108,17 @@
                 android:textColor="@color/turquoise"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textLabelRol" />
-
+                app:layout_constraintTop_toBottomOf="@+id/textLabelInterviewNotes" />
 
             <TextView
                 android:id="@+id/textContentInterviewDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="8dp"
                 android:textColor="@color/TextColor"
-                app:layout_constraintBaseline_toBaselineOf="@+id/textLabelDateInterview"
-                app:layout_constraintStart_toEndOf="@+id/textLabelDateInterview"
+                app:layout_constraintBaseline_toBaselineOf="@+id/textLabelInterviewDate"
+                app:layout_constraintStart_toEndOf="@+id/textLabelInterviewDate"
                 tools:text="Interview Date" />
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
