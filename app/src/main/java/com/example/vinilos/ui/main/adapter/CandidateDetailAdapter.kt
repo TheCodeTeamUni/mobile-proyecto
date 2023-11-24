@@ -12,11 +12,11 @@ class CandidateDetailAdapter(private val candidateDetail: CandidateDetailRespons
             .load((R.drawable.icon_profile_candidate))
             //.load(candidateDetail.photo)
             .into(binding.imageViewProjectDetails)
-        binding.textContentCandidateName.text="Manuel Morales"//candidateDetail.name
+        binding.textContentCandidateName.text=candidateDetail.name
         println("esto imprime esta chorrada: " + candidateDetail.name)
-        binding.textContentDocumentCandidate.text="80123456"//candidateDetail.document
-        binding.textContentTelephoneCandidate.text="3051234567"//candidateDetail.telephone
-        binding.textContentCountryCandidate.text="Colombia"//candidateDetail.country
-        binding.textContentDescription.text="Esta es una dewscripción de prueba"//candidateDetail.description
+        binding.textContentDocumentCandidate.text=candidateDetail.document
+        binding.textContentTelephoneCandidate.text=candidateDetail.telephone
+        binding.textContentCountryCandidate.text=candidateDetail.country
+        binding.textContentDescription.text=candidateDetail.description
     }
 }

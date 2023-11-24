@@ -14,6 +14,7 @@ class InterviewDetailAdapter(private val interviewDetail: InterviewResultRespons
             .load(R.drawable.list_interviews_icon)
             .into(binding.imageViewInterviewDetails)
         binding.textContentInterviewResult.text = interviewDetail.result
+        println("esto imprime esta chorrada: " + interviewDetail.result)
         binding.textContentInterviewNotes.text = interviewDetail.notes
         binding.textContentInterviewDate.text = interviewDetail.createdAt
     }
