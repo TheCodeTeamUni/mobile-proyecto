@@ -56,8 +56,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
-                android:text="Interview Result"
+                android:text="Interview Result: "
                 android:textColor="@color/turquoise"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewInterviewDetails" />
@@ -67,8 +68,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="32dp"
                 android:textColor="@color/TextColor"
+                android:textSize="16sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textLabelInterviewResult"
                 app:layout_constraintStart_toEndOf="@+id/textLabelInterviewResult"
                 tools:text="Interview Result" />
@@ -80,8 +81,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
-                android:text="Interview Notes"
+                android:text="Interview Notes:  "
                 android:textColor="@color/turquoise"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textLabelInterviewResult" />
@@ -93,6 +95,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="16dp"
                 android:textColor="@color/TextColor"
+                android:textSize="16sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textLabelInterviewNotes"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textLabelInterviewNotes"
@@ -103,9 +106,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="32dp"
-                android:text="Interview Date"
+                android:layout_marginTop="52dp"
+                android:text="Interview Date:   "
                 android:textColor="@color/turquoise"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textLabelInterviewNotes" />
@@ -114,10 +118,12 @@
                 android:id="@+id/textContentInterviewDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="14dp"
                 android:textColor="@color/TextColor"
+                android:textSize="16sp"
                 app:layout_constraintBaseline_toBaselineOf="@+id/textLabelInterviewDate"
                 app:layout_constraintStart_toEndOf="@+id/textLabelInterviewDate"
+                android:maxLength="16"
                 tools:text="Interview Date" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
