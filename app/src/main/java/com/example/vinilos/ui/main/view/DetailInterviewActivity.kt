@@ -2,8 +2,6 @@ package com.example.vinilos.ui.main.view
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -11,22 +9,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
-import com.example.vinilos.data.model.InterviewResponse
 import com.example.vinilos.data.model.InterviewResultResponse
-import com.example.vinilos.data.model.ProjectDetailResponse
-import com.example.vinilos.network.CacheManager
 import com.example.vinilos.ui.main.adapter.ID
 import com.example.vinilos.ui.main.adapter.InterviewDetailAdapter
-import com.example.vinilos.ui.main.adapter.NAME
-import com.example.vinilos.ui.main.adapter.ProjectDetailAdapter
 import com.example.vinilos.ui.main.viewmodel.InterviewViewModel
 import com.example.vinilos.ui.main.viewmodel.InterviewViewModelFactory
-import com.example.vinilos.ui.main.viewmodel.ProjectViewModel
-import com.example.vinilos.ui.main.viewmodel.ProjectViewModelFactory
 import com.example.vinilos.utils.Status
-import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailInterviewBinding
-import com.vinylsMobile.vinylsapplication.databinding.ActivityDetailProjectBinding
 
 class DetailInterviewActivity : AppCompatActivity() {
     lateinit var context: Context

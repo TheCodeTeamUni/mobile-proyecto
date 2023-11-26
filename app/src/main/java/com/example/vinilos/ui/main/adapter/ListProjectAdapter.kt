@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.vinilos.data.model.ProjectResponse
 import com.example.vinilos.ui.main.view.AssignedCandidateActivity
-import com.example.vinilos.ui.main.view.DetailProjectActivity
 import com.vinylsMobile.vinylsapplication.R
 import com.vinylsMobile.vinylsapplication.databinding.ItemLayoutBinding
 

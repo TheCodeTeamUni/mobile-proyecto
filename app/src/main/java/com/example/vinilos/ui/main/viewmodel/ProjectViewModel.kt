@@ -15,13 +15,4 @@ class ProjectViewModel(private val projectRepository: ProjectRepository) : ViewM
             emit(Resource.error(data = null, msg = exception.message ?: "Un error ha ocurrido!"))
         }
     }
-
-    fun getProjectDetail(id: String) = liveData(Dispatchers.IO) {
-        emit(Resource.loading(data = null))
-        try {
-            emit(Resource.success(data = projectRepository.getProjectDetail(id)))
-        } catch (exception: Exception) {
-            emit(Resource.error(data = null, msg = exception.message ?: "Un error ha ocurrido!"))
-        }
-    }
 }

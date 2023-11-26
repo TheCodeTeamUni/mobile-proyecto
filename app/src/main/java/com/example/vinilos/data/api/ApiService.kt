@@ -35,9 +35,6 @@ interface ApiService {
     @GET("abcjobs/company/project")
     suspend fun getProjects(): List<ProjectResponse>
 
-    @GET("abcjobs/company/project/{id}")
-    suspend fun getProjectDetail(@Path("id") id: String): ProjectDetailResponse
-
     @POST("abcjobs/company/project/{id}")
     suspend fun postAssignedCandidate(@Path("id") id: String, @Body body: AssignedCandidateBody): Response<AssignedCandidateResponse>
 

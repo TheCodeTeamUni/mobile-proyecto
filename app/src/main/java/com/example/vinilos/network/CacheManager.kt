@@ -3,9 +3,6 @@ package com.example.vinilos.network
 import android.content.Context
 import com.example.vinilos.data.model.CandidateDetailResponse
 import com.example.vinilos.data.model.InterviewResponse
-import com.example.vinilos.data.model.ProjectDetailResponse
-import com.example.vinilos.data.model.ProjectResponse
-import com.example.vinilos.ui.main.adapter.CandidateDetailAdapter
 
 class CacheManager(context: Context) {
     companion object {
