@@ -6,7 +6,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="599dp">
+        android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
@@ -26,7 +26,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_fab_create_album"
+        android:id="@+id/btn_fab_create_project"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
@@ -34,5 +34,5 @@
         android:layout_marginBottom="30dp"
         android:contentDescription="@string/add_album_btn"
         android:src="@drawable/ic_add_album"
-        app:backgroundTint="@color/turquoise" />
+        app:backgroundTint="@color/project" />
 </FrameLayout>

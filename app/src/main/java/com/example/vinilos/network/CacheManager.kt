@@ -1,9 +1,8 @@
 package com.example.vinilos.network
 
 import android.content.Context
-import com.example.vinilos.data.model.ArtistResponse
-import com.example.vinilos.data.model.CollectorResponse
-import com.example.vinilos.data.model.ProjectResponse
+import com.example.vinilos.data.model.CandidateDetailResponse
+import com.example.vinilos.data.model.InterviewResponse
 
 class CacheManager(context: Context) {
     companion object {
@@ -16,39 +15,27 @@ class CacheManager(context: Context) {
             }
     }
 
-    //Albums Cache elements
-    private var albums: HashMap<Int, ProjectResponse> = hashMapOf()
-    fun addAlbum(albumId: Int, albumes: ProjectResponse) {
-        if (!albums.containsKey(albumId)) {
-            albums[albumId] = albumes
+    //Projects Cache elements
+    private var candidates: HashMap<Int, CandidateDetailResponse> = hashMapOf()
+    fun addCandidate(candidateId: Int, candidatos: CandidateDetailResponse) {
+        if (!candidates.containsKey(candidateId)) {
+            candidates[candidateId] = candidatos
         }
     }
 
-    fun getProject(albumId: Int): ProjectResponse? {
-        return if (albums.containsKey(albumId)) albums[albumId]!! else null
+    fun getCandidates(candidateId: Int) : CandidateDetailResponse? {
+        return if (candidates.containsKey(candidateId)) candidates[candidateId]!! else null
     }
 
-    //Artist cache elements
-    private var artists: HashMap<Int, ArtistResponse> = hashMapOf()
-    fun addArtist(artistId: Int, artista: ArtistResponse) {
-        if (!artists.containsKey(artistId)) {
-            artists[artistId] = artista
+
+    private var interviews: HashMap<Int, InterviewResponse> = hashMapOf()
+    fun addInterview(interviewId: Int, entrevistas: InterviewResponse) {
+        if (!interviews.containsKey(interviewId)) {
+            interviews[interviewId] = entrevistas
         }
     }
 
-    fun getArtist(artistId: Int): ArtistResponse? {
-        return if (artists.containsKey(artistId)) artists[artistId]!! else null
-    }
-
-    //Collectors Cache Elements
-    private var collectors: HashMap<Int, CollectorResponse> = hashMapOf()
-    fun addCollector(collectorId: Int, coleccionistas: CollectorResponse) {
-        if (!collectors.containsKey(collectorId)) {
-            collectors[collectorId] = coleccionistas
-        }
-    }
-
-    fun getCollectors(collectorId: Int): CollectorResponse? {
-        return if (collectors.containsKey(collectorId)) collectors[collectorId]!! else null
+    fun getInterview(interviewId: Int): InterviewResponse? {
+        return if (interviews.containsKey(interviewId)) interviews[interviewId]!! else null
     }
 }

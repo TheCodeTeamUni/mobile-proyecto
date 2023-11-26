@@ -9,6 +9,11 @@
     <color name="black">#FAF8F8</color>
     <color name="white">#FAFAFA</color>
     <color name="turquoise">#16C8C9</color>
+    <color name="candidates">#22898C</color>
+    <color name="project">#FF5050</color>
+    <color name="red_base">#FF5252</color>
+    <color name="interview">#FFA000</color>
+    <color name="test">#959595</color>
     <color name="ToolsBar">#57585E</color>
     <color name="TextColor">#919191</color>
     <color name="ButtonColor">#131419</color>

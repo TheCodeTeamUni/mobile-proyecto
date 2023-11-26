@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vinilos.data.api.ApiHelper
 import com.example.vinilos.data.api.RetrofitBuilder
 import com.example.vinilos.data.model.ProjectResponse
-import com.example.vinilos.ui.base.ViewModelFactory
-import com.example.vinilos.ui.main.adapter.HomeAdapter
+import com.example.vinilos.ui.main.adapter.ListProjectAdapter
 import com.example.vinilos.ui.main.viewmodel.ProjectViewModel
+import com.example.vinilos.ui.main.viewmodel.ProjectViewModelFactory
 import com.example.vinilos.utils.Status
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.vinylsMobile.vinylsapplication.databinding.FragmentProjectListBinding
@@ -26,13 +26,13 @@ import com.vinylsMobile.vinylsapplication.databinding.FragmentProjectListBinding
  * create an instance of this fragment.
  */
 class ProjectListFragment : Fragment() {
-    private lateinit var homeViewModel: ProjectViewModel
-    private lateinit var adapter: HomeAdapter
+    private lateinit var projectViewModel: ProjectViewModel
+    private lateinit var adapter: ListProjectAdapter
     private lateinit var binding: FragmentProjectListBinding
 
     private fun setupUI() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this.context)
-        adapter = HomeAdapter(arrayListOf())
+        adapter = ListProjectAdapter(arrayListOf())
         binding.recyclerView.addItemDecoration(
             DividerItemDecoration(
                 binding.recyclerView.context,
@@ -43,13 +43,13 @@ class ProjectListFragment : Fragment() {
     }
 
     private fun setupObservers() {
-        homeViewModel.getProjects().observe(viewLifecycleOwner, {
+        projectViewModel.getProjects().observe(viewLifecycleOwner, {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
                         binding.recyclerView.visibility = View.VISIBLE
                         binding.progressBar.visibility = View.GONE
-                        resource.data?.let { albums -> retrieveList(albums) }
+                        resource.data?.let { project -> retrieveList(project) }
                     }
                     Status.ERROR -> {
                         binding.recyclerView.visibility = View.VISIBLE
@@ -66,9 +66,9 @@ class ProjectListFragment : Fragment() {
     }
 
     private fun setupViewModel() {
-        homeViewModel = ViewModelProviders.of(
+        projectViewModel = ViewModelProviders.of(
             this,
-            ViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
+            ProjectViewModelFactory(ApiHelper(RetrofitBuilder.apiService))
         )[ProjectViewModel::class.java]
     }
 
@@ -86,14 +86,14 @@ class ProjectListFragment : Fragment() {
     }
 
     private fun bindMenuEvents() {
-        val createAlbumMenuButton: FloatingActionButton = binding.btnFabCreateAlbum
-        createAlbumMenuButton.setOnClickListener { view ->
-            launchAlbumCreateActivity(view)
+        val createProjectMenuButton: FloatingActionButton = binding.btnFabCreateProject
+        createProjectMenuButton.setOnClickListener { view ->
+            launchProjectCreateActivity(view)
         }
 
     }
 
-    private fun launchAlbumCreateActivity(view: View) {
+    private fun launchProjectCreateActivity(view: View) {
         val intent = Intent(activity, CreateProjectActivity::class.java)
         startActivity(intent)
     }
@@ -112,9 +112,9 @@ class ProjectListFragment : Fragment() {
         }
     }
 
-    private fun retrieveList(albums: List<ProjectResponse>) {
+    private fun retrieveList(projects: List<ProjectResponse>) {
         adapter.apply {
-            addAlbums(albums)
+            addProjects(projects)
             notifyDataSetChanged()
         }
     }
