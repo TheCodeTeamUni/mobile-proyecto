@@ -17,5 +17,20 @@ class CompanyPortalActivity : AppCompatActivity() {
             val intent = Intent(this, ProjectModuleActivity::class.java)
             startActivity(intent)
         }
+
+        binding.interviewModuleIcon.setOnClickListener {
+            val intent = Intent(this, InterviewModuleActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.listCandidatesIcon.setOnClickListener{
+            val intent = Intent(this, ListCandidateActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.technicalTestResultIcon.setOnClickListener{
+            val intent = Intent(this, TestModuleActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

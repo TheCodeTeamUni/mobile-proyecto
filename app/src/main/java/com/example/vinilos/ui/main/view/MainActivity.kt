@@ -84,12 +84,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, View.OnFocusChan
                 }
             }
         }
-        /*mViewModel.getUser().observe(this) {
-            if (it == null) {
-                startActivity(Intent(this, CandidatePortalActivity::class.java))
-                //Toast.makeText(applicationContext, "START SESSION", Toast.LENGTH_LONG).show()
-            }
-        }*/
         mViewModel.getLogin().observe(this) {
             if (it != null && it == "1") {
                 println("Esto imprime esto: " + it)

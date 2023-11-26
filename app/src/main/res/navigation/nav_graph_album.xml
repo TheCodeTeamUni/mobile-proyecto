@@ -12,8 +12,8 @@
         tools:layout="@layout/fragment_project_list" />
     <activity
         android:id="@+id/albumTrackActivity"
-        android:name="com.example.vinilos.ui.main.view.ProjectTrackActivity"
+        android:name="com.example.vinilos.ui.main.view.ListProjectActivity"
         android:label="activity_track_album"
-        tools:layout="@layout/activity_track_album" />
+        tools:layout="@layout/activity_project_list" />
 
 </navigation>

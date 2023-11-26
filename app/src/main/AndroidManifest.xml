@@ -14,6 +14,69 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Vinilos">
         <activity
+            android:name="com.example.vinilos.ui.main.view.CreateResultTechnicalTestActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.CreatePerformanceEvaluationActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.TestModuleActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.ListCandidateActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.DetailCandidateActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.AssignedCandidateActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.CreateInterviewActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.InterviewModuleActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.example.vinilos.ui.main.view.ListInterviewActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name="com.example.vinilos.ui.main.view.CreateProjectActivity"
             android:exported="false">
             <meta-data
@@ -91,18 +154,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name="com.example.vinilos.ui.main.view.ProjectTrackActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name="com.example.vinilos.ui.main.view.DetailCollectorActivity"
-            android:exported="false"
-            android:parentActivityName="com.example.vinilos.ui.main.view.ListProjectActivity"
-            android:theme="@style/Theme.Vinilos.NoActionBar" />
-        <activity
             android:name="com.example.vinilos.ui.main.view.ListProjectActivity"
             android:exported="false">
             <meta-data
@@ -115,14 +166,9 @@
             android:parentActivityName="com.example.vinilos.ui.main.view.ListProjectActivity"
             android:theme="@style/Theme.Vinilos.NoActionBar" />
         <activity
-            android:name="com.example.vinilos.ui.main.view.DetailArtistActivity"
+            android:name="com.example.vinilos.ui.main.view.DetailInterviewActivity"
             android:exported="false"
-            android:parentActivityName="com.example.vinilos.ui.main.view.ListProjectActivity"
-            android:theme="@style/Theme.Vinilos.NoActionBar" />
-        <activity
-            android:name="com.example.vinilos.ui.main.view.CreateAlbumActivity"
-            android:exported="false"
-            android:parentActivityName="com.example.vinilos.ui.main.view.ListProjectActivity"
+            android:parentActivityName="com.example.vinilos.ui.main.view.ListInterviewActivity"
             android:theme="@style/Theme.Vinilos.NoActionBar" />
         <activity
             android:name="com.example.vinilos.ui.main.view.MainActivity"

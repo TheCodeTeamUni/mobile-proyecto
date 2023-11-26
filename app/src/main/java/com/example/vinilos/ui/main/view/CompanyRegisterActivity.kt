@@ -72,13 +72,7 @@ class CompanyRegisterActivity : AppCompatActivity(), View.OnClickListener,
                         setStartIconDrawable(R.drawable.check_circle_24)
                         setStartIconTintList(ColorStateList.valueOf(Color.GREEN))
                     }
-                } /*else {
-                    //mBinding.emailAddressTil.apply {
-                      //  if (startIconDrawable != null) startIconDrawable = null
-                        //isErrorEnabled = true
-                        //error = "Email is already in use"
-                    //}
-                }*/
+                }
             }
         }
 
