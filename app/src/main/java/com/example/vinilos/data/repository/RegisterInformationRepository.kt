@@ -120,4 +120,36 @@ class RegisterInformationRepository(private val consumer: ApiService) {
         }
     }
 
+    fun performanceEvaluation(body: PerformanceEvaluationBody) = flow {
+        emit(RequestStatus.Waiting)
+        val response = consumer.postPerformanceEvaluation("1", body)
+        if (response.isSuccessful) {
+            emit(RequestStatus.Success(response.body()!!))
+        } else {
+            emit(
+                RequestStatus.Error(
+                    SimplifiedMessage.get(
+                        response.errorBody()!!.byteStream().reader().readText()
+                    )
+                )
+            )
+        }
+    }
+
+    fun registerResultTest(body: RegisterResultTestBody) = flow {
+        emit(RequestStatus.Waiting)
+        val response = consumer.postRegisterResultTest(body)
+        if (response.isSuccessful) {
+            emit(RequestStatus.Success(response.body()!!))
+        } else {
+            emit(
+                RequestStatus.Error(
+                    SimplifiedMessage.get(
+                        response.errorBody()!!.byteStream().reader().readText()
+                    )
+                )
+            )
+        }
+    }
+
 }

@@ -56,8 +56,11 @@ interface ApiService {
     @GET("abcjobs/search/aspirant/{id}")
     suspend fun getCandidateDetail(@Path("id") id: String): CandidateDetailResponse
 
-    @GET("abcjobs/aspirantes")
-    suspend fun getAllCandidates(): Response<List<CandidatesResponse>>
+    @POST("abcjobs/performance/{id}")
+    suspend fun postPerformanceEvaluation(@Path("id") id: String, @Body body: PerformanceEvaluationBody): Response<PerformanceEvaluationResponse>
+
+    @POST("abcjobs/company/test")
+    suspend fun postRegisterResultTest(@Body body: RegisterResultTestBody): Response<RegisterResultTestResponse>
 
     //Old
 
